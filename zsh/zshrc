@@ -1,15 +1,14 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.dotfiles/.histfile
+HISTFILE=${DOTFILES}/zsh/histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd nomatch
-bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/filip/.dotfiles/.zshrc'
 
 autoload -Uz compinit
-compinit -d $DOTFILES/.cache/zsh/zcompdump-$ZSH_VERSION
+compinit -d ${DOTFILES}/.cache/zsh/zcompdump-${ZSH_VERSION}
 # End of lines added by compinstall
 
 plugins=(
@@ -18,18 +17,28 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Set PS1
 autoload -U colors && colors
 PS1="%F{magenta}[%F{green}%n%F{magenta}@%m %F{cyan}%~%F{magenta}]%F{cyan}\$%F{white} "
 
 # CTRL + Arrow skips word
-bindkey "^[[1;5D" backward-word
-bindkey "^[[1;5C" forward-word
+bindkey -v	# Use VIM style
+#bindkey "^[[D" backward-word
+#bindkey "^[[C" forward-word
 
 # Aliases
-alias szsh="source ~/.dotfiles/.zshrc"
+alias srczsh="source ${HOME}/.zshrc"
 alias ls="ls --color=auto"
+
+# Other "aliases" (functions)
+gitp() {
+	if [ -n "$1" ]; then
+		git add . && git commit -m "$!" && git push
+	else
+		echo "Error: Cannot push without a commit message."
+	fi
+}
+
+# ZSH Syntax Highlighting source
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

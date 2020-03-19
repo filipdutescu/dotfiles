@@ -8,4 +8,7 @@ BASE="$(cd "$(dirname "{BASH_SOURCE[0]}")" && pwd)"
 ln -s ${BASE}/zsh/zshrc ~/.zshrc
 ln -s ${BASE}/zsh/zprofile ~/.zprofile
 
+# git
+ln -s ${BASE}/git/gitconfig ~/.gitconfig
+
 # others
