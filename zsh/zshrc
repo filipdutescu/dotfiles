@@ -1,0 +1,35 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.dotfiles/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd nomatch
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/filip/.dotfiles/.zshrc'
+
+autoload -Uz compinit
+compinit -d $DOTFILES/.cache/zsh/zcompdump-$ZSH_VERSION
+# End of lines added by compinstall
+
+plugins=(
+	git
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+)
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Set PS1
+autoload -U colors && colors
+PS1="%F{magenta}[%F{green}%n%F{magenta}@%m %F{cyan}%~%F{magenta}]%F{cyan}\$%F{white} "
+
+# CTRL + Arrow skips word
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
+
+# Aliases
+alias szsh="source ~/.dotfiles/.zshrc"
+alias ls="ls --color=auto"

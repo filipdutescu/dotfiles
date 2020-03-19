@@ -1,0 +1,11 @@
+#!/bin/bash
+
+BASE="$(cd "$(dirname "{BASH_SOURCE[0]}")" && pwd)"
+
+# vim
+
+# zsh
+ln -s ${BASE}/zsh/zshrc ~/.zshrc
+ln -s ${BASE}/zsh/zprofile ~/.zprofile
+
+# others
