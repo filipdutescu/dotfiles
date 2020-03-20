@@ -16,6 +16,8 @@ plugins=(
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 )
+# ZSH Correct typos
+setopt correct
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Set PS1
