@@ -32,11 +32,20 @@ alias srczsh="source ${HOME}/.zshrc"
 alias ls="ls --color=auto"
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
+alias gitp="git push"
 
 # Other "aliases" (functions)
-gitp() {
+gitcp() {   # Git add, commit and push all files in current directory
 	if [ -n "$1" ]; then
 		git add . && git commit -m "$!" && git push
+	else
+		echo "Error: Cannot push without a commit message."
+	fi
+}
+
+gitc() {    # Git add all files in current directory and commit
+	if [ -n "$1" ]; then
+		git add . && git commit -m "$!"
 	else
 		echo "Error: Cannot push without a commit message."
 	fi
