@@ -1,14 +1,28 @@
 #!/bin/bash
 
-BASE="$(cd "$(dirname "{BASH_SOURCE[0]}")" && pwd)"
+BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # vim
+if [ ! -f ~/.vimrc ]; then
+	ln -s ${BASE}/vim/vimrc ~/.vimrc 
+fi
 
 # zsh
-ln -s ${BASE}/zsh/zshrc ~/.zshrc
-ln -s ${BASE}/zsh/zprofile ~/.zprofile
+if [ ! -f ~/.zshrc ]; then
+	ln -s ${BASE}/zsh/zshrc ~/.zshrc
+fi
+if [ ! -f ~/.zshrc ]; then
+	ln -s ${BASE}/zsh/zprofile ~/.zprofile
+fi
 
 # git
-ln -s ${BASE}/git/gitconfig ~/.gitconfig
+if [ ! -f ~/.gitconfig ]; then
+	ln -s ${BASE}/git/gitconfig ~/.gitconfig
+fi
+
+# Xorg
+if [ ! -f ~/.xinitrc ]; then
+	ln -s ${BASE}/xorg/xinitrc ~/.xinitrc
+fi
 
 # others
