@@ -30,6 +30,8 @@ bindkey -v	# Use VIM style
 # Aliases
 alias srczsh="source ${HOME}/.zshrc"
 alias ls="ls --color=auto"
+alias diff="diff --color=auto"
+alias grep="grep --color=auto"
 
 # Other "aliases" (functions)
 gitp() {
