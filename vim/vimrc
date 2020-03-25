@@ -1,25 +1,34 @@
 " Consistency settings
 set nocompatible
+set encoding=UTF-8
+set smarttab
 "set tabstop=4
 "set shiftwidth=4
 "set expandtab
 
 " Functionality settings
-set incsearch
-set hlsearch
-filetype plugin indent on
+set spell 			" Spell checking
+set incsearch			" Search as soon as typing
+set hlsearch			" Highlight all results
+filetype plugin indent on 	" Turn on file type detection and indent
+syntax on			" Turn on syntax highlighting
 
 " Display/look related settings
-syntax on
 set number
+" Statusline settings
+set laststatus=2
 
 " Netrw settings
-let g:netrw_banner = 0 		" disable hideous banner
-let g:netrw_liststyle = 3	" select default layout
-let g:netrw_browse_split = 4	" mimic file openning from IDEs
-let g:netrw_winsize = 25	" width of explorer set to 25%
-let g:netrw_altv = 1		" puts netrw to the left
+let g:netrw_banner = 0 		" Disable hideous banner
+let g:netrw_liststyle = 3	" Select default layout
+let g:netrw_browse_split = 4	" Mimic file openning from IDEs
+let g:netrw_winsize = 25	" Width of explorer set to 25%
+let g:netrw_altv = 1		" Puts netrw to the left
+" map Ctrl+N as the command to open Netrw
+map <silent> <C-n> :Vex<CR>
 
 " Alias for vim commands
-command Vex Vexplore
+
+" Auto run commands on start
+"autocmd diffthis
 
