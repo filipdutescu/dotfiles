@@ -7,7 +7,7 @@ set smarttab
 "set expandtab
 
 " Functionality settings
-set spell 			" Spell checking
+"set spell 			" Spell checking
 set incsearch			" Search as soon as typing
 set hlsearch			" Highlight all results
 filetype plugin indent on 	" Turn on file type detection and indent
@@ -19,16 +19,60 @@ set number
 set laststatus=2
 
 " Netrw settings
-let g:netrw_banner = 0 		" Disable hideous banner
-let g:netrw_liststyle = 3	" Select default layout
-let g:netrw_browse_split = 4	" Mimic file openning from IDEs
-let g:netrw_winsize = 25	" Width of explorer set to 25%
-let g:netrw_altv = 1		" Puts netrw to the left
-" map Ctrl+N as the command to open Netrw
-map <silent> <C-n> :Vex<CR>
+let g:netrw_banner = 0 			" Disable hideous banner
+let g:netrw_liststyle = 3		" Select default layout
+let g:netrw_browse_split = 4		" Mimic file opening from IDEs
+let g:netrw_winsize = 25		" Width of explorer set to 25%
+let g:netrw_altv = 1			" Puts netrw to the left
+let g:netrw_sort_sequence = '[\/]$,*'	" Directories first, files second
+set autochdir				" Change directory when opening files
+
+" Function to toggle Netrw on and off
+function! ToggleExplorer()
+	if exists("t:expl_no")
+		let expl_no = bufwinnr(t:expl_no)
+		let curr_win_no = winnr()
+
+		if expl_no != -1
+			while expl_no != curr_win_no
+				exec "wincmd w"
+				let curr_win_no = winnr()
+			endwhile
+
+			close
+		endif
+
+		unlet t:expl_no
+	else
+		Vex
+		let t:expl_no = bufnr("%")
+		
+		if exists("t:diff_on")
+			diffoff
+		endif
+	endif
+endfunction
+
+" Map Ctrl+E as the command to open Netrw
+map <silent> <C-b> :call ToggleExplorer()<CR>
+
+" Diff settings to stop visual bug on Netrw
+function! ToggleDiff()
+	if exists("t:diff_on")
+		diffoff
+		unlet t:diff_on
+	else
+		let t:diff_on = 1
+		diffthis
+	endif
+endfunction
+
+" Map Ctrl+k+d to diff
+map <c-k>d :call ToggleDiff()<CR> 
 
 " Alias for vim commands
+command Diff :call ToggleDiff()
 
 " Auto run commands on start
-"autocmd diffthis
+"autocmd vimenter * :diffthis	" Start diff on the document opened
 
