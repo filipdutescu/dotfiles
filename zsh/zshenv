@@ -1,0 +1,9 @@
+# Add "bin" folder to PATH (like in bash)
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Use kitty as default terminal
+export TERMINAL=kitty
+# Use VIM as default text editor
+export EDITOR=vim
+# Use FireFox as default browser
+export BROWSER=firefox
+

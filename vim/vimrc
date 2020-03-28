@@ -26,7 +26,6 @@ let g:netrw_winsize = 25		" Width of explorer set to 25%
 let g:netrw_altv = 1			" Puts netrw to the left
 let g:netrw_sort_sequence = '[\/]$,*'	" Directories first, files second
 set autochdir				" Change directory when opening files
-
 " Function to toggle Netrw on and off
 function! ToggleExplorer()
 	if exists("t:expl_no")
@@ -52,11 +51,11 @@ function! ToggleExplorer()
 		endif
 	endif
 endfunction
-
 " Map Ctrl+E as the command to open Netrw
 map <silent> <C-b> :call ToggleExplorer()<CR>
 
-" Diff settings to stop visual bug on Netrw
+" Diff settings 
+" Functiion used to stop visual bug on Netrw
 function! ToggleDiff()
 	if exists("t:diff_on")
 		diffoff
@@ -66,7 +65,6 @@ function! ToggleDiff()
 		diffthis
 	endif
 endfunction
-
 " Map Ctrl+k+d to diff
 map <c-k>d :call ToggleDiff()<CR> 
 

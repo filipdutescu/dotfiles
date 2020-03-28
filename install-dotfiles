@@ -2,27 +2,68 @@
 
 BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# vim
-if [ ! -f ~/.vimrc ]; then
-	ln -s ${BASE}/vim/vimrc ~/.vimrc 
+function create_link {
+	if [[ -n $1 ]]
+	then
+		if [[ ! -f $1 ]] && [[ ! -d $1 ]]
+		then
+			echo "Must provide a valid file/directory to link from."
+			return
+		fi
+
+		i=1
+		next_token_len=$(echo $1 | cut -d'/' -f$(expr $i + 1)- | wc -m) 
+		while [[ $next_token_len -gt 1 ]]
+		do		
+			i=$(expr $i + 1)
+			next_token_len=$(echo $1 | cut -d'/' -f$(expr $i + 1)- | wc -m) 
+		done
+
+		file="$(echo $1 | cut -d'/' -f$i-)"
+		home_loc="$HOME/."
+		if [ -n "${3// /}" ]
+		then
+			home_loc="$home_loc$3/"
+		fi
+		home_loc="$home_loc$file"
+		
+		if [[ -f $home_loc ]] || [[ -d $home_loc ]]
+		then
+			if [ "$2" == "-v" ]
+			then
+				echo "$file already linked in $HOME as $home_loc."
+			fi
+		else
+			ln -s $1 $home_loc
+			if [[ $? -eq 0 ]]
+			then
+				echo "Successfully linked $file in $home_loc."
+			else
+				echo "Could not link $file."
+			fi
+		fi
+	fi
+}
+
+verbose="no"
+if [ -n "$1" -a "$1" == "-v" ]
+then
+	verbose="$1"
 fi
+
+# vim
+create_link ${BASE}/vim/vimrc $verbose
 
 # zsh
-if [ ! -f ~/.zshrc ]; then
-	ln -s ${BASE}/zsh/zshrc ~/.zshrc
-fi
-if [ ! -f ~/.zshrc ]; then
-	ln -s ${BASE}/zsh/zprofile ~/.zprofile
-fi
+create_link ${BASE}/zsh/zshrc $verbose
+create_link ${BASE}/zsh/zprofile $verbose
+create_link ${BASE}/zsh/zshenv $verbose
 
 # git
-if [ ! -f ~/.gitconfig ]; then
-	ln -s ${BASE}/git/gitconfig ~/.gitconfig
-fi
+create_link ${BASE}/git/gitconfig $verbose
 
 # Xorg
-if [ ! -f ~/.xinitrc ]; then
-	ln -s ${BASE}/xorg/xinitrc ~/.xinitrc
-fi
+create_link ${BASE}/xorg/xinitrc $verbose
 
 # others
+

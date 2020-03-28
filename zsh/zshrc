@@ -21,9 +21,6 @@ plugins=(
 # ZSH Correct typos
 setopt correct
 
-# Add "bin" folder to PATH (like in bash)
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Set PS1
 autoload -U colors && colors
 #PS1="%F{magenta}[%F{green}%n%F{magenta}@%m %F{cyan}%~%F{magenta}]%F{cyan}\$%F{white} "
