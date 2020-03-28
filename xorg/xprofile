@@ -1,0 +1,19 @@
+# Dependent on xinput, device must be checked before using settings
+
+# Current Device
+device="SynPS/2 Synaptics TouchPad"
+tap="libinput Tapping Enabled" 
+nat_scroll="libinput Natural Scrolling Enabled"
+
+# Set tapping
+if [ -n "$tap" ]
+then
+	xinput set-prop "$device" "$tap" 1
+fi
+
+# Set natural scrolling
+if [ -n "$nat_scroll" ]
+then
+	xinput set-prop "$device" "$nat_scroll" 1
+fi
+

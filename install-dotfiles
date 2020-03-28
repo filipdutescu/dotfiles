@@ -68,5 +68,8 @@ create_link ${BASE}/xorg/xinitrc $verbose
 # kitty
 create_link ${BASE}/kitty $verbose config
 
+# i3
+create_link ${BASE}/i3 $verbose config
+
 # others
 
