@@ -48,7 +48,7 @@ gitcp() {   # Git add, commit and push all files in current directory
 
 gitc() {    # Git add all files in current directory and commit
 	if [ -n "$1" ]; then
-		git add . && git commit -m "$!"
+		git add . && git commit -m "$1"
 	else
 		echo "Error: Cannot push without a commit message."
 	fi
