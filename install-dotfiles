@@ -65,5 +65,8 @@ create_link ${BASE}/git/gitconfig $verbose
 # Xorg
 create_link ${BASE}/xorg/xinitrc $verbose
 
+# kitty
+create_link ${BASE}/kitty $verbose config
+
 # others
 
