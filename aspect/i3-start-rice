@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Start compositor
+picom &
+# Set background
+feh --bg-scale .local/share/wallpapers/forest_sunset_wpf.jpg
+

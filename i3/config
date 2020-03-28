@@ -187,7 +187,11 @@ bar {
 #
 
 # Remove titlebars from all windows
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 2
 # Add inner gaps to all windows, sized 20px
 gaps inner 10
-smart_gaps on
+#smart_gaps on
+
+# Start rice script
+exec $DOTFILES/aspect/i3-start-rice
+

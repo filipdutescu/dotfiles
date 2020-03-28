@@ -1,6 +1,7 @@
 #!/bin/bash
 
 BASE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export DOTFILES=${BASE}
 
 function create_link {
 	if [[ -n $1 ]]
@@ -70,6 +71,8 @@ create_link ${BASE}/kitty $verbose config
 
 # i3
 create_link ${BASE}/i3 $verbose config
+# i3 compositor (picom)
+create_link ${BASE}/picom $verbose config
 
 # others
 

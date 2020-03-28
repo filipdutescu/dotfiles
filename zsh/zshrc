@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=${DOTFILES}/zsh/histfile
-HISTSIZE=1000
-SAVEHIST=1000
+#HISTFILE=${DOTFILES}/zsh/histfile
+#HISTSIZE=1000
+#SAVEHIST=1000
 setopt autocd nomatch
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -56,3 +56,4 @@ gitc() {    # Git add all files in current directory and commit
 
 # ZSH Syntax Highlighting source
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

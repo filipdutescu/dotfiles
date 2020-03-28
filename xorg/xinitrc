@@ -1,1 +1,5 @@
-exec startplasma-x11
+# Start plasma
+#exec startplasma-x11
+# Start i3
+exec i3
+
