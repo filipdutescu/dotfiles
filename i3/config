@@ -193,7 +193,9 @@ gaps inner 10
 #smart_gaps on
 
 # Start Polybar
-exec --no-startup-id $DOTFILES/polybar/launch
+#exec --no-startup-id $DOTFILES/polybar/launch
+exec_always --no-startup-id $DOTFILES/polybar/launch
+
 # Start rice script
-exec_always --no-startup-id $DOTFILES/aspect/i3-start-rice
+exec_always --no-startup-id $DOTFILES/aspect/i3-start-rice -c
 
