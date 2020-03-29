@@ -1,7 +1,16 @@
 #!/bin/bash
 
-# Start compositor
-picom &
-# Set background
-chbg .local/share/wallpapers/forest_sunset_wpf.jpg
+set_bg() {
+	wall=".local/share/wallpapers/forest_sunset_wpf.jpg"
+
+	# kill all other compositor instances
+	killall -q picom
+
+	# Start compositor and background
+	feh --bg-scale $wall -V && python -m pywal -i $wall &
+	picom 
+	#&& python -m pywal  -i $bg
+}
+
+set_bg
 

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Kill all previous instances
+killall -q polybar
+
+echo "------" | tee -a /tmp/polybar.log
+polybar example >>/tmp/polybar.log 2>&1 &
+
+echo "Launched Polybar"
+

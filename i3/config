@@ -176,11 +176,11 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-	height 25
-	position top
-}
+#bar {
+#        status_command i3status
+#	height 25
+#	position top
+#}
 
 #
 # Gaps settings
@@ -192,6 +192,8 @@ for_window [class=".*"] border pixel 2
 gaps inner 10
 #smart_gaps on
 
+# Start Polybar
+exec --no-startup-id $DOTFILES/polybar/launch
 # Start rice script
-exec $DOTFILES/aspect/i3-start-rice
+exec_always --no-startup-id $DOTFILES/aspect/i3-start-rice
 
