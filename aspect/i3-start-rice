@@ -6,13 +6,14 @@ set_bg() {
 	# kill all other compositor instances
 	killall -q picom
 
+	while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
+
 	# Start compositor and background
 	feh --bg-scale $wall -V && python -m pywal -i $wall &
 	if [ "$1" == "-c" ]
 	then
 		picom
         fi	
-	#&& python -m pywal  -i $bg
 }
 
 set_bg $1
