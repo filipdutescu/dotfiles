@@ -40,29 +40,23 @@ let g:current_mode={
 	\}
 " Get git branch
 function! GetGitBranch()
-	let l:branch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-	return strlen(l:branch) > 0 ? '('.l:branch.')' : ''
+	let l:branch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null")
+	return strlen(l:branch) > 0 ? '('.l:branch.')' : '-'
 endfunction
 
 set laststatus=2 
 set statusline=
 set statusline=%#ErrorMsg#
 set statusline+=▶\ %{tolower(g:current_mode[mode()])}\ ◀%#Normal#
-"set statusline+=⏵\ %{toupper(g:current_mode[mode()])}\ ⏴%#Normal#
-"set statusline+=\ %{&modified?'[+]':'[⌀]'}
-set statusline+=\ %{&modified?'[+]':'[•]'}
-set statusline+=\ %#Constant#%f%#Normal#
+"set statusline+=\ %{&modified?'[+]':'[✔]'}
+"set statusline+=\ %#Constant#⎗\ %f%#Normal#
+set statusline+=\ %#Constant#%{&modified?'✘':'✔'}\ %f%#Normal#
+set statusline+=\ %{GetGitBranch()}
 set statusline+=%=
 set statusline+=\ %#Underlined#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
-set statusline+=\ %#CursorLine#%{&fileformat==''?'-':tolower(&fileformat)}%#Normal#
-set statusline+=\ %#LineNr#Ln\ %l/%L,\ Col\ %c\  
+set statusline+=\ ⌂\ %#CursorLine#%{&fileformat==''?'-':tolower(&fileformat)}%#Normal#
+set statusline+=\ %#LineNr#⎋\ ln\ %l/%L,\ col\ %c\  
 "set statusline+=\ %{GetGitBranch()}
-"set statusline += %#PreProc#%{&ff}%*	" File format
-"set statusline += %#Number#%y%*		" File type
-"set statusline += %=%*			" Separator
-"set statusline += %#Identifier#%5l%	" Current line
-"set statusline += %#SpecialKey#/%L%*	" Total lines
-"set statusline += %#Identifier#%4v\ %
 
 " Netrw settings
 let g:netrw_banner = 0 			" Disable hideous banner
