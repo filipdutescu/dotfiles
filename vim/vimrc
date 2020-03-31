@@ -2,6 +2,7 @@
 set nocompatible
 set encoding=UTF-8
 set smarttab
+set smartcase
 "set tabstop=4
 "set shiftwidth=4
 "set expandtab
@@ -15,8 +16,66 @@ syntax on			" Turn on syntax highlighting
 
 " Display/look related settings
 set number
+
 " Statusline settings
-set laststatus=2
+let g:current_mode={
+	\'n': 'Normal',
+	\'no': 'N-Operator Pending',
+	\'v': 'Visual',
+	\'V': 'V-Line',
+	\'^V': 'V-Block',
+	\'s': 'Select',
+	\'S': 'S-Block',
+	\'i': 'Insert',
+	\'R': 'Replace',
+	\'Rv': 'V-Replace',
+	\'c': 'Command',
+	\'cv': 'Vim Ex',
+	\'ce': 'Ex',
+	\'r': 'Prompt',
+	\'rm': 'More',
+	\'r?': 'Confirm',
+	\'!': 'Shell',
+	\'t': 'Terminal'
+	\}
+" Get current vim mode
+function! GetMode() abort
+	let l:mode_list = toupper(g:current_mode[mode()])
+	let l:curr_mode = l:mode_list
+	return l:curr_mode
+endfunction
+" Get git branch
+function! GetGitBranch()
+	let l:branch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+	return strlen(l:branch) > 0 ? '('.l:branch.')' : ''
+endfunction
+" Get file type
+function! GetType(type)
+	if a:type == ''
+		return '--'
+	else
+		return tolower(a:type)
+	endif
+endfunction
+
+set laststatus=2 
+set statusline=
+set statusline=%#LineNr#
+set statusline+=\ %{GetMode()}
+"set statusline+=\ %{&modified?'[+]':'[⌀]'}
+set statusline+=\ %{&modified?'[+]':'[•]'}
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=\ %{GetType(&filetype)}
+set statusline+=\ %{&fileformat==''?'-':tolower(&fileformat)}
+set statusline+=\ Ln\ %l,\ Col\ %c\  
+"set statusline+=\ %{GetGitBranch()}
+"set statusline += %#PreProc#%{&ff}%*	" File format
+"set statusline += %#Number#%y%*		" File type
+"set statusline += %=%*			" Separator
+"set statusline += %#Identifier#%5l%	" Current line
+"set statusline += %#SpecialKey#/%L%*	" Total lines
+"set statusline += %#Identifier#%4v\ %
 
 " Netrw settings
 let g:netrw_banner = 0 			" Disable hideous banner
