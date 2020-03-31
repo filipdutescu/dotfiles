@@ -38,35 +38,22 @@ let g:current_mode={
 	\'!': 'Shell',
 	\'t': 'Terminal'
 	\}
-" Get current vim mode
-function! GetMode() abort
-	let l:mode_list = toupper(g:current_mode[mode()])
-	let l:curr_mode = l:mode_list
-	return l:curr_mode
-endfunction
 " Get git branch
 function! GetGitBranch()
 	let l:branch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 	return strlen(l:branch) > 0 ? '('.l:branch.')' : ''
 endfunction
-" Get file type
-function! GetType(type)
-	if a:type == ''
-		return '--'
-	else
-		return tolower(a:type)
-	endif
-endfunction
 
 set laststatus=2 
 set statusline=
-set statusline=%#LineNr#
-set statusline+=\ %{GetMode()}
+"set statusline=%#Warnings#
+set statusline+=\ %{toupper(g:current_mode[mode()])}
+"set statusline+=%*
 "set statusline+=\ %{&modified?'[+]':'[⌀]'}
 set statusline+=\ %{&modified?'[+]':'[•]'}
 set statusline+=\ %f
 set statusline+=%=
-set statusline+=\ %{GetType(&filetype)}
+set statusline+=\ %{&filetype==''?'-':tolower(&filetype)}
 set statusline+=\ %{&fileformat==''?'-':tolower(&fileformat)}
 set statusline+=\ Ln\ %l,\ Col\ %c\  
 "set statusline+=\ %{GetGitBranch()}
