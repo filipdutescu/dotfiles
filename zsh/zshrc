@@ -23,8 +23,11 @@ setopt correct
 
 # Set PS1
 autoload -U colors && colors
+# Set Colors
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
 #PS1="%F{magenta}[%F{green}%n%F{magenta}@%m %F{cyan}%~%F{magenta}]%F{cyan}\$%F{white} "
-PS1="%F{magenta}[%F{green}%n%F{magenta}@%m %F{cyan}%~%F{magenta}]%F{cyan}\$%F{white} "
+PROMPT="%F{red}%n %F{cyan}%~ %F{green}>> %F{white}"
 
 
 # Keymap settings
