@@ -40,24 +40,22 @@ let g:current_mode={
 	\}
 " Get git branch
 function! GetGitBranch() abort
-	let l:branch = system('git branch 2>/dev/null | tr -d "* "')
-	"echo l:branch
+	let l:branch = trim(system('git branch 2>/dev/null | tr -d "* "'))
+	"let l:branch = trim(system('echo test'))
 	if l:branch == ''
 		return '--'
 	endif
-	return trim(l:branch)
+	return l:branch
 endfunction
 
 set laststatus=2 
 set statusline=
 set statusline=%#ErrorMsg#
 set statusline+=▶\ %{tolower(g:current_mode[mode()])}\ ◀%#Normal#
-"set statusline+=\ %{&modified?'[+]':'[✔]'}
-"set statusline+=\ %#Constant#⎗\ %f%#Normal#
 set statusline+=\ %#Constant#%{&modified?'✘':'✔'}\ %f%#Normal#
-set statusline+=\ ⛖\ %{GetGitBranch()}
+set statusline+=\ ⇵\ %{GetGitBranch()}
 set statusline+=%=
-set statusline+=\ %#Underlined#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
+set statusline+=\ ⌂\ %#Underlined#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
 set statusline+=\ ⌂\ %#CursorLine#%{&fileformat==''?'-':tolower(&fileformat)}%#Normal#
 set statusline+=\ %#LineNr#⎋\ ln\ %l/%L,\ col\ %c\  
 "set statusline+=\ %{GetGitBranch()}
