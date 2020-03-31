@@ -40,8 +40,12 @@ let g:current_mode={
 	\}
 " Get git branch
 function! GetGitBranch()
-	let l:branch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null")
-	return strlen(l:branch) > 0 ? '('.l:branch.')' : '-'
+	let l:branch = trim(system('git symbolic-ref --short HEAD 2>/dev/null'))
+	if l:branch == ''
+		return '--'
+	else
+		return '('.l:branch.')'
+	endif
 endfunction
 
 set laststatus=2 
