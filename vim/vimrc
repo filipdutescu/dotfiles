@@ -46,16 +46,16 @@ endfunction
 
 set laststatus=2 
 set statusline=
-"set statusline=%#Warnings#
-set statusline+=\ %{toupper(g:current_mode[mode()])}
-"set statusline+=%*
+set statusline=%#ErrorMsg#
+set statusline+=▶\ %{tolower(g:current_mode[mode()])}\ ◀%#Normal#
+"set statusline+=⏵\ %{toupper(g:current_mode[mode()])}\ ⏴%#Normal#
 "set statusline+=\ %{&modified?'[+]':'[⌀]'}
 set statusline+=\ %{&modified?'[+]':'[•]'}
-set statusline+=\ %f
+set statusline+=\ %#Constant#%f%#Normal#
 set statusline+=%=
-set statusline+=\ %{&filetype==''?'-':tolower(&filetype)}
-set statusline+=\ %{&fileformat==''?'-':tolower(&fileformat)}
-set statusline+=\ Ln\ %l,\ Col\ %c\  
+set statusline+=\ %#Underlined#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
+set statusline+=\ %#CursorLine#%{&fileformat==''?'-':tolower(&fileformat)}%#Normal#
+set statusline+=\ %#LineNr#Ln\ %l/%L,\ Col\ %c\  
 "set statusline+=\ %{GetGitBranch()}
 "set statusline += %#PreProc#%{&ff}%*	" File format
 "set statusline += %#Number#%y%*		" File type
