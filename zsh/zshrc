@@ -29,6 +29,8 @@ PS1="%F{magenta}[%F{green}%n%F{magenta}@%m %F{cyan}%~%F{magenta}]%F{cyan}\$%F{wh
 
 # Keymap settings
 bindkey -v	# Use VIM style
+bindkey "^[[3~" delete-char
+bindkey "^[3;5~" delete-char
 
 # Aliases
 alias szsh="source ${HOME}/.zshrc"
