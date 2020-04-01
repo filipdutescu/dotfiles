@@ -11,6 +11,9 @@ set smartcase
 "set spell 			" Spell checking
 set incsearch			" Search as soon as typing
 set hlsearch			" Highlight all results
+set ignorecase			" Ignore case when searching
+set smartcase			" Use case only if it exists in search
+set wildmenu			" Expand commands
 filetype plugin indent on 	" Turn on file type detection and indent
 syntax on			" Turn on syntax highlighting
 
@@ -38,19 +41,19 @@ let g:current_mode={
 	\'!': 'Shell',
 	\'t': 'Terminal'
 	\}
+
 " Get git branch
 function! GetGitBranch() abort
-	let l:branch = trim(system('git branch 2>/dev/null | tr -d "* "'))
-	"let l:branch = trim(system('echo test'))
+	let l:branch = trim(system('git rev-parse --abbrev-ref HEAD 2>/dev/null'))
 	if l:branch == ''
-		return '--'
+		return '―'
 	endif
 	return l:branch
 endfunction
 
 set laststatus=2 
 set statusline=
-set statusline=%#ErrorMsg#
+set statusline=%#Pmenu#
 set statusline+=▶\ %{tolower(g:current_mode[mode()])}\ ◀%#Normal#
 set statusline+=\ %#Constant#%{&modified?'✘':'✔'}\ %f%#Normal#
 set statusline+=\ ⇵\ %{GetGitBranch()}
@@ -58,7 +61,6 @@ set statusline+=%=
 set statusline+=\ ⌂\ %#Underlined#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
 set statusline+=\ ⌂\ %#CursorLine#%{&fileformat==''?'-':tolower(&fileformat)}%#Normal#
 set statusline+=\ %#LineNr#⎋\ ln\ %l/%L,\ col\ %c\  
-"set statusline+=\ %{GetGitBranch()}
 
 " Netrw settings
 let g:netrw_banner = 0 			" Disable hideous banner

@@ -12,7 +12,7 @@ set_bg() {
 	feh --bg-scale $wall -V && python -m pywal -i $wall &
 	if [ "$1" == "-c" ]
 	then
-		picom
+		picom & 
         fi	
 }
 

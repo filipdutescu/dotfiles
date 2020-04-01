@@ -27,8 +27,7 @@ autoload -U colors && colors
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
 #PS1="%F{magenta}[%F{green}%n%F{magenta}@%m %F{cyan}%~%F{magenta}]%F{cyan}\$%F{white} "
-PROMPT="%F{red}%n %F{cyan}%~ %F{green}>> %F{white}"
-
+PROMPT="%B%F{red}%n%b %F{cyan}%~ %F{magenta}▶ %F{white}"
 
 # Keymap settings
 bindkey -v	# Use VIM style

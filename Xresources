@@ -1,0 +1,13 @@
+! urxvt settings
+URxvt*scrollBar: 	false
+URxvt*scrollBar_right: 	true
+URxvt*perl-ext-common:	default,matcher
+URxvt*urlLauncher:	firefox
+URxvt*matcher*button:	1	
+URxvt*font:		xft:DejaVu Sans Mono:size=8
+URxvt*boldFont:		xft:DejaVu Sans Mono:size=8:weight=bold
+URxvt*transparent:	false		
+URxvt*depth:		32
+URxvt*background:	rgba:0000/0000/0200/c800	
+URxvt*termName:		rxvt-unicode
+
