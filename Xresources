@@ -11,4 +11,8 @@ URxvt*depth:		32
 URxvt*background:	rgba:0000/0000/0200/c800	
 URxvt*termName:		rxvt-unicode
 URxvt*internalBorder:	10
+URxvt*iso14755:		false
+URxvt*iso14755_52:	true
+URxvt*keysym.C-C:	eval:selection_to_clipboard
+URxvt*keysym.C-V:	eval:paste_clipboard
 
