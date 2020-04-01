@@ -10,4 +10,5 @@ URxvt*transparent:	false
 URxvt*depth:		32
 URxvt*background:	rgba:0000/0000/0200/c800	
 URxvt*termName:		rxvt-unicode
+URxvt*internalBorder:	10
 
