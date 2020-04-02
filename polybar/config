@@ -56,7 +56,7 @@ font-1 = "Iosevka:pixelsize=16;1"
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = filesystem memory cpu temperature xkeyboard wlan battery pulseaudio date powermenu
 
 tray-position = right
 tray-padding = 2
