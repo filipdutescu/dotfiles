@@ -56,7 +56,7 @@ set statusline=
 set statusline=%#Pmenu#
 set statusline+=▶\ %{tolower(g:current_mode[mode()])}\ ◀%#Normal#
 set statusline+=\ %#Constant#%{&modified?'✘':'✔'}\ %f%#Normal#
-set statusline+=\ ⇵\ %{GetGitBranch()}
+set statusline+=\ \ %{GetGitBranch()}
 set statusline+=%=
 set statusline+=\ ⌂\ %#Underlined#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
 set statusline+=\ ⌂\ %#CursorLine#%{&fileformat==''?'-':tolower(&fileformat)}%#Normal#
