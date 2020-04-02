@@ -18,6 +18,12 @@ plugins=(
 	zsh-syntax-highlighting
 )
 
+# git integration
+autoload -Uz vcs_info
+setopt prompt_subst
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+
 # ZSH Correct typos
 setopt correct
 
@@ -26,8 +32,9 @@ autoload -U colors && colors
 # Set Colors
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
-#PS1="%F{magenta}[%F{green}%n%F{magenta}@%m %F{cyan}%~%F{magenta}]%F{cyan}\$%F{white} "
-PROMPT="%B%F{red}%n%b %F{cyan}%~ %F{magenta}▶ %F{white}"
+PROMPT="%B%F{red}%n%b %F{cyan}%~ \$vcs_info_msg_0_%F{magenta}▶ %F{white}"
+zstyle ':vcs_info:git:*' formats '%F{white}( %b)%f'
+zstyle ':vcs_info:*' enable git
 
 # Keymap settings
 bindkey -v	# Use VIM style
