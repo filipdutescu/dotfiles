@@ -190,13 +190,12 @@ bindsym $mod+r mode "resize"
 #
 
 # Remove titlebars from all windows
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 3
 # Add inner gaps to all windows, sized 20px
-gaps inner 10
+gaps inner 12
 #smart_gaps on
 
 # Start Polybar
-#exec --no-startup-id $DOTFILES/polybar/launch
 exec_always --no-startup-id $DOTFILES/polybar/launch
 
 # Start rice script
