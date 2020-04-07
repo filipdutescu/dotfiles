@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set_bg() {
-	wall=".local/share/wallpapers/forest_sunset_wpf.jpg"
+	wall=".local/share/wallpapers/forest_mountain_birds_wpf.png"
 
 	# kill all other compositor instances
 	killall -q picom
@@ -12,7 +12,7 @@ set_bg() {
 	feh --bg-scale $wall -V && python -m pywal -i $wall &
 	if [ "$1" == "-c" ]
 	then
-		picom & 
+		picom --experimental-backends & 
         fi	
 }
 
