@@ -90,10 +90,11 @@ modules-right = filesystem memory cpu temperature xkeyboard wlan battery pulseau
 inherit = bar/base
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 25
 offset-y = 0
 radius = 0
 border-size = 0
+
+line-size = 4
 
 modules-left = i3
 modules-center = mpd
