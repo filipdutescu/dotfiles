@@ -70,6 +70,8 @@ create_link ${BASE}/xorg/xinitrc $verbose
 #create_link ${BASE}/kitty $verbose config
 # urxvt
 create_link ${BASE}/Xresources $verbose
+# alacritty
+create_link ${BASE}/alacritty $verbose config
 
 # i3
 create_link ${BASE}/i3 $verbose config
