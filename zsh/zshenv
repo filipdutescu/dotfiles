@@ -2,6 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Set the default terminal
 #export TERMINAL=urxvt
+#export TERMINAL=kitty
 export TERMINAL=alacritty
 # Use VIM as default text editor
 export EDITOR=vim
