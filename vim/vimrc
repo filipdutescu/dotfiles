@@ -1,3 +1,4 @@
+" A
 " Consistency settings
 set nocompatible
 set encoding=UTF-8
@@ -51,16 +52,17 @@ function! GetGitBranch() abort
 	return l:branch
 endfunction
 
+set noshowmode
 set laststatus=2 
 set statusline=
 set statusline=%#Pmenu#
 set statusline+=▶\ %{tolower(g:current_mode[mode()])}\ ◀%#Normal#
 set statusline+=\ %#Constant#%{&modified?'✘':'✔'}\ %f%#Normal#
-set statusline+=\ \ %{GetGitBranch()}
+"set statusline+=\ \ %{GetGitBranch()}
 set statusline+=%=
-set statusline+=\ ⌂\ %#Underlined#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
-set statusline+=\ ⌂\ %#CursorLine#%{&fileformat==''?'-':tolower(&fileformat)}%#Normal#
-set statusline+=\ %#LineNr#⎋\ ln\ %l/%L,\ col\ %c\  
+set statusline+=\ \ %#Type#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
+set statusline+=\ \ %#CursorLine#%{&fenc==''?'-':tolower(&fenc)}%{&fileformat==''?'-':'['.tolower(&fileformat).']'}%#Normal#
+set statusline+=\ %#LineNr#⎋\ %p%%\ \ %l/%L\ \ %c\ 
 
 " Netrw settings
 let g:netrw_banner = 0 			" Disable hideous banner
@@ -125,7 +127,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+set hidden	" TextEdit might fail otherwise
+" For specific servers
+set nobackup
+set nowritebackup
+set updatetime=300	" better time than the default of 4000
+"set signcolumn=yes
+
 call plug#begin('~/.vim/bundle')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
 
