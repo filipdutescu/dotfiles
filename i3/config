@@ -194,6 +194,7 @@ assign [class="firefox"] $ws2
 
 # Open in floating mode
 for_window [class="Pavucontrol"] floating enable sticky enable
+for_window [class="matplotlib"] floating enable sticky enable
 
 #
 # Gaps settings
