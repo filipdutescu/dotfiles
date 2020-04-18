@@ -241,12 +241,12 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %{A1:urxvt -e nmtui &:}%essid%%{A}
+label-connected = %{A1:alacritty -e nmtui &:}%essid%%{A}
 
 ;format-disconnected =
 format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %{A1:urxvt -e nmtui &:}睊%ifname%%{A}
+label-disconnected = %{A1:alacritty -e nmtui &:}睊%ifname%%{A}
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
 ramp-signal-0 = 睊

@@ -20,6 +20,7 @@ syntax on			" Turn on syntax highlighting
 
 " Display/look related settings
 set number
+set relativenumber
 
 " Statusline settings
 let g:current_mode={

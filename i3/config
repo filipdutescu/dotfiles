@@ -186,6 +186,16 @@ bindsym $mod+r mode "resize"
 #}
 
 #
+# Application specific settings
+#
+
+assign [class="Alacritty"] $ws1
+assign [class="firefox"] $ws2
+
+# Open in floating mode
+for_window [class="Pavucontrol"] floating enable sticky enable
+
+#
 # Gaps settings
 #
 
