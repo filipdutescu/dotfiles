@@ -28,7 +28,7 @@ let g:current_mode={
 	\'no': 'N-Operator Pending',
 	\'v': 'Visual',
 	\'V': 'V-Line',
-	\'^V': 'V-Block',
+	\"\<C-V>": 'V-Block',
 	\'s': 'Select',
 	\'S': 'S-Block',
 	\'i': 'Insert',
