@@ -1,5 +1,8 @@
+#!/bin/bash
 # Start plasma
 #exec startplasma-x11
 # Start i3
-exec i3
+#exec i3
+# Start awesome
+exec awesome
 
