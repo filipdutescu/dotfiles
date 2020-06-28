@@ -4,8 +4,8 @@ set nocompatible
 set encoding=UTF-8
 set smarttab
 set smartcase
-"set tabstop=4
-"set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 "set expandtab
 
 " Functionality settings
