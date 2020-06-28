@@ -51,6 +51,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 terminal = os.getenv("TERMINAL") or "alacritty"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
+browser = os.getenv("BROWSER") or "firefox"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -314,6 +315,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey },            "space",     function () awful.util.spawn("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
 
+    -- Browser
+    awful.key({ modkey },            "b",     function () awful.util.spawn(browser) end,
+              {description = "open browser", group = "applications"}),
+
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
@@ -494,8 +499,8 @@ awful.rules.rules = {
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    { rule = { class = "Firefox" },
+    	properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
@@ -564,7 +569,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Gaps
-beautiful.useless_gap = 5
+beautiful.useless_gap = 7
 
 -- Autostart
 awful.spawn.with_shell("~/.fehbg")

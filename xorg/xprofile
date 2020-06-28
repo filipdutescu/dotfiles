@@ -1,7 +1,7 @@
 # Dependent on xinput, device must be checked before using settings
 
 # Current Device
-device="SynPS/2 Synaptics TouchPad"
+device="MSFT0001:01 06CB:CD5F Touchpad"
 tap="libinput Tapping Enabled" 
 nat_scroll="libinput Natural Scrolling Enabled"
 
