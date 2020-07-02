@@ -40,7 +40,7 @@ zstyle ':vcs_info:*' enable git
 
 # Keymap settings
 bindkey -v	# Use VIM style
-bindkey "^[[3~" delete-char
+bindkey "^[[3~" delete-char   # bind delete key to delete a character
 bindkey "^[3;5~" delete-char
 
 # Aliases
@@ -50,6 +50,8 @@ alias ls="ls --color=auto"
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
 alias gitps="git push"
+alias gitpl="git pull"
+alias gitcl="git clone"
 
 # Other "aliases" (functions)
 
