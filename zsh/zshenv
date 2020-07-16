@@ -7,5 +7,5 @@ export EDITOR=vim
 # Use FireFox as default browser
 export BROWSER=firefox
 # Use vim as manpage viewer
-export MANPAGER='vim --not-a-term -R +":set ft=man" -'
+#export MANPAGER='vim --not-a-term -R +":set ft=man" -'
 
