@@ -499,7 +499,7 @@ awful.rules.rules = {
     { rule = { class = "microsoft teams - preview" },
     	properties = { screen = 1, tag = "3" } },
     -- Set Spotify to always map on the tag named "4" on screen 1.
-    { rule = { class = "spotify" },
+    { rule = { class = "Spotify" },
     	properties = { screen = 1, tag = "4" } },
     -- Set Steam to always map on the tag named "3" on screen 1.
     { rule = { class = "Steam" },
