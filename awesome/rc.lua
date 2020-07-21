@@ -490,20 +490,27 @@ awful.rules.rules = {
     -- Set Alacritty to always map on the tag named "1" on screen 1.
     { rule = { class = "Alacritty" },
     	properties = { screen = 1, tag = "1" } },
+
     -- Set Firefox to always map on the tag named "2" on screen 1.
     { rule = { class = "firefox" },
     	properties = { screen = 1, tag = "2" } },
+
     -- Set social apps to always map on the tag named "3" on screen 1.
     { rule = { class = "zoom" },
     	properties = { screen = 1, tag = "3", floating = true } },
     { rule = { class = "Microsoft Teams - Preview" },
     	properties = { screen = 1, tag = "3" } },
+    { rule = { class = "discord" },
+    	properties = { screen = 1, tag = "3" } },
+			
     -- Set Spotify to always map on the tag named "4" on screen 1.
     { rule = { class = "Spotify" },
     	properties = { screen = 1, tag = "4" } },
+
     -- Set Steam to always map on the tag named "5" on screen 1.
     { rule = { class = "Steam" },
     	properties = { screen = 1, tag = "5" } },
+
     -- Set LibreOffice to always map on the tag named "6" on screen 1.
     { rule = { class = "libreoffice" },
     	properties = { screen = 1, tag = "6" } },
