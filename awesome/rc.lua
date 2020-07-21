@@ -45,8 +45,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
---beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/default.lua")
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/default.lua")
+--beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = os.getenv("TERMINAL") or "alacritty"
@@ -112,8 +112,8 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 mytextclock = wibox.widget.textclock()
 
 -- Calendar popup widget
-calendar = awful.widget.calendar_popup.month()
-calendar:attach(mytextclock, 'tr')
+--calendar = awful.widget.calendar_popup.month()
+--calendar:attach(mytextclock, 'tr')
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -496,7 +496,7 @@ awful.rules.rules = {
     -- Set social apps to always map on the tag named "3" on screen 1.
     { rule = { class = "zoom" },
     	properties = { screen = 1, tag = "3", floating = true } },
-    { rule = { class = "microsoft teams - preview" },
+    { rule = { class = "Microsoft Teams - Preview" },
     	properties = { screen = 1, tag = "3" } },
     -- Set Spotify to always map on the tag named "4" on screen 1.
     { rule = { class = "Spotify" },

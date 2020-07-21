@@ -46,9 +46,12 @@ bindkey "^[3;5~" delete-char
 # Aliases
 alias szsh="source ${HOME}/.zshrc"
 alias la="ls -lA --color=auto"
+alias ll="ls -l --color=auto"
 alias ls="ls --color=auto"
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
+alias feh-svg="feh --conversion-timeout 1"
+# git related aliases
 alias gitps="git push"
 alias gitpl="git pull"
 alias gitcl="git clone"
