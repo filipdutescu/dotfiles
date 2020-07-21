@@ -501,9 +501,12 @@ awful.rules.rules = {
     -- Set Spotify to always map on the tag named "4" on screen 1.
     { rule = { class = "Spotify" },
     	properties = { screen = 1, tag = "4" } },
-    -- Set Steam to always map on the tag named "3" on screen 1.
+    -- Set Steam to always map on the tag named "5" on screen 1.
     { rule = { class = "Steam" },
     	properties = { screen = 1, tag = "5" } },
+    -- Set LibreOffice to always map on the tag named "6" on screen 1.
+    { rule = { class = "libreoffice" },
+    	properties = { screen = 1, tag = "6" } },
 }
 -- }}}
 
