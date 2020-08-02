@@ -299,7 +299,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "space",     function () awful.util.spawn("rofi -show run") end,
+    awful.key({ modkey },            "space",     function () awful.util.spawn("rofi -combi-modi window,drun,ssh -modi combi -show combi -font 'Iosevka 12' -icon-theme 'Papirus-Dark' -show-icons") end,
               {description = "run prompt", group = "launcher"}),
 
     -- Browser
@@ -505,7 +505,7 @@ awful.rules.rules = {
     	properties = { screen = 1, tag = "3" } },
 			
     -- Set Spotify to always map on the tag named "4" on screen 1.
-    { rule = { class = "Spotify" },
+    { rule = { class = "spotify" },
     	properties = { screen = 1, tag = "4" } },
 
     -- Set Steam to always map on the tag named "5" on screen 1.
