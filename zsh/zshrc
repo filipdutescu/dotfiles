@@ -45,6 +45,7 @@ bindkey "^[3;5~" delete-char
 
 # Aliases
 alias szsh="source ${HOME}/.zshrc"
+alias v="vim"
 alias la="ls -lA --color=auto"
 alias ll="ls -l --color=auto"
 alias ls="ls --color=auto"
