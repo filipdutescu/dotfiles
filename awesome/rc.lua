@@ -380,6 +380,16 @@ client.connect_signal("manage", function (c)
     end
 end)
 
+-- Normally we'd do this with a rule, but Spotify doesn't set its class or name
+-- until after it starts up, so we need to catch that signal.
+client.connect_signal("property::class", function(c)
+	if c.class == "Spotify" then
+		-- Move the Spotify instance to "music" tag on this screen
+		local t = awful.tag.find_by_name(awful.screen.focused(), "4")
+		c:move_to_tag(t)
+	end
+end)
+
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
