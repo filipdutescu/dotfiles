@@ -83,5 +83,8 @@ create_link ${BASE}/alacritty $verbose config
 create_link ${BASE}/awesome $verbose config
 create_link ${BASE}/picom $verbose config	# awesome compositor (picom)
 
+# rofi
+create_link ${BASE}/rofi $verbose config
+
 # others
 

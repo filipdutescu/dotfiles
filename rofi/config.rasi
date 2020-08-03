@@ -1,0 +1,8 @@
+configuration {
+  	modi: "window,run,ssh,combi";
+  	columns: 1;
+  	font: "Iosevka 12";
+  	show-icons: true;
+  	combi-modi: "window,drun,ssh";
+  	theme: "/usr/share/rofi/themes/android_notification.rasi";
+}

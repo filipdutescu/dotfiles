@@ -157,14 +157,14 @@ globalKeys = gears.table.join(
 globalKeys = gears.table.join(globalKeys,
     -- Prompt
     awful.key({ utils.modKey }, "space", 
-        function () awful.util.spawn("rofi -show run") end,
+        function () awful.util.spawn("rofi -show combi") end,
         {description = "run prompt", group = "launcher"}
     ),
 
     -- Browser
     awful.key({ utils.modKey }, "b",
         function () awful.util.spawn(browser) end,
-        {description = "open browser", group = "programs"}
+        {description = "open browser", group = "launcher"}
     )
 )
 
@@ -172,37 +172,46 @@ globalKeys = gears.table.join(globalKeys,
 globalKeys = gears.table.join(globalKeys,
     -- Volume Keys
     awful.key({}, "XF86AudioLowerVolume",
-        function () awful.util.spawn("amixer -q -D pulse sset Master 5%-", false) end
-    ),
+        function () awful.util.spawn("amixer -q -D pulse sset Master 5%-", false) end,
+				{}
+		),
     awful.key({}, "XF86AudioRaiseVolume",
-        function () awful.util.spawn("amixer -q -D pulse sset Master 5%+", false) end
+        function () awful.util.spawn("amixer -q -D pulse sset Master 5%+", false) end,
+				{}
     ),
     awful.key({}, "XF86AudioMute", 
-        function () awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end
+        function () awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end,
+				{}
     ),
     awful.key({}, "XF86AudioMicMute", 
-        function () awful.util.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle", false) end
+        function () awful.util.spawn("pactl set-source-mute @DEFAULT_SOURCE@ toggle", false) end,
+				{}
     ),
    
     -- Media Keys
     awful.key({}, "XF86AudioPlay",
-        function() awful.util.spawn("playerctl play-pause", false) end
+        function() awful.util.spawn("playerctl play-pause", false) end,
+				{}
     ),
     awful.key({}, "XF86AudioNext", 
-        function() awful.util.spawn("playerctl next", false) end
+        function() awful.util.spawn("playerctl next", false) end,
+				{}
     ),
     awful.key({}, "XF86AudioPrev",
-        function() awful.util.spawn("playerctl previous", false) end
+        function() awful.util.spawn("playerctl previous", false) end,
+				{}
     )
 )
 
 -- Setup brightness key bindings (FN + F combinations)
 globalKeys = gears.table.join(globalKeys,
     awful.key({}, "XF86MonBrightnessUp",
-        function() awful.util.spawn("xbacklight -inc 5") end
+        function() awful.util.spawn("xbacklight -inc 5") end,
+				{}
     ),
     awful.key({}, "XF86MonBrightnessDown",
-        function() awful.util.spawn("backlight -dec 5") end
+        function() awful.util.spawn("xbacklight -dec 5") end,
+				{}
     )
 )
 
@@ -210,7 +219,7 @@ globalKeys = gears.table.join(globalKeys,
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
-    globalkeys = gears.table.join(globalkeys,
+    globalKeys = gears.table.join(globalKeys,
         -- View tag only.
         awful.key({ utils.modKey }, "#" .. i + 9,
             function ()
@@ -260,4 +269,4 @@ for i = 1, 9 do
     )
 end
 
-return globalkeys
+return globalKeys
