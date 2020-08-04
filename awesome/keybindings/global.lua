@@ -13,7 +13,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- General configs (i.e. definition of mod key)
 local utils = require("keybindings.utils")
 
-globalKeys = gears.table.join(
+local globalKeys = gears.table.join(
     awful.key({ utils.modKey, }, "s", 
         hotkeys_popup.show_help,
         {description="show help", group="awesome"}

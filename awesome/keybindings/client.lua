@@ -13,7 +13,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- General configs (i.e. definition of mod key)
 local utils = require("keybindings.utils")
 
-clientKeys = gears.table.join(
+local clientKeys = gears.table.join(
     awful.key({ modkey, }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
