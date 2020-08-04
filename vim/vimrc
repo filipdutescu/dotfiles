@@ -1,4 +1,27 @@
-" A
+" Vim-Plug install
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source "~/.vimrc"
+endif
+
+set hidden	" TextEdit might fail otherwise
+" For specific servers
+set nobackup
+set nowritebackup
+set updatetime=300	" better time than the default of 4000
+"set signcolumn=yes
+
+" install plugins
+call plug#begin('~/.vim/plugged')
+
+" color previews
+Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
 " Consistency settings
 set nocompatible
 set encoding=UTF-8
@@ -21,6 +44,7 @@ syntax on			" Turn on syntax highlighting
 " Display/look related settings
 set number
 set relativenumber
+"set termguicolors
 
 " Statusline settings
 let g:current_mode={
@@ -120,24 +144,3 @@ command Diff :call ToggleDiff()
 
 " Auto run commands on start
 "autocmd vimenter * :diffthis	" Start diff on the document opened
-
-" Vim-Plug for using COC
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-set hidden	" TextEdit might fail otherwise
-" For specific servers
-set nobackup
-set nowritebackup
-set updatetime=300	" better time than the default of 4000
-"set signcolumn=yes
-
-call plug#begin('~/.vim/bundle')
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-call plug#end()
-
