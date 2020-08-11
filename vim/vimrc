@@ -1,4 +1,6 @@
+""""""""""""""""""
 " Vim-Plug install
+""""""""""""""""""
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -12,31 +14,44 @@ set nowritebackup
 set updatetime=300	" better time than the default of 4000
 "set signcolumn=yes
 
+"""""""""""""""""
 " install plugins
+"""""""""""""""""
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+"Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+"Plug 'typkrft/wal.vim'
 
 call plug#end()
 
+""""""""""""""""
 " plugin configs
-let g:Hexokinase_refreshEvents = ['InsertLeave']
+""""""""""""""""
 
-let g:Hexokinase_optInPatterns = [
-\     'full_hex',
-\     'triple_hex',
-\     'rgb',
-\     'rgba',
-\     'hsl',
-\     'hsla',
-\     'colour_names'
-\ ]
+" Hexokinase config
+"let g:Hexokinase_refreshEvents = ['InsertLeave']
+"let g:Hexokinase_optInPatterns = [
+"\     'full_hex',
+"\     'triple_hex',
+"\     'rgb',
+"\     'rgba',
+"\     'hsl',
+"\     'hsla',
+"\     'colour_names'
+"\ ]
+"let g:Hexokinase_highlighters = ['backgroundfull']
 
-let g:Hexokinase_highlighters = ['backgroundfull']
+" wal.vim config
+"colorscheme gupywal
 
+""""""""""""""""""""""
 " Consistency settings
+""""""""""""""""""""""
+
 set nocompatible
 set encoding=UTF-8
 set smarttab
@@ -45,7 +60,10 @@ set tabstop=2
 set shiftwidth=2
 "set expandtab
 
+""""""""""""""""""""""""
 " Functionality settings
+""""""""""""""""""""""""
+
 "set spell 			" Spell checking
 set incsearch			" Search as soon as typing
 set hlsearch			" Highlight all results
@@ -55,12 +73,16 @@ set wildmenu			" Expand commands
 filetype plugin indent on 	" Turn on file type detection and indent
 syntax on			" Turn on syntax highlighting
 
+"""""""""""""""""""""""""""""""
 " Display/look related settings
+"""""""""""""""""""""""""""""""
 set number
 set relativenumber
-set termguicolors
+"set termguicolors
 
+"""""""""""""""""""""
 " Statusline settings
+"""""""""""""""""""""
 let g:current_mode={
 	\'n': 'Normal',
 	\'no': 'N-Operator Pending',
@@ -82,7 +104,10 @@ let g:current_mode={
 	\'t': 'Terminal'
 	\}
 
+""""""""""""""""
 " Get git branch
+""""""""""""""""
+
 function! GetGitBranch() abort
 	let l:branch = trim(system('git rev-parse --abbrev-ref HEAD 2>/dev/null'))
 	if l:branch == ''
@@ -103,7 +128,10 @@ set statusline+=\ \ %#Type#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
 set statusline+=\ \ %#CursorLine#%{&fenc==''?'-':tolower(&fenc)}%{&fileformat==''?'-':'['.tolower(&fileformat).']'}%#Normal#
 set statusline+=\ %#LineNr#⎋\ %p%%\ \ %l/%L\ \ %c\ 
 
+""""""""""""""""
 " Netrw settings
+""""""""""""""""
+
 let g:netrw_banner = 0 			" Disable hideous banner
 let g:netrw_liststyle = 3		" Select default layout
 let g:netrw_browse_split = 4		" Mimic file opening from IDEs
@@ -139,8 +167,11 @@ endfunction
 " Map Ctrl+E as the command to open Netrw
 map <silent> <C-b> :call ToggleExplorer()<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""
 " Diff settings 
-" Functiion used to stop visual bug on Netrw
+" Function used to stop visual bug on Netrw
+""""""""""""""""""""""""""""""""""""""""""""
+
 function! ToggleDiff()
 	if exists("t:diff_on")
 		diffoff
@@ -153,11 +184,18 @@ endfunction
 " Map Ctrl+k+d to diff
 map <c-k>d :call ToggleDiff()<CR> 
 
+""""""""""""""""""""""""
 " Alias for vim commands
+""""""""""""""""""""""""
+
 command Diff :call ToggleDiff()
 
+""""""""""""""""""""""""""""
 " Auto run commands on start
+""""""""""""""""""""""""""""
+
 "autocmd vimenter * :diffthis	" Start diff on the document opened
+
 " Reenable hexokinase on enter
-autocmd VimEnter * HexokinaseTurnOn
+"autocmd VimEnter * HexokinaseTurnOn
 

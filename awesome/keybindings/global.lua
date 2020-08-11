@@ -172,15 +172,15 @@ globalKeys = gears.table.join(globalKeys,
 globalKeys = gears.table.join(globalKeys,
     -- Volume Keys
     awful.key({}, "XF86AudioLowerVolume",
-        function () awful.util.spawn("amixer -q -D pulse sset Master 5%-", false) end,
+        function () awful.util.spawn("pamixer -d 5", false) end,
 				{}
 		),
     awful.key({}, "XF86AudioRaiseVolume",
-        function () awful.util.spawn("amixer -q -D pulse sset Master 5%+", false) end,
+        function () awful.util.spawn("pamixer -i 5", false) end,
 				{}
     ),
     awful.key({}, "XF86AudioMute", 
-        function () awful.util.spawn("amixer -D pulse set Master 1+ toggle", false) end,
+        function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end,
 				{}
     ),
     awful.key({}, "XF86AudioMicMute", 
