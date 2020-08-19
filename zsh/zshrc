@@ -53,15 +53,25 @@ alias ls="ls --color=auto"
 alias diff="diff --color=auto"
 alias grep="grep --color=auto"
 alias feh-svg="feh --conversion-timeout 1"
+alias cp="cp -i"
+# NetworkManager
+alias con="nmcli con"
+alias down="nmcli con down"
+alias up="nmcli con up"
 # git related aliases
-alias gitps="git push"
-alias gitpl="git pull"
-alias gitcl="git clone"
+alias addall="git add ."
+alias checkout="git checkout"
+alias commit="git commit"
+alias fetch="git fetch"
+alias pull="git pull"
+alias push="git push"
+alias status="git status"
+alias tag="git tag"
 
 # Other "aliases" (functions)
 
 # Git add, commit and push all files in current directory
-gitcp() {   
+compush() {   
 	if [ -n "$1" ]
        	then
 		git add . && git commit -m "$1" && git push
@@ -71,7 +81,7 @@ gitcp() {
 }
 
 # Git add all files in current directory and commit
-gitc() {    
+commall() {    
 	if [ -n "$1" ]
        	then
 		git add . && git commit -m "$1"

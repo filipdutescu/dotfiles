@@ -1,11 +1,11 @@
 ---------------------------------------------
 -- Set special keys for easy configuration --
---   i.e. mod should be "Mod4"             --
+--   i.e. mod should be 'Mod4'             --
 ---------------------------------------------
 
 return {
-    modKey = "Mod4",
-		altKey = "Mod1",
-    shiftKey = "Shift",
-    controlKey = "Control"
+    modKey = 'Mod4',
+		altKey = 'Mod1',
+    shiftKey = 'Shift',
+    controlKey = 'Control'
 }

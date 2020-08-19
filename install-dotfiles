@@ -77,7 +77,7 @@ create_link ${BASE}/alacritty $verbose config
 # i3
 #create_link ${BASE}/i3 $verbose config
 #create_link ${BASE}/picom $verbose config	# i3 compositor (picom)
-#create_link ${BASE}/polybar $verbose config	# Polybar instead of i3bar
+create_link ${BASE}/polybar $verbose config	# Polybar instead of i3bar
 
 # awesome
 create_link ${BASE}/awesome $verbose config

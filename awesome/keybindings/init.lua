@@ -3,6 +3,6 @@
 ----------------------------------------
 
 return {
-    global = require("keybindings.global"),
-		client = require("keybindings.client")
+    global = require('keybindings.global'),
+		client = require('keybindings.client')
 }
