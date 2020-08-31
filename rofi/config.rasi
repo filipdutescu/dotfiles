@@ -4,6 +4,6 @@ configuration {
   	font: "Iosevka 12";
   	show-icons: true;
   	combi-modi: "window,drun,ssh";
+  	theme: "~/.cache/wal/colors-rofi-dark";
   	/*theme: "/usr/share/rofi/themes/android_notification.rasi";*/
-  	theme: "/usr/share/rofi/themes/android_notification.rasi";
 }
