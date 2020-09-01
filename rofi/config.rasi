@@ -5,5 +5,5 @@ configuration {
   	show-icons: true;
   	combi-modi: "window,drun,ssh";
   	theme: "~/.cache/wal/colors-rofi-dark";
-  	/*theme: "/usr/share/rofi/themes/android_notification.rasi";*/
+		parse-known-hosts: false;
 }
