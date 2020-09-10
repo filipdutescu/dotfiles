@@ -32,7 +32,7 @@ height = 27
 radius = 6.0
 fixed-center = false
 override-redirect = true
-wm-restack = i3
+;wm-restack = i3
 offset-y = 3
 
 background = ${colors.background}
@@ -82,7 +82,7 @@ width = 90%
 offset-x = 5%
 fixed-center = true
 
-modules-left = i3
+modules-left = ewmh
 modules-center = mpd
 modules-right = filesystem memory cpu temperature xkeyboard wlan battery pulseaudio date powermenu
 
@@ -96,7 +96,7 @@ border-size = 0
 
 line-size = 4
 
-modules-left = i3
+modules-left = ewmh
 modules-center = mpd
 modules-right = filesystem memory cpu temperature wlan battery pulseaudio date powermenu
 
@@ -131,6 +131,25 @@ mount-0 = /
 label-mounted =  %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/ewmh]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+;pin-workspaces = true
+
+; Create click handler used to focus desktop
+; Default: true
+;enable-click = false
+
+; Create scroll handlers used to cycle desktops
+; Default: true
+;enable-scroll = false
 
 [module/i3]
 type = internal/i3
@@ -236,7 +255,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp9s0
+interface = wlp0s20f3
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>

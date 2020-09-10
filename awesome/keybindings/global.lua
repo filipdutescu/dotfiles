@@ -206,11 +206,11 @@ globalKeys = gears.table.join(globalKeys,
 -- Setup brightness key bindings (FN + F combinations)
 globalKeys = gears.table.join(globalKeys,
     awful.key({}, 'XF86MonBrightnessUp',
-        function() awful.util.spawn('xbacklight -inc 5') end,
+        function() awful.util.spawn('light -A 5') end,
 				{}
     ),
     awful.key({}, 'XF86MonBrightnessDown',
-        function() awful.util.spawn('xbacklight -dec 5') end,
+        function() awful.util.spawn('light -U 5') end,
 				{}
     )
 )
