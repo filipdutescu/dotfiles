@@ -15,8 +15,7 @@ theme.font                      = 'Iosevka Term 12'
 theme.title_font                = 'Iosevka Term 12'
 theme.hotkeys_font              = 'Iosevka Term 11'
 theme.hotkeys_description_font  = 'Iosevka Term 11'
-theme.prompt_font              = 'Iosevka Term 11'
-theme.prompt_description_font  = 'Iosevka Term 11'
+theme.notification_font         = 'Iosevka Term 11'
 
 theme.bg_normal     = '#222222'
 theme.bg_focus      = '#535d6c'
@@ -47,6 +46,8 @@ theme.border_marked = '#91231c'
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
 --theme.taglist_bg_focus = '#ff0000'
+
+theme.systray_icon_spacing = dpi(2)
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(7)
