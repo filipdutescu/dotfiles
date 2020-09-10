@@ -1,9 +1,9 @@
 configuration {
-  	modi: "window,drun,ssh,combi";
+  	modi: [window,drun,ssh,combi];
   	columns: 1;
   	font: "Iosevka 12";
   	show-icons: true;
-  	combi-modi: "window,drun,ssh";
+  	combi-modi: [window,drun,ssh];
   	theme: "~/.cache/wal/colors-rofi-dark";
 		parse-known-hosts: false;
 }

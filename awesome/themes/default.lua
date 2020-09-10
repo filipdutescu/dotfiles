@@ -11,8 +11,12 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = 'Iosevka Term 12'
-theme.title_font    = 'Iosevka Term 12'
+theme.font                      = 'Iosevka Term 12'
+theme.title_font                = 'Iosevka Term 12'
+theme.hotkeys_font              = 'Iosevka Term 11'
+theme.hotkeys_description_font  = 'Iosevka Term 11'
+theme.prompt_font              = 'Iosevka Term 11'
+theme.prompt_description_font  = 'Iosevka Term 11'
 
 theme.bg_normal     = '#222222'
 theme.bg_focus      = '#535d6c'
