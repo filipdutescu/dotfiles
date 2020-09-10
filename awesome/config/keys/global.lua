@@ -11,7 +11,8 @@ local menubar = require('menubar')
 local hotkeys_popup = require('awful.hotkeys_popup')
 
 -- General configs (i.e. definition of mod key)
-local utils = require('keybindings.utils')
+local utils = require('config.keys.utils')
+local apps = require('config.apps')
 
 local globalKeys = gears.table.join(
     awful.key({ utils.modKey, }, 's', 
@@ -76,10 +77,6 @@ local globalKeys = gears.table.join(
     ),
 
     -- Standard program
-    awful.key({ utils.modKey, }, 'Return', 
-        function () awful.spawn(terminal) end,
-        {description = 'open a terminal', group = 'launcher'}
-    ),
     awful.key({ utils.modKey, utils.controlKey }, 'r', 
         awesome.restart,
         {description = 'reload awesome', group = 'awesome'}
@@ -155,6 +152,11 @@ local globalKeys = gears.table.join(
 
 -- Setup program key bindings
 globalKeys = gears.table.join(globalKeys,
+		-- Terminal
+    awful.key({ utils.modKey, }, 'Return', 
+        function () awful.spawn(apps.terminal) end,
+        {description = 'open a terminal', group = 'launcher'}
+    ),
     -- Prompt
     awful.key({ utils.modKey }, 'space', 
         function () awful.util.spawn('rofi -show combi') end,
@@ -163,7 +165,7 @@ globalKeys = gears.table.join(globalKeys,
 
     -- Browser
     awful.key({ utils.modKey }, 'b',
-        function () awful.util.spawn(browser) end,
+        function () awful.util.spawn(apps.browser) end,
         {description = 'open browser', group = 'launcher'}
     )
 )
