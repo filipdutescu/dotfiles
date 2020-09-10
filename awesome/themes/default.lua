@@ -47,7 +47,7 @@ theme.border_marked = '#91231c'
 -- Example:
 --theme.taglist_bg_focus = '#ff0000'
 
-theme.systray_icon_spacing = dpi(2)
+theme.systray_icon_spacing = dpi(5)
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(7)
