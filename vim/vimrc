@@ -1,3 +1,10 @@
+"""""""""""""""""""""""""""""""
+" Display/look related settings
+"""""""""""""""""""""""""""""""
+set number
+set relativenumber
+set termguicolors
+
 """"""""""""""""""
 " Vim-Plug install
 """"""""""""""""""
@@ -22,9 +29,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-"Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-"Plug 'typkrft/wal.vim'
+Plug 'dylanaraps/wal.vim'
 
 call plug#end()
 
@@ -33,20 +40,20 @@ call plug#end()
 """"""""""""""""
 
 " Hexokinase config
-"let g:Hexokinase_refreshEvents = ['InsertLeave']
-"let g:Hexokinase_optInPatterns = [
-"\     'full_hex',
-"\     'triple_hex',
-"\     'rgb',
-"\     'rgba',
-"\     'hsl',
-"\     'hsla',
-"\     'colour_names'
-"\ ]
-"let g:Hexokinase_highlighters = ['backgroundfull']
+let g:Hexokinase_refreshEvents = ['InsertLeave', 'TextChanged', 'BufWrite', 'BufRead']
+let g:Hexokinase_optInPatterns = [
+\     'full_hex',
+\     'triple_hex',
+\     'rgb',
+\     'rgba',
+\     'hsl',
+\     'hsla',
+\     'colour_names'
+\ ]
+let g:Hexokinase_highlighters = ['backgroundfull']
 
 " wal.vim config
-"colorscheme gupywal
+colorscheme wal
 
 """"""""""""""""""""""
 " Consistency settings
@@ -72,13 +79,6 @@ set smartcase			" Use case only if it exists in search
 set wildmenu			" Expand commands
 filetype plugin indent on 	" Turn on file type detection and indent
 syntax on			" Turn on syntax highlighting
-
-"""""""""""""""""""""""""""""""
-" Display/look related settings
-"""""""""""""""""""""""""""""""
-set number
-set relativenumber
-"set termguicolors
 
 """""""""""""""""""""
 " Statusline settings
@@ -159,9 +159,9 @@ function! ToggleExplorer()
 		Vex
 		let t:expl_no = bufnr("%")
 		
-		if exists("t:diff_on")
-			diffoff
-		endif
+"		if exists("t:diff_on")
+"			diffoff
+"		endif
 	endif
 endfunction
 " Map Ctrl+E as the command to open Netrw
@@ -172,23 +172,23 @@ map <silent> <C-b> :call ToggleExplorer()<CR>
 " Function used to stop visual bug on Netrw
 """"""""""""""""""""""""""""""""""""""""""""
 
-function! ToggleDiff()
-	if exists("t:diff_on")
-		diffoff
-		unlet t:diff_on
-	else
-		let t:diff_on = 1
-		diffthis
-	endif
-endfunction
-" Map Ctrl+k+d to diff
-map <c-k>d :call ToggleDiff()<CR> 
+"function! ToggleDiff()
+"	if exists("t:diff_on")
+"		diffoff
+"		unlet t:diff_on
+"	else
+"		let t:diff_on = 1
+"		diffthis
+"	endif
+"endfunction
+"" Map Ctrl+k+d to diff
+"map <c-k>d :call ToggleDiff()<CR> 
 
 """"""""""""""""""""""""
 " Alias for vim commands
 """"""""""""""""""""""""
 
-command Diff :call ToggleDiff()
+"command Diff :call ToggleDiff()
 
 """"""""""""""""""""""""""""
 " Auto run commands on start
