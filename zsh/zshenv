@@ -8,4 +8,6 @@ export EDITOR=vim
 export BROWSER=firefox
 # Use vim as manpage viewer
 #export MANPAGER='vim --not-a-term -R +":set ft=man" -'
+# Define the location of the dotfiles
+export DOTFILES=~/dotfiles
 
