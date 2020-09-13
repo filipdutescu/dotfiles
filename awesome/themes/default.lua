@@ -18,7 +18,9 @@ theme.hotkeys_font              = 'Iosevka Term 11'
 theme.hotkeys_description_font  = 'Iosevka Term 11'
 theme.notification_font         = 'Iosevka Term 11'
 
-theme.bg_normal     = '#222222'
+theme.wibar_height = dpi(27)
+
+theme.bg_normal     = '#121212'
 theme.bg_focus      = '#535d6c'
 theme.bg_urgent     = '#ff0000'
 theme.bg_minimize   = '#444444'
@@ -31,7 +33,7 @@ theme.fg_minimize   = '#ffffff'
 
 theme.useless_gap   = dpi(7)
 theme.border_width  = dpi(2)
-theme.border_normal = '#000000'
+theme.border_normal = '#222222'
 theme.border_focus  = '#535d6c'
 theme.border_marked = '#91231c'
 
@@ -58,6 +60,7 @@ theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size, theme.fg_normal
 )
+theme.taglist_spacing = dpi(5)
 
 -- Variables set for theming notifications:
 -- notification_font

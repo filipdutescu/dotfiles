@@ -1,9 +1,11 @@
 configuration {
   	modi: [window,drun,ssh,combi];
+  	combi-modi: [window,drun,ssh];
+		parse-known-hosts: false;
   	columns: 1;
   	font: "Iosevka 12";
   	show-icons: true;
-  	combi-modi: [window,drun,ssh];
   	theme: "~/.cache/wal/colors-rofi-dark";
-		parse-known-hosts: false;
 }
+
+/* vim:ft=css

@@ -1,15 +1,8 @@
-# Lines configured by zsh-newuser-install
-#HISTFILE=${DOTFILES}/zsh/histfile
-#HISTSIZE=1000
-#SAVEHIST=1000
 setopt autocd nomatch
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
 zstyle :compinstall filename '${DOTFILES}/.zshrc'
 
 autoload -Uz compinit
 compinit -d ${DOTFILES}/.cache/zsh/zcompdump-${ZSH_VERSION}
-# End of lines added by compinstall
 
 # set plugins
 plugins=(
@@ -25,17 +18,17 @@ precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 
 # ZSH Correct typos
-setopt correct
+#setopt correct
 
 # Set PS1
 autoload -U colors && colors
 # Set Colors
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
-PROMPT="%B%F{red}%n%b %F{cyan}%~ \$vcs_info_msg_0_%F{magenta}▶ %F{white}"
-# RPROMPT="\$vcs_info_msg_0_"
-zstyle ':vcs_info:git:*' formats '%f( %b) '
-#zstyle ':vcs_info:git:*' formats '%F{yellow}%f%K{yellow}%F{pink} %b%k%F{yellow}%f '
+PROMPT="%B%F{red}%n%b %F{cyan}%~ ▶ %F{white}"
+RPROMPT="\$vcs_info_msg_0_"
+# Replace Git placeholders with actual information
+zstyle ':vcs_info:git:*' formats '%F{yellow}[ %F{cyan}%b %F{yellow}] %f'
 zstyle ':vcs_info:*' enable git
 
 # Keymap settings
@@ -81,7 +74,7 @@ compush() {
 }
 
 # Git add all files in current directory and commit
-commall() {    
+comall() {    
 	if [ -n "$1" ]
        	then
 		git add . && git commit -m "$1"

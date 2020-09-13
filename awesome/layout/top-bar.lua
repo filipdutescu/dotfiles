@@ -44,8 +44,8 @@ awful.screen.connect_for_each_screen(function(s)
 	  textClock,
 	  { -- Right widgets
 	   	 layout = wibox.layout.fixed.horizontal,
-	   	 awful.widget.keyboardlayout(),
 	   	 wibox.widget.systray(),
+	   	 awful.widget.keyboardlayout(),
 	   	 s.layoutBox,
 	  },
 	})	
