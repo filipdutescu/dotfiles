@@ -86,5 +86,8 @@ create_link ${BASE}/picom $verbose config	# awesome compositor (picom)
 # rofi
 create_link ${BASE}/rofi $verbose config
 
+# wal
+create_link ${BASE}/wal $verbose config
+
 # others
 

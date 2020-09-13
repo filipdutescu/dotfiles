@@ -5,10 +5,10 @@ configuration {
 		cycle: true;
 		threads: 2;
   	columns: 2;
-  	font: "Iosevka 12";
+  	font: "Iosevka 14";
 		hide-scrollbar: true;
 		window-format: "{n} ({w})";
-		display-combi: "";
+		display-combi: ">";
 		drun-display-format: "{name}";
 		combi-hide-mode-prefix: true;
   	show-icons: true;

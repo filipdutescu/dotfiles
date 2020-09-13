@@ -40,10 +40,10 @@ local globalKeys = gears.table.join(
         function () awful.client.focus.byidx(-1) end,
         {description = 'focus previous by index', group = 'client'}
     ),
-    awful.key({ utils.modKey, }, 'w', 
-        function () mymainmenu:show() end,
-        {description = 'show main menu', group = 'awesome'}
-    ),
+    --awful.key({ utils.modKey, }, 'w', 
+    --    function () mymainmenu:show() end,
+    --    {description = 'show main menu', group = 'awesome'}
+    --),
 
     -- Layout manipulation
     awful.key({ utils.modKey, utils.shiftKey }, 'j',
@@ -193,6 +193,10 @@ globalKeys = gears.table.join(globalKeys,
     -- Media Keys
     awful.key({}, 'XF86AudioPlay',
         function() awful.util.spawn('playerctl play-pause', false) end,
+				{}
+    ),
+    awful.key({}, 'XF86AudioStop',
+        function() awful.util.spawn('playerctl stop', false) end,
 				{}
     ),
     awful.key({}, 'XF86AudioNext', 
