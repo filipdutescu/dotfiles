@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Get the Firefox profile directory
+FF_PROFILE=$(cat ${DOTFILES}/firefox/profile-location.txt)
+
+# Check if the `chrome` directory exists in the Firefox profile directory
+check_chrome_dir() {
+	if [ ! -f ~/.mozilla/firefox/$FF_PROFILE/chrome ]; then
+		mkdir -vp ~/.mozilla/firefox/$FF_PROFILE/chrome
+	fi
+}
+
+# Regenerate `userContent.css` to use new generated colourscheme
+reload_userContent() {
+	check_chrome_dir
+	sass -I ${HOME}/.cache/ "${DOTFILES}/firefox/chrome/userContent.scss" > "${HOME}/.mozilla/firefox/${FF_PROFILE}/chrome/userContent.css"
+}
+
+# Regenerate `userChrome.css` to use new generated colourscheme
+reload_userChrome() {
+	check_chrome_dir
+	sass -I ${HOME}/.cache/ "${DOTFILES}/firefox/chrome/userChrome.scss" > "${HOME}/.mozilla/firefox/${FF_PROFILE}/chrome/userChrome.css"
+} 
+
+main() {
+	reload_userContent
+	reload_userChrome
+}
+
+main

@@ -1,0 +1,125 @@
+@import 'wal/colors.scss';
+
+.activity-stream > #root > div,
+.top-site-outer .rich-icon {
+	background-color: $background !important;
+}
+
+.activity-stream .SnippetBaseContainer,
+.activity-stream .SimpleSnippet,
+.activity-stream .has-section-header {
+	color: $foreground !important;
+	background-color: $color2 !important;
+}
+
+.activity-stream .body a {
+	transition: all 0.15s ease !important;
+	color: $color5 !important;
+}
+
+.activity-stream .body a:hover,
+.activity-stream .body a:active,
+.activity-stream .body a:hover:active {
+	color: $color6 !important;
+}
+
+/* Tab previews with no image */
+[lwt-newtab-brighttext] .card-outer .card-preview-image-outer {
+	background-color: $color1 !important;
+}
+
+.compact-cards .card-outer .card-details,
+.compact-cards .card-outer .card-context {
+	background-color: $color4 !important;
+}
+
+.compact-cards .card-outer .card-context .card-context-icon.icon-download {
+	fill: $color5 !important;
+}
+
+.card-outer .card-context-icon,
+.ds-header .icon, .ds-layout .section-title span .icon,
+.top-site-outer .title .icon,
+.collapsible-section .section-top-bar .context-menu-button {
+	fill: $foreground !important;
+}
+
+/* Card colours */
+.activity-stream #root .outer-wrapper,
+.card-outer .card-host-name,
+[lwt-newtab-brighttext] .ds-header,
+[lwt-newtab-brighttext] .ds-layout .section-title span,
+.top-site-outer .title {
+	color: $foreground !important;
+}
+
+.top-site-outer .search-topsite {
+	background-color: $color1 !important;
+	fill: $color5 !important;
+}
+
+/* Card outline for most visited websites */
+body[lwt-newtab-brighttext] {
+	--newtab-card-active-outline-color: $color5 !important;
+	--newtab-card-hairline-color: $foreground !important;
+}
+
+.card-outer .context-menu-button {
+	fill: $color1 !important;
+	border: 1px solid $color1 !important;
+	background-color: $color5 !important;
+}
+
+/* Search box */
+.search-wrapper input {
+	background-color: $background !important;
+	border: 1px solid $foreground !important;
+}
+
+.search-wrapper .search-button {
+	transition: all 0.15s ease !important;
+	fill: $color5 !important;
+}
+
+.search-wrapper .search-button:focus, .search-wrapper .search-button:hover {
+	background-color: $color5 !important;
+	fill: $background !important;
+}
+
+.contentSearchSuggestionTable .contentSearchHeader,
+.contentSearchSuggestionTable .contentSearchSuggestionsContainer,
+.contentSearchSuggestionTable .contentSearchSettingsButton,
+.contentSearchSuggestionTable .contentSearchOneOffsTable .contentSearchSuggestionsContainer,
+.contentSearchSuggestionTable .contentSearchSearchWithHeaderSearchText,
+.collapsible-section .section-top-bar .context-menu,
+.collapsible-section .section-top-bar .context-menu .context-menu-item .icon {
+	transition: all 0.15s ease !important;
+	background-color: $background !important;
+	color: $foreground !important;
+}
+
+.prefs-button button:hover, .prefs-button button:focus {
+	background-color: transparent !important;
+}
+
+.prefs-button button,
+.contentSearchSuggestionTable .historyIcon {
+	transition: all 0.15s ease !important;
+	fill: $foreground !important;
+}
+
+.contentSearchHeader:hover,
+.contentSearchHeader[selected]:hover,
+.contentSearchSuggestionEntry:hover, 
+.contentSearchSuggestionEntry[selected]:hover,
+.contentSearchSuggestionTable .contentSearchOneOffItem:hover,
+.collapsible-section:hover,
+.collapsible-section .section-top-bar .context-menu .context-menu-item:hover,
+.collapsible-section .section-top-bar .context-menu .context-menu-item:hover .icon {
+	background-color: $color3 !important;
+	color: $foreground !important;
+}
+
+.context-menu > ul > li.separator {
+    border-bottom: 1px solid $foreground !important;
+}

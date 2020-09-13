@@ -1,0 +1,92 @@
+//@import 'wal/colors.scss';
+
+/* Selected tab(s) colouring */
+.tab-line[multiselected], 
+.tab-line[selected="true"] {
+	background-color: $color5 !important;
+}
+
+/* Text and close icon on tabs */
+.tabbrowser-tab[multiselected]:-moz-lwtheme, .tabbrowser-tab[visuallyselected="true"]:-moz-lwthema {
+	color: $foreground !important;
+}
+
+.tabbrowser-tab:not([visuallyselected="true"]):not([multiselected]), .tabbrowser-tab:-moz-lwtheme {
+	color: $foreground !important;
+}
+
+/* Open new tab and close tab buttons*/
+toolbar #tabs-newtab-button:not([disabled="true"]):-moz-any([open], [checked], :active) > .toolbarbutton-icon,
+toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):not(:active) > .toolbarbutton-icon,
+.close-icon {
+	transition: all 0.15s ease !important;
+	fill: $color3 !important;
+}
+
+/* Open new tab button */
+toolbar #tabs-newtab-button:not([disabled="true"]):-moz-any([open], [checked], :active) > .toolbarbutton-icon,
+toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):not(:active) > .toolbarbutton-icon {
+  background-color: $background !important;
+}
+
+#tabs-newtab-button:hover {
+	background-color: $background !important;	
+}
+
+toolbar #tabs-newtab-button:not([disabled="true"]):-moz-any([open], [checked], :hover:active) > .toolbarbutton-icon,
+toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):not(:active):hover > .toolbarbutton-icon,
+.close-icon:hover,
+.close-icon:hover:active {
+	fill: $color5 !important;
+}
+
+toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):not(:active):hover > .toolbarbutton-icon {
+  background-color: $background !important;
+}
+
+/* Remove background from close tab button on hover */
+.close-icon:hover,
+.close-icon:hover:active {
+	background-color: transparent !important;
+}
+
+.close-icon:hover {
+	fill-opacity: 0 !important;
+}
+
+/* Background behind tabs (seen when only a few tabs are openned) */
+#navigator-toolbox {
+	background-color: $background !important;
+}
+
+/* Tab background */
+#tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[multiselected="true"]:-moz-lwtheme, #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme {
+	transition: all 0.15s ease !important;
+  background-color: $background !important;
+  background-image: none !important;
+}
+
+/* Tabs background when hovered over */
+#TabsToolbar[brighttext] .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]):not([multiselected]) > .tab-background-inner,
+#tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab:hover > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme > .tab-background-inner {
+    background-color: $color3 !important;
+		opacity: 0.3 !important;
+}
+
+/* Tab border */
+#tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[beforeselected-visible]::after,
+#tabbrowser-tabs[movingtab] > #tabbrowser-arrowscrollbox > .tabbrowser-tab[visuallyselected]::before,
+.tabbrowser-tab[visuallyselected]::after,
+.tabbrowser-tab::after,
+.tabbrowser-tab::before{
+  border-color: none !important;
+}
+
+/* Eliminate border between tabs and url bar */
+#navigator-toolbox {
+	--tabs-border-color: none !important;
+}
+
+#nav-bar:not([tabs-hidden="true"]) {
+	box-shadow: none !important;
+}

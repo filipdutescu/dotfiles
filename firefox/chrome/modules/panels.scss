@@ -1,0 +1,63 @@
+panelview {
+	background: $background !important;
+}
+
+/* Arrow colour */
+.panel-arrowcontainer > .panel-arrowbox > .panel-arrow,
+:-moz-any(panel, menupopup)::part(arrow) {
+	fill: $background !important;
+	stroke: $background !important;
+}
+
+.panel-arrowcontent {
+	color: $foreground !important;
+	border: 1px solid $background !important;
+	box-shadow: none !important;
+	border-radius: 7px !important;
+}
+
+/* Send Tab to Device */
+.subviewbutton[disabled="true"] {
+   color: $foreground !important;
+	 opacity: 0.8 !important;
+}
+
+/* User icon */
+#fxa-menu-avatar {
+	fill: $foreground !important;
+}
+
+/* Header for profile section thing in panel */
+#fxa-menu-header-title,
+#fxa-menu-service-label,
+#fxa-menu-header-description {
+	color: $foreground !important;
+}
+
+#fxa-menu-header-description,
+#fxa-menu-service-label {
+	opacity: 0.6 !important;
+}
+
+/* Bookmarks show all button */
+.subviewbutton.panel-subview-footer {
+	border-top: 1px solid $foreground !important;
+	background-color: $color3 !important;
+}
+
+.subviewbutton.panel-subview-footer:hover {
+	background-color: $color2 !important;
+}
+
+/* Pannel buttons hover colour */
+panelview .toolbarbutton-1:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus),
+toolbarbutton.subviewbutton:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus),
+.navigable.subviewbutton:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus),
+menu.subviewbutton:not(:-moz-any([disabled], :active))[_moz-menuactive],
+menuitem.subviewbutton:not(:-moz-any([disabled], :active))[_moz-menuactive],
+.widget-overflow-list .toolbarbutton-1:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus),
+.toolbaritem-combined-buttons:-moz-any(:not([cui-areatype="toolbar"]),
+[overflowedItem="true"]) > toolbarbutton:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus) {
+	background-color: $color3 !important;
+	opacity: 0.3 !important;
+}
