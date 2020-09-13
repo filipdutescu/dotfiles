@@ -87,7 +87,7 @@ comall() {
 chbg() {
 	if [[ -f $1 ]]
        	then
-		feh --bg-scale $1 && python -m pywal  -i $1
+		feh --bg-scale $1 && python -m pywal -n -i $1
 	else
 		echo "Error: Cannot change background without a picture."
 	fi

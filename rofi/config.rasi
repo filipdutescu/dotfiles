@@ -5,7 +5,7 @@ configuration {
 		cycle: true;
 		threads: 2;
   	columns: 2;
-  	font: "Iosevka 14";
+  	font: "Iosevka 12";
 		hide-scrollbar: true;
 		window-format: "{n} ({w})";
 		display-combi: ">";

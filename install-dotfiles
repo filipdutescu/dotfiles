@@ -90,4 +90,4 @@ create_link ${BASE}/rofi $verbose config
 create_link ${BASE}/wal $verbose config
 
 # others
-
+create_link ${BASE}/spicetify $verbose config
