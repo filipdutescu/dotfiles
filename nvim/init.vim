@@ -157,13 +157,14 @@ set statusline+=\ %#LineNr#⎋\ %p%%\ \ %l/%L\ \ %c\
 " Netrw settings
 """"""""""""""""
 
-let g:netrw_banner = 0 			" Disable hideous banner
-let g:netrw_liststyle = 3		" Select default layout
-let g:netrw_browse_split = 4		" Mimic file opening from IDEs
-let g:netrw_winsize = 20		" Width of explorer set to 25%
-let g:netrw_altv = 1			" Puts netrw to the left
-let g:netrw_sort_sequence = '[\/]$,*'	" Directories first, files second
-set autochdir				" Change directory when opening files
+set autochdir                           " Change directory when opening files
+let g:netrw_altv = 1                    " Puts netrw to the left
+let g:netrw_banner = 0                  " Disable hideous banner
+let g:netrw_browse_split = 4            " Mimic file opening from IDEs
+let g:netrw_liststyle = 3               " Select default layout
+let g:netrw_sort_sequence = '[\/]$,*'   " Directories first, files second
+let g:netrw_winsize = 25                " Width of explorer set to 25%
+
 " Function to toggle Netrw on and off
 function! ToggleExplorer()
 	if exists("t:expl_no")
@@ -186,6 +187,7 @@ function! ToggleExplorer()
 		
 	endif
 endfunction
+
 " Map Ctrl+b as the command to open Netrw
 map <silent> <C-b> :call ToggleExplorer()<CR>
 inoremap <silent> <C-b> <ESC>:call ToggleExplorer()<CR>
