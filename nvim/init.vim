@@ -1,17 +1,18 @@
-"""""""""""""""""""""""""""""""
-" Display/look related settings
-"""""""""""""""""""""""""""""""
-set number
-set relativenumber
-set termguicolors
-
 """"""""""""""""""
 " Vim-Plug install
 """"""""""""""""""
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source "~/.vimrc"
+if has('nvim')
+  if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source "~/.config/nvim/init.vim"
+  endif
+else
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source "~/.vimrc"
+  endif
 endif
 
 set hidden	" TextEdit might fail otherwise
@@ -24,14 +25,19 @@ set updatetime=300	" better time than the default of 4000
 """""""""""""""""
 " install plugins
 """""""""""""""""
-
-call plug#begin('~/.vim/plugged')
+if has('nvim')
+  call plug#begin('~/.local/share/nvim/plugged')
+else
+  call plug#begin('~/.vim/plugged')
+endif
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-
-Plug 'dylanaraps/wal.vim'
+if &termguicolors
+  Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+else
+  Plug 'dylanaraps/wal.vim'
+endif
 
 call plug#end()
 
@@ -40,32 +46,37 @@ call plug#end()
 """"""""""""""""
 
 " Hexokinase config
-let g:Hexokinase_refreshEvents = ['InsertLeave', 'TextChanged', 'BufWrite', 'BufRead']
-let g:Hexokinase_optInPatterns = [
-\     'full_hex',
-\     'triple_hex',
-\     'rgb',
-\     'rgba',
-\     'hsl',
-\     'hsla',
-\     'colour_names'
-\ ]
-let g:Hexokinase_highlighters = ['backgroundfull']
+if &termguicolors
+  let g:Hexokinase_refreshEvents = ['InsertLeave', 'TextChanged', 'BufWrite', 'BufRead']
+  let g:Hexokinase_optInPatterns = [
+  \     'full_hex',
+  \     'triple_hex',
+  \     'rgb',
+  \     'rgba',
+  \     'hsl',
+  \     'hsla',
+  \     'colour_names'
+  \ ]
+
+  if has('nvim')
+    let g:Hexokinase_highlighters = ['virtual']
+  else
+    let g:Hexokinase_highlighters = ['backgroundfull']
+  endif
+endif
 
 " wal.vim config
-colorscheme wal
+if !&termguicolors
+  colorscheme wal
+endif
 
-""""""""""""""""""""""
-" Consistency settings
-""""""""""""""""""""""
-
-set nocompatible
-set encoding=UTF-8
-set smarttab
-set smartcase
-set tabstop=2
-set shiftwidth=2
-"set expandtab
+"""""""""""""""""""""""""""""""
+" Display/look related settings
+"""""""""""""""""""""""""""""""
+set number
+set relativenumber
+"set termguicolors
+set background="dark"
 
 """"""""""""""""""""""""
 " Functionality settings
@@ -79,6 +90,20 @@ set smartcase			" Use case only if it exists in search
 set wildmenu			" Expand commands
 filetype plugin indent on 	" Turn on file type detection and indent
 syntax on			" Turn on syntax highlighting
+
+""""""""""""""""""""""
+" Consistency settings
+""""""""""""""""""""""
+
+set nocompatible
+set encoding=UTF-8
+set smarttab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+set expandtab
+set splitbelow splitright
 
 """""""""""""""""""""
 " Statusline settings
@@ -119,7 +144,7 @@ endfunction
 set noshowmode
 set laststatus=2 
 set statusline=
-set statusline=%#Pmenu#
+set statusline=%#PmenuSbar#
 set statusline+=▶\ %{tolower(g:current_mode[mode()])}\ ◀%#Normal#
 set statusline+=\ %#Constant#%{&modified?'✘':'✔'}\ %f%#Normal#
 "set statusline+=\ \ %{GetGitBranch()}
@@ -135,7 +160,7 @@ set statusline+=\ %#LineNr#⎋\ %p%%\ \ %l/%L\ \ %c\
 let g:netrw_banner = 0 			" Disable hideous banner
 let g:netrw_liststyle = 3		" Select default layout
 let g:netrw_browse_split = 4		" Mimic file opening from IDEs
-let g:netrw_winsize = 25		" Width of explorer set to 25%
+let g:netrw_winsize = 20		" Width of explorer set to 25%
 let g:netrw_altv = 1			" Puts netrw to the left
 let g:netrw_sort_sequence = '[\/]$,*'	" Directories first, files second
 set autochdir				" Change directory when opening files
@@ -159,43 +184,8 @@ function! ToggleExplorer()
 		Vex
 		let t:expl_no = bufnr("%")
 		
-"		if exists("t:diff_on")
-"			diffoff
-"		endif
 	endif
 endfunction
-" Map Ctrl+E as the command to open Netrw
+" Map Ctrl+b as the command to open Netrw
 map <silent> <C-b> :call ToggleExplorer()<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""
-" Diff settings 
-" Function used to stop visual bug on Netrw
-""""""""""""""""""""""""""""""""""""""""""""
-
-"function! ToggleDiff()
-"	if exists("t:diff_on")
-"		diffoff
-"		unlet t:diff_on
-"	else
-"		let t:diff_on = 1
-"		diffthis
-"	endif
-"endfunction
-"" Map Ctrl+k+d to diff
-"map <c-k>d :call ToggleDiff()<CR> 
-
-""""""""""""""""""""""""
-" Alias for vim commands
-""""""""""""""""""""""""
-
-"command Diff :call ToggleDiff()
-
-""""""""""""""""""""""""""""
-" Auto run commands on start
-""""""""""""""""""""""""""""
-
-"autocmd vimenter * :diffthis	" Start diff on the document opened
-
-" Reenable hexokinase on enter
-"autocmd VimEnter * HexokinaseTurnOn
-
+inoremap <silent> <C-b> <ESC>:call ToggleExplorer()<CR>

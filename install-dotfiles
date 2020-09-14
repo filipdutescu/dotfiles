@@ -53,6 +53,8 @@ then
 fi
 
 # vim
+create_link ${BASE}/nvim $verbose config
+ln -s ${BASE}/nvim/init.vm ${BASE}/vim/vimrc
 create_link ${BASE}/vim/vimrc $verbose
 
 # zsh

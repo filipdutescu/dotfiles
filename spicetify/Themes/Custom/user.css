@@ -202,3 +202,8 @@ and add little glowing effect*/
 .EmptyFriendFeed__cta--bg-3 {
 	background-image: none !important;
 }
+
+/* Better header gradient */
+.Header__background-color {
+  background-color: var(--modspotify_indicator_fg_and_button_bg) !important;
+}
