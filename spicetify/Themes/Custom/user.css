@@ -207,3 +207,12 @@ and add little glowing effect*/
 .Header__background-color {
   background-color: var(--modspotify_indicator_fg_and_button_bg) !important;
 }
+
+/* Music player background */
+.view-player .player-controls-container .progress-container .progress-bar .inner {
+    background-color: var(--modspotify_scrollbar_fg_and_selected_row_bg);
+}
+
+.view-player .player-controls-container .progress-container:hover .progress-bar .inner {
+    background-color: var(--modspotify_secondary_fg);
+}

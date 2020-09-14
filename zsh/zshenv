@@ -1,13 +1,30 @@
+#                      $$\                                     
+#                      $$ |                                    
+#  $$$$$$$$\  $$$$$$$\ $$$$$$$\   $$$$$$\  $$$$$$$\ $$\    $$\ 
+#  \____$$  |$$  _____|$$  __$$\ $$  __$$\ $$  __$$\\$$\  $$  |
+#    $$$$ _/ \$$$$$$\  $$ |  $$ |$$$$$$$$ |$$ |  $$ |\$$\$$  / 
+#   $$  _/    \____$$\ $$ |  $$ |$$   ____|$$ |  $$ | \$$$  /  
+#  $$$$$$$$\ $$$$$$$  |$$ |  $$ |\$$$$$$$\ $$ |  $$ |  \$  /   
+#  \________|\_______/ \__|  \__| \_______|\__|  \__|   \_/    
+#                                                              
+#                                                              
+#                                                              
+
 # Add "bin" folder to PATH (like in bash)
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Set the default terminal
 export TERMINAL=alacritty
+
 # Use VIM as default text editor
 export EDITOR=vim
+
 # Use FireFox as default browser
 export BROWSER=firefox
+
 # Use vim as manpage viewer
 #export MANPAGER='vim --not-a-term -R +":set ft=man" -'
+
 # Define the location of the dotfiles
 export DOTFILES=~/dotfiles
 
