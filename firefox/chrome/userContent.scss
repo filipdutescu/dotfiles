@@ -1,15 +1,25 @@
 @import 'wal/colors.scss';
 
+/* Background colour and top sites icon background */
 .activity-stream > #root > div,
 .top-site-outer .rich-icon {
 	background-color: $background !important;
 }
 
+/* Footer (messages from FF) */
 .activity-stream .SnippetBaseContainer,
 .activity-stream .SimpleSnippet,
 .activity-stream .has-section-header {
 	color: $foreground !important;
-	background-color: $color2 !important;
+	background-color: $background !important;
+}
+
+.activity-stream .SnippetBaseContainer {
+	border-top: none !important;
+}
+
+.SimpleSnippet .section-title a {
+	color: $color5 !important;
 }
 
 .activity-stream .body a {
@@ -70,6 +80,11 @@ body[lwt-newtab-brighttext] {
 	background-color: $color5 !important;
 }
 
+.ds-highlights .section .section-list .card-outer:hover .card-title, 
+.ds-highlights .section .section-list .card-outer:hover .card-title:hover {
+	color: $color5 !important;	
+}
+
 /* Search box */
 .search-wrapper input {
 	background-color: $background !important;
@@ -118,6 +133,10 @@ body[lwt-newtab-brighttext] {
 .collapsible-section .section-top-bar .context-menu .context-menu-item:hover .icon {
 	background-color: $color3 !important;
 	color: $foreground !important;
+}
+
+.collapsible-section .section-top-bar .context-menu {
+	border: 1px solid $foreground !important;
 }
 
 .context-menu > ul > li.separator {

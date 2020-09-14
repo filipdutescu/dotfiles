@@ -1,0 +1,17 @@
+#sidebar-box,
+.sidebar-panel[lwt-sidebar],
+.sidebar-placesTree
+.panel-arrowcontent,
+.sidebar-search-container > #search-box{
+	background-color: $background !important;
+	color: $foreground !important;
+}
+
+#sidebar-switcher-target:hover:-moz-lwtheme {
+	background-color: $color3 !important;
+	color: $color5 !important;
+}
+
+#search-box[focused="true"] {
+	border: 1px solid $color5 !important;	
+}

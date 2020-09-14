@@ -22,9 +22,36 @@ reload_userChrome() {
 	sass -I ${HOME}/.cache/ "${DOTFILES}/firefox/chrome/userChrome.scss" > "${HOME}/.mozilla/firefox/${FF_PROFILE}/chrome/userChrome.css"
 } 
 
-main() {
+# Update Firefox theme colours
+update_firefox() {
 	reload_userContent
 	reload_userChrome
+
+	# Ensure all running instances are killed
+	noProcesses=$(pgrep -f firefox | wc -l)
+	pkill -f firefox
+	while pgrep -u $UID -f firefox >/dev/null; do sleep 1; done
+
+	# Restart if Firefox was open when the theme was changed
+	if [[ $noProcesses -gt 0 ]]; then
+		firefox &
+	fi
+}
+
+# Update Spicetify theme colours
+update_spicetify() {
+	noProcesses=$(pgrep -f spotify | wc -l)
+	spicetify update 
+
+	# Restart if Firefox was open when the theme was changed
+	if [[ $noProcesses -gt 0 ]]; then
+		spicetify restart
+	fi
+}
+
+main() {
+	update_firefox
+	update_spicetify
 }
 
 main
