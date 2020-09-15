@@ -115,6 +115,11 @@ $tbbhoverButton: rgba($color3, 0.7);
 	border-radius: 0px !important;
 }
 
+#identity-box:hover:not(.no-hover):not([open=true]),
+#tracking-protection-icon-container:hover:not([open=true]) {
+  background-color: $color3 !important;
+}
+
 /* Protection's panel */
 #protections-popup-mainView-panel-header-section {
   color: $foreground !important;
@@ -134,7 +139,8 @@ $tbbhoverButton: rgba($color3, 0.7);
 #protections-popup-not-blocking-section-header,
 #protections-popup-not-found-section-header,
 #protections-popup-trackers-blocked-counter-description,
-#protections-popup-footer-protection-type-label {
+#protections-popup-footer-protection-type-label,
+#protections-popup-no-trackers-found-description {
 	color: $foreground !important;
 }
 

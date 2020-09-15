@@ -1,0 +1,137 @@
+#!/bin/bash
+
+usage() {
+  cat <<EOF
+Usage:
+  notify [options ...] <title> <description>
+
+Send a notification using a supported utility, such as 'libnotify' (default).
+
+Options:
+  -h, --help                Display this message and exit
+  -l, --list-backends       Lists all supported backends, such as 'libnotify'  
+  -b, --backend <backend>   Specify the backend to use (from the list of supported ones)
+  -i, --icon <icon>         Icon to show in the notification (<icon> can be a path, name etc.)
+
+Examples:
+  notify 'Hello' 'World!'
+EOF
+}
+
+supported_backends() {
+  cat <<EOF
+Supported Backends:
+  libnotify   Library for sending desktop notifications.
+              https://developer.gnome.org/notification-spec/
+EOF
+}
+
+error() {
+  cat <<EOF
+[ERROR] notify: $1
+Try 'notify --help' for more information.
+EOF
+  exit 1
+}
+
+assign_parameter_value() {
+  if [ "$backend" == "-1" ]; then
+    backend=$1
+  elif [ "$icon" == "-1" ]; then
+    icon=$1
+  elif ! [ -n "$title" ]; then
+    title=$1
+  elif ! [ -n "$description" ]; then
+    description=$1
+  fi
+}
+
+validate_parameters() {
+  if ! [ -n "$title" ]; then
+    error "Missing <title> from the received parameters."
+  fi
+
+  if [ "$backend" == "-1" ]; then
+    error "Missing <backend> required by the '-b/--backend' flag."
+  fi
+
+  if [ "$icon" == "-1" ]; then
+    error "Missing <icon> required by the '-i/--icon' flag."
+  fi
+}
+
+send_libnotify() {
+  action="notify-send $1 $2"
+
+  if [ -n "$icon" ]; then
+    action="$action -i $icon"
+  fi
+
+  exec $action
+}
+
+send_notification() {
+  case $backend in
+    libnotify)
+      if ! [ -x "$(command -v notify-send)" ]; then
+        echo "[FATAL] notify: Failed to find 'libnotify'."
+        echo "Try 'notify --list-backends' for the list of supported backends."
+        exit 1
+      fi
+      send_libnotify $1 $2
+    ;;
+    *)
+      echo "[FATAL] notify: Backend '$1' not supported."
+      echo "Try 'notify --list-backends' for the list of supported backends."
+      exit 1
+    ;;
+  esac
+}
+
+main() {
+  if [ $# -lt "1" ]; then
+    usage
+    exit 0
+  fi
+
+  backend="libnotify"
+  title=""
+  description=""
+
+  for i in "$@"
+  do
+    case $i in
+      -h | --help)
+        usage
+        exit 0
+      ;;
+      -l | --list-backends)
+        supported_backends
+        exit 0
+      ;;
+      -b | --backend)
+        backend=-1
+      ;;
+      -i | --icon)
+        icon=-1
+      ;;
+      -*)
+        cat <<EOF
+[ERROR] notify: invalid option -- '$i'
+Try 'notify --help' for more information.
+EOF
+        exit 1
+      ;;
+      *)
+        assign_parameter_value $i
+      ;;
+    esac
+  done
+
+  validate_parameters
+  send_notification $title $description
+
+  exit 0
+}
+
+main "$@"
