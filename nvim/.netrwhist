@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/filip/dotfiles/awesome/widget/taglist'
 let g:netrw_dirhist_5='/home/filip/dotfiles/awesome/widget/basic-clock'
 let g:netrw_dirhist_4='/home/filip/dotfiles/awesome/layout'
 let g:netrw_dirhist_3='/home/filip/dotfiles/rofi'
