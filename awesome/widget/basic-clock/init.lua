@@ -18,6 +18,7 @@ local wibox = require('wibox')
 -- Define datetime format
 local widget = wibox.widget.textclock()
 widget.format = '%X %d/%m/%Y'
+widget.refresh = 1
 
 -- Attach a calendar to popup on click
 local calendar = awful.widget.calendar_popup.month()

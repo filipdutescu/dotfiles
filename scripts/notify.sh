@@ -9,21 +9,11 @@ Send a notification using a supported utility, such as 'libnotify' (default).
 
 Options:
   -h, --help                Display this message and exit
-  -l, --list-backends       Lists all supported backends, such as 'libnotify'  
-  -b, --backend <backend>   Specify the backend to use (from the list of supported ones)
   -i, --icon <file>         Icon to show in the notification (<file> can be a path, name etc.)
   -a, --audio <file>        Audio clip to play with the notification (<file> can be a path, name etc.)
 
 Examples:
   notify 'Hello' 'World!'
-EOF
-}
-
-supported_backends() {
-  cat <<EOF
-Supported Backends:
-  libnotify   Library for sending desktop notifications.
-              https://developer.gnome.org/notification-spec/
 EOF
 }
 
@@ -36,9 +26,7 @@ EOF
 }
 
 assign_parameter_value() {
-  if [ "$backend" == "-1" ]; then
-    backend=$1
-  elif [ "$icon" == "-1" ]; then
+  if [ "$icon" == "-1" ]; then
     icon=$1
   elif [ "$audio" == "-1" ]; then
     audio=$1
@@ -57,10 +45,6 @@ validate_parameters() {
     error "Missing <title> from the received parameters."
   fi
 
-  if [ "$backend" == "-1" ]; then
-    error "Missing <backend> required by the '-b/--backend' flag."
-  fi
-
   if [ "$icon" == "-1" ]; then
     error "Missing <file> required by the '-i/--icon' flag."
   fi
@@ -70,30 +54,16 @@ validate_parameters() {
   fi
 }
 
-send_libnotify() {
-  action="notify-send \"$1\" \"$2\""
+send_notification() {
+  if ! [ -x "$(command -v notify-send)" ]; then
+    echo "[FATAL] notify: Failed to find 'libnotify'."
+    exit 1
+  fi
 
+  action="/usr/bin/notify-send \"$1\" \"$2\""
   if [ -n "$icon" ]; then
     action="$action -i $icon"
   fi
-}
-
-send_notification() {
-  case $backend in
-    libnotify)
-      if ! [ -x "$(command -v notify-send)" ]; then
-        echo "[FATAL] notify: Failed to find 'libnotify'."
-        echo "Try 'notify --list-backends' for the list of supported backends."
-        exit 1
-      fi
-      send_libnotify "$1" "$2"
-    ;;
-    *)
-      echo "[FATAL] notify: Backend '$1' not supported."
-      echo "Try 'notify --list-backends' for the list of supported backends."
-      exit 1
-    ;;
-  esac
 
   if [ -n "$audio" ]; then
     if [ -x "$(command -v paplay)" ]; then
@@ -107,10 +77,12 @@ send_notification() {
       exit 1
     fi
 
-    action="$action && $play_audio"
+  action="$action && $play_audio"
   fi
 
-  exec sh -c "$action"
+  for logged_user in $(who | cut -d' ' -f1 | uniq); do
+    su $logged_user -c "$action"
+  done
 }
 
 main() {
@@ -129,13 +101,6 @@ main() {
       -h | --help)
         usage
         exit 0
-      ;;
-      -l | --list-backends)
-        supported_backends
-        exit 0
-      ;;
-      -b | --backend)
-        backend=-1
       ;;
       -i | --icon)
         icon=-1

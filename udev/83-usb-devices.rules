@@ -1,0 +1,2 @@
+ACTION=="bind", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ENV{ID_BUS}=="usb", RUN+="/bin/bash /home/filip/dotfiles/scripts/usb-detected.sh 'USB Device Connected' '%E{ID_MODEL_ENC}'"
+ACTION=="remove", SUBSYSTEM=="input", KERNEL=="input*", ENV{ID_TYPE}=="hid", ENV{ID_BUS}=="usb", RUN+="/bin/bash /home/filip/dotfiles/scripts/usb-detected.sh 'USB Device Removed' '%E{ID_MODEL_ENC}'"
