@@ -27,7 +27,7 @@ configuration {
 		combi-hide-mode-prefix: true;
   	show-icons: true;
 		icon-theme: "Papirus-Dark";
-  	theme: "~/.cache/wal/colors-rofi-dark";
+  	theme: "springan.rasi";
 }
 
 /* vim:ft=css

@@ -82,6 +82,7 @@ else
 endif
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'filipdutescu/springan.vim'
 
 if &termguicolors
   Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
@@ -129,6 +130,8 @@ if !&termguicolors
   colorscheme wal
 endif
 
+" springan.vim
+colorscheme springan
 
 "  $$$$$$$$\                              $$\     $$\                               $$\ $$\   $$\               
 "  $$  _____|                             $$ |    \__|                              $$ |\__|  $$ |              
@@ -211,13 +214,13 @@ let g:current_mode={
 set noshowmode
 set laststatus=2 
 set statusline=
-set statusline=%#PmenuSbar#
+set statusline=%#StatusLineNC#
 set statusline+=▶\ %{tolower(g:current_mode[mode()])}\ ◀%#Normal#
 set statusline+=\ %#Constant#%{&modified?'✘':'✔'}\ %f%#Normal#
 "set statusline+=\ \ %{GetGitBranch()}
 set statusline+=%=
 set statusline+=\ \ %#Type#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
-set statusline+=\ \ %#CursorLine#%{&fenc==''?'-':tolower(&fenc)}%{&fileformat==''?'-':'['.tolower(&fileformat).']'}%#Normal#
+set statusline+=\ \ %#TermCursor#%{&fenc==''?'-':tolower(&fenc)}%{&fileformat==''?'-':'['.tolower(&fileformat).']'}%#Normal#
 set statusline+=\ %#LineNr#⎋\ %p%%\ \ %l/%L\ \ %c\ 
 
 
