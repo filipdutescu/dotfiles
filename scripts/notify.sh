@@ -65,23 +65,29 @@ send_notification() {
     action="$action -i $icon"
   fi
 
-  if [ -n "$audio" ]; then
-    if [ -x "$(command -v paplay)" ]; then
-      play_audio="paplay $audio"
-    elif [ -x "$(command -v aplay)" ]; then
-      play_audio="aplay $audio"
+  for session in $(loginctl list-sessions --no-legend | awk '{printf "%s:%s\n", $2, $3}'); do
+    session_id=$(echo $session | cut -d':' -f1)
+    session_user=$(echo $session | cut -d':' -f2)
+ 
+    export XAUTHORITY="/home/$session_user/.Xauthority"
+    export DBUS_SESSION_BUS_ADDRESS=unix:path="/run/user/$session_id/bus"
+
+    if [ -n "$audio" ]; then
+      if [ -x "$(command -v paplay)" ]; then
+        play_audio="/usr/bin/paplay $audio --server=/run/user/$session_id/pulse/native"
+      elif [ -x "$(command -v aplay)" ]; then
+        play_audio="/usr/bin/aplay $audio"
+      fi
+
+      if ! [ -n "$play_audio" ]; then
+        echo "[WARN] notify: Could not detect either ALSA or PluseAudio for playing sounds."
+        exit 1
+      fi
+
+    action="$action && $play_audio"
     fi
 
-    if ! [ -n "$play_audio" ]; then
-      echo "[WARN] notify: Could not detect either ALSA or PluseAudio for playing sounds."
-      exit 1
-    fi
-
-  action="$action && $play_audio"
-  fi
-
-  for logged_user in $(who | cut -d' ' -f1 | uniq); do
-    su $logged_user -c "$action"
+    /usr/bin/su $session_user -c "$action"
   done
 }
 
