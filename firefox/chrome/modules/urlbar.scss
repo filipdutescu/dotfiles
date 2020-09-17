@@ -14,19 +14,19 @@
 
 /* Selected tab and url bar selected row colouring */
 .urlbarView-row:not([type="tip"]):not([type="dynamic"])[selected] > .urlbarView-row-inner {
-	background-color: $color5 !important;
+	background-color: $color2 !important;
 }
 
 /* Url bar border to match tab colouring accent */
 #urlbar[focused="true"] > #urlbar-background,
 #searchbar:focus-within, 
 #urlbar[focused="true"] > #urlbar-input-container {
-	border-color: $color5 !important;
+	border-color: $color2 !important;
 } 
 
 /* Match url bar row and tab text colour with accent */
 .urlbarView-url {
-	color: $color5 !important;
+	color: $color2 !important;
 }
 
 .urlbarView-row[selected] > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action, .urlbarView-row[selected] > .urlbarView-row-inner > .urlbarView-url {
@@ -72,23 +72,25 @@
 /* All the other buttons */
 .toolbarbutton-animatable-box, 
 .toolbarbutton-1 {
-	fill: $color5 !important;
+  transition: 0.15s all !important;
+	fill: $color4 !important;
 }
 
 /* Hover background colours */
 $tbbhoverButton: rgba($color9, 0.7);
 .toolbarbutton-1 { 
-	--toolbarbutton-hover-background: #{$tbbhoverButton} !important; 
+	/*--toolbarbutton-hover-background: #{$tbbhoverButton} !important; */
+	--toolbarbutton-hover-background: none !important; 
 	border: 0px !important; 
 	border-radius: 0px !important; 
-	--toolbarbutton-active-background: #{$color1} !important; 
+	--toolbarbutton-active-background: none !important; 
 	border-radius: 0px !important; 
 }
 
 .toolbarbutton-1:hover, 
 .toolbarbutton-1[open="true"],
 .toolbarbutton-1:hover:active { 
-	fill: $color3 !important;	
+	fill: $color9 !important;	
 }
 
 .urlbar-icon:not([disabled]):hover,

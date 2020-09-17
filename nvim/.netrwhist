@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/filip/dotfiles/firefox'
 let g:netrw_dirhist_9='/home/filip/dotfiles/nvim'
 let g:netrw_dirhist_8='/home/filip/springan.vim'
 let g:netrw_dirhist_7='/home/filip/dotfiles/firefox/chrome'

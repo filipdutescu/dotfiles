@@ -64,7 +64,7 @@ update_spicetify() {
 main() {
   xrdb -merge ${DOTFILES}/xorg/Xresources
 	update_firefox
-#	update_spicetify
+	update_spicetify
 }
 
 main

@@ -67,8 +67,8 @@ fi
 
 # vim
 create_link ${BASE}/nvim $verbose config
-ln -s ${BASE}/nvim/init.vm ${BASE}/vim/vimrc
-create_link ${BASE}/vim/vimrc $verbose
+#ln -s ${BASE}/nvim/init.vm ${BASE}/vim/vimrc
+#create_link ${BASE}/vim/vimrc $verbose
 
 # zsh
 create_link ${BASE}/zsh/zshrc $verbose
@@ -85,7 +85,7 @@ create_link ${BASE}/xorg/xprofile $verbose
 # kitty
 #create_link ${BASE}/kitty $verbose config
 # urxvt
-#create_link ${BASE}/Xresources $verbose
+create_link ${BASE}/xorg/Xresources $verbose
 # alacritty
 create_link ${BASE}/alacritty $verbose config
 
