@@ -72,28 +72,29 @@
 /* All the other buttons */
 .toolbarbutton-animatable-box, 
 .toolbarbutton-1 {
-	fill: $foreground !important;
+	fill: $color5 !important;
 }
 
 /* Hover background colours */
-$tbbhoverButton: rgba($color3, 0.7);
+$tbbhoverButton: rgba($color9, 0.7);
 .toolbarbutton-1 { 
 	--toolbarbutton-hover-background: #{$tbbhoverButton} !important; 
 	border: 0px !important; 
 	border-radius: 0px !important; 
-	--toolbarbutton-active-background: #{$color3} !important; 
+	--toolbarbutton-active-background: #{$color1} !important; 
 	border-radius: 0px !important; 
 }
 
 .toolbarbutton-1:hover, 
+.toolbarbutton-1[open="true"],
 .toolbarbutton-1:hover:active { 
-	fill: $color5 !important;	
+	fill: $color3 !important;	
 }
 
 .urlbar-icon:not([disabled]):hover,
 .urlbar-icon-wrapper:not([disabled]):hover {
-	background-color: rgba($color3, 0.4) !important;
-	fill: $color5 !important;
+	background-color: rgba($color5, 0.7) !important;
+	/*fill: $color3 !important;*/
 	border-radius: 0px !important;
 	border: 0px !important;
 }
@@ -102,22 +103,22 @@ $tbbhoverButton: rgba($color3, 0.7);
 .urlbar-icon-wrapper[open],
 .urlbar-icon:not([disabled]):hover:active,
 .urlbar-icon-wrapper:hover:active {
-	background-color: rgba($color3, 0.4) !important;
-	fill: $color5 !important;
+	background-color: $color5 !important;
+	/*fill: $color3 !important;*/
 	border-radius: 0px !important;
 }
 
 .urlbar-icon-wrapper[open]>.urlbar-icon,
 .urlbar-icon-wrapper>.urlbar-icon:hover,
 .urlbar-icon-wrapper>.urlbar-icon:hover:active {
-	background-color: rgba($color3, 0.4) !important;
-	fill: $color5 !important;
+	background-color: rgba($color5, 0.7) !important;
+	/*fill: $color3 !important;*/
 	border-radius: 0px !important;
 }
 
 #identity-box:hover:not(.no-hover):not([open=true]),
 #tracking-protection-icon-container:hover:not([open=true]) {
-  background-color: $color3 !important;
+  background-color: $color5 !important;
 }
 
 /* Protection's panel */
@@ -150,7 +151,7 @@ $tbbhoverButton: rgba($color3, 0.7);
 }
 
 .panel-footer {
-	background-color: $color3 !important;
+	background-color: $color1 !important;
 }
 
 .panel-footer > xul|button {

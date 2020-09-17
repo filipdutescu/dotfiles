@@ -25,13 +25,13 @@ check_chrome_dir() {
 # Regenerate `userContent.css` to use new generated colourscheme
 reload_userContent() {
 	check_chrome_dir
-	sass -I ${HOME}/.cache/ "${DOTFILES}/firefox/chrome/userContent.scss" > "${HOME}/.mozilla/firefox/${FF_PROFILE}/chrome/userContent.css"
+	sass -I "${DOTFILES}/firefox/chrome" "${DOTFILES}/firefox/chrome/userContent.scss" > "${HOME}/.mozilla/firefox/${FF_PROFILE}/chrome/userContent.css"
 }
 
 # Regenerate `userChrome.css` to use new generated colourscheme
 reload_userChrome() {
 	check_chrome_dir
-	sass -I ${HOME}/.cache/ "${DOTFILES}/firefox/chrome/userChrome.scss" > "${HOME}/.mozilla/firefox/${FF_PROFILE}/chrome/userChrome.css"
+	sass -I "${DOTFILES}/firefox/chrome" "${DOTFILES}/firefox/chrome/userChrome.scss" > "${HOME}/.mozilla/firefox/${FF_PROFILE}/chrome/userChrome.css"
 } 
 
 # Update Firefox theme colours
@@ -62,8 +62,9 @@ update_spicetify() {
 }
 
 main() {
+  xrdb -merge ${DOTFILES}/xorg/Xresources
 	update_firefox
-	update_spicetify
+#	update_spicetify
 }
 
 main

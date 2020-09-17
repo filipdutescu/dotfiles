@@ -148,8 +148,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    #family: InconsolataLGC Nerd Font 
-    #family: Hasklug Nerd Font 
+    #family: FiraCode Nerd Font Mono
     family: Iosevka Term
 
     # The `style` can be specified to pick a specific face.
@@ -193,9 +192,9 @@ font:
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
-  #offset:
+  offset:
   #  x: 0
-  #  y: 0
+    y: -1
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -218,16 +217,69 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
-  use_thin_strokes: true
+  use_thin_strokes: false
+
+
+#   $$$$$$\            $$\                                         
+#  $$  __$$\           $$ |                                        
+#  $$ /  \__| $$$$$$\  $$ | $$$$$$\  $$\   $$\  $$$$$$\   $$$$$$$\ 
+#  $$ |      $$  __$$\ $$ |$$  __$$\ $$ |  $$ |$$  __$$\ $$  _____|
+#  $$ |      $$ /  $$ |$$ |$$ /  $$ |$$ |  $$ |$$ |  \__|\$$$$$$\  
+#  $$ |  $$\ $$ |  $$ |$$ |$$ |  $$ |$$ |  $$ |$$ |       \____$$\ 
+#  \$$$$$$  |\$$$$$$  |$$ |\$$$$$$  |\$$$$$$  |$$ |      $$$$$$$  |
+#   \______/  \______/ \__| \______/  \______/ \__|      \_______/ 
+#                                                                  
+#                                                                  
+# 
+
+colors:
+  # Default colors
+  primary:
+    background: '#26292B'
+    foreground: '#FDFFFC'
+
+    dim_foreground:    '#D3D0CB'
+    bright_foreground: '#E7E5DF'
+    dim_background:    '#26292C' # not sure
+    bright_background: '#303436' # not sure
+
+  # Cursor colors
+  cursor:
+    text:   '#26292B'
+    cursor: '#FDFFFC'
+
+  # Normal colors
+  normal:
+    black:   '#26292B'
+    red:      '#C16A6D'
+    green:    '#8AB97B'
+    yellow:   '#DBA057'
+    blue:     '#7B82B9'
+    magenta:  '#B17ABA'
+    cyan:     '#7BB0B9'
+    white:    '#D3D0CB'
+
+  # Bright colors
+  bright:
+    black:   '#303436'
+    red:     '#CF8C8E'
+    green:   '#A1C794'
+    yellow:  '#E2B378'
+    blue:    '#949AC7'
+    magenta: '#C193C8'
+    cyan:    '#94BFC7'
+    white:   '#E7E5DF'
+
 
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 
 #   $$$$$$\                                $$\   $$\               
 #  $$  __$$\                               \__|  $$ |              
 #  $$ /  $$ | $$$$$$\   $$$$$$\   $$$$$$$\ $$\ $$$$$$\   $$\   $$\ 
-#  $$ |  $$ |$$  __$$\  \____$$\ $$  _____|$$ |\_$$  _|  $$ |  $$ |
+#  $$ |
+#  $$ |$$  __$$\  \____$$\ $$  _____|$$ |\_$$  _|  $$ |  $$ |
 #  $$ |  $$ |$$ /  $$ | $$$$$$$ |$$ /      $$ |  $$ |    $$ |  $$ |
 #  $$ |  $$ |$$ |  $$ |$$  __$$ |$$ |      $$ |  $$ |$$\ $$ |  $$ |
 #   $$$$$$  |$$$$$$$  |\$$$$$$$ |\$$$$$$$\ $$ |  \$$$$  |\$$$$$$$ |

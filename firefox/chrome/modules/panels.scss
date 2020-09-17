@@ -56,11 +56,11 @@ panelview {
 /* Bookmarks show all button */
 .subviewbutton.panel-subview-footer {
 	border-top: 1px solid $foreground !important;
-	background-color: $color3 !important;
+	background-color: $color1 !important;
 }
 
 .subviewbutton.panel-subview-footer:hover {
-	background-color: $color2 !important;
+	background-color: $color1 !important;
 }
 
 /* Pannel buttons hover colour */
@@ -72,7 +72,6 @@ menuitem.subviewbutton:not(:-moz-any([disabled], :active))[_moz-menuactive],
 .widget-overflow-list .toolbarbutton-1:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus),
 .toolbaritem-combined-buttons:-moz-any(:not([cui-areatype="toolbar"]),
 [overflowedItem="true"]) > toolbarbutton:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus) {
-	background-color: $color3 !important;
-	color: $color5 !important;
-	/*opacity: 0.3 !important;*/
+  background: linear-gradient(90deg, rgba($color1,1) 20%, rgba($color3,0.15) 60%, rgba(0,0,0,0) 80%) !important;
+	color: $foreground !important;
 }

@@ -1,42 +1,36 @@
-!  $$\   $$\                                                                                           
-!  $$ |  $$ |                                                                                          
-!  \$$\ $$  | $$$$$$\   $$$$$$\   $$$$$$$\  $$$$$$\  $$\   $$\  $$$$$$\   $$$$$$$\  $$$$$$\   $$$$$$$\ 
-!   \$$$$  / $$  __$$\ $$  __$$\ $$  _____|$$  __$$\ $$ |  $$ |$$  __$$\ $$  _____|$$  __$$\ $$  _____|
-!   $$  $$<  $$ |  \__|$$$$$$$$ |\$$$$$$\  $$ /  $$ |$$ |  $$ |$$ |  \__|$$ /      $$$$$$$$ |\$$$$$$\  
-!  $$  /\$$\ $$ |      $$   ____| \____$$\ $$ |  $$ |$$ |  $$ |$$ |      $$ |      $$   ____| \____$$\ 
-!  $$ /  $$ |$$ |      \$$$$$$$\ $$$$$$$  |\$$$$$$  |\$$$$$$  |$$ |      \$$$$$$$\ \$$$$$$$\ $$$$$$$  |
-!  \__|  \__|\__|       \_______|\_______/  \______/  \______/ \__|       \_______| \_______|\_______/ 
-!                                                                                                      
-!                                                                                                      
-!                                                                                                      
+! special
+*.foreground:	  #FDFFFC
+*.background:   #26292B
+*.cursorColor:	#FDFFFC
 
+! black
+*.color0:	      #26292B
+*.color8:       #303436
 
-!  $$\   $$\ $$$$$$$\                         $$\     
-!  $$ |  $$ |$$  __$$\                        $$ |    
-!  $$ |  $$ |$$ |  $$ |$$\   $$\ $$\    $$\ $$$$$$\   
-!  $$ |  $$ |$$$$$$$  |\$$\ $$  |\$$\  $$  |\_$$  _|  
-!  $$ |  $$ |$$  __$$<  \$$$$  /  \$$\$$  /   $$ |    
-!  $$ |  $$ |$$ |  $$ | $$  $$<    \$$$  /    $$ |$$\ 
-!  \$$$$$$  |$$ |  $$ |$$  /\$$\    \$  /     \$$$$  |
-!   \______/ \__|  \__|\__/  \__|    \_/       \____/ 
-!                                                     
-!                                                     
-!
+! red
+*.color1:       #C16A6D
+*.color9:       #CF8C8E
 
-URxvt*scrollBar: 	false
-URxvt*scrollBar_right: 	true
-URxvt*perl-ext-common:	default,matcher
-URxvt*urlLauncher:	firefox
-URxvt*matcher*button:	1	
-URxvt*font:		xft:DejaVu Sans Mono:size=8, xft:Iosevka:size=8
-URxvt*boldFont:		xft:DejaVu Sans Mono:size=8:weight=bold
-URxvt*transparent:	false		
-URxvt*depth:		32
-URxvt*background:	rgba:0000/0000/0200/c800	
-URxvt*termName:		rxvt-unicode
-URxvt*internalBorder:	10
-URxvt*iso14755:		false
-URxvt*iso14755_52:	true
-URxvt*keysym.C-C:	eval:selection_to_clipboard
-URxvt*keysym.C-V:	eval:paste_clipboard
+! green
+*.color2:       #8AB97B
+*.color10:      #A1C794
 
+! yellow
+*.color3:       #DBA057
+*.color11:      #E2B378
+
+! blue
+*.color4:       #7B82B9
+*.color12:      #949AC7
+
+! magenta
+*.color5:       #B17ABA
+*.color13:      #C193C8
+
+! cyan
+*.color6:       #7BB0B9
+*.color14:      #94BFC7
+
+! white
+*.color7:       #D3D0CB
+*.color15:      #E7E5DF

@@ -16,8 +16,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Set the default terminal
 export TERMINAL=alacritty
 
-# Use VIM as default text editor
-export EDITOR=vim
+# Use Neovim as default text editor
+export EDITOR=nvim
+export VISUAL=nvim
 
 # Use FireFox as default browser
 export BROWSER=firefox

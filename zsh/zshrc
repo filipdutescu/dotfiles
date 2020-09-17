@@ -54,7 +54,7 @@ precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 
 # Replace Git placeholders with actual information
-zstyle ':vcs_info:git:*' formats '%F{yellow}[ %F{cyan}%b %F{yellow}] %f'
+zstyle ':vcs_info:git:*' formats '%F{magenta}[ %F{yellow}%b %F{magenta}] %f'
 zstyle ':vcs_info:*' enable git
 
 #  $$$$$$$\                                               $$\     
@@ -71,8 +71,8 @@ zstyle ':vcs_info:*' enable git
 
 # Set Colors
 autoload -U colors && colors
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
+#(cat ~/.cache/wal/sequences &)
+#source ~/.cache/wal/colors-tty.sh
 
 PROMPT="%B%F{red}%n%b %F{cyan}%~ ▶ %F{white}"
 RPROMPT="\$vcs_info_msg_0_"
@@ -108,6 +108,7 @@ bindkey "^[3;5~" delete-char
 #
 
 alias adios="shutdown now"
+alias chbg="feh --bg-scale"
 alias cp="cp -i"
 alias diff="diff --color=auto"
 alias feh-svg="feh --conversion-timeout 1"
@@ -115,6 +116,7 @@ alias grep="grep --color=auto"
 alias la="ls -lA --color=auto"
 alias ll="ls -l --color=auto"
 alias ls="ls --color=auto"
+alias retheme="/bin/sh '$DOTFILES'/scripts/update-configs"
 alias v="nvim"
 alias sudo="sudo "
 alias szsh="source ${HOME}/.zshrc"
@@ -148,15 +150,6 @@ alias tag="git tag"
 #                                                                                                                                              
 #
 
-# Change wallpaper and colour schemes/backgrounds based on it
-chbg() {
-	if [[ -f $1 ]]
-       	then
-		feh --bg-scale $1 && python -m pywal -n -i $1 -o $DOTFILES/wal/update-configs
-	else
-		echo "Error: Cannot change background without a picture."
-	fi
-}
 
 # Git add all files in current directory and commit
 comall() {    

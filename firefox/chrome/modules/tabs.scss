@@ -15,7 +15,7 @@
 /* Selected tab(s) colouring */
 .tab-line[multiselected], 
 .tab-line[selected="true"] {
-	background-color: $color5 !important;
+	background-color: $color1 !important;
 }
 
 /* Text and close icon on tabs */
@@ -32,7 +32,7 @@ toolbar #tabs-newtab-button:not([disabled="true"]):-moz-any([open], [checked], :
 toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):not(:active) > .toolbarbutton-icon,
 .close-icon {
 	transition: all 0.15s ease !important;
-	fill: $color3 !important;
+	fill: $color5 !important;
 }
 
 .close-icon {
@@ -50,11 +50,8 @@ toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):no
 }
 
 toolbar #tabs-newtab-button:not([disabled="true"]):-moz-any([open], [checked], :hover:active) > .toolbarbutton-icon,
-toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):not(:active):hover > .toolbarbutton-icon
-//.close-icon:hover,
-//.close-icon:hover:active 
-{
-	fill: $color5 !important;
+toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):not(:active):hover > .toolbarbutton-icon {
+	fill: $color3 !important;
 	opacity: 1 !important;
 }
 
@@ -87,8 +84,9 @@ toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):no
 /* Tabs background when hovered over */
 #TabsToolbar[brighttext] .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]):not([multiselected]) > .tab-background-inner,
 #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab:hover > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme > .tab-background-inner {
-	background-color: $color3 !important;
-	opacity: 0.3 !important;
+	/*background-color: $color9 !important;*/
+	/*opacity: 0.3 !important;*/
+  background: none !important;
 }
 
 /* Tab close icon when hovered over tab */
@@ -102,7 +100,7 @@ toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):no
 /* Tab close icon when hovered over it directly */
 #TabsToolbar[brighttext] .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]) ~ .tab-content > .close-icon:hover,
 #tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab:hover > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme ~ .tab-content > .close-icon:hover {
-	fill: $color5 !important;
+	fill: $color3 !important;
 	opacity: 1 !important;
 }
 
@@ -124,3 +122,7 @@ toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):no
 	box-shadow: none !important;
 }
 
+/* Remove annoying random border on top of the selected tabs */
+#toolbar-menubar:not([autohide="true"]) + #TabsToolbar .tabbrowser-tab > .tab-stack > .tab-background, :root:not([tabsintitlebar]) .tab-background, :root[extradragspace] .tab-background {
+  border-top-style: none !important;
+}
