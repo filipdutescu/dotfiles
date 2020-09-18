@@ -66,7 +66,7 @@
 
 #urlbar:not([focused="true"]):-moz-lwtheme > #urlbar-background,
 #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme {
-	border: 1px solid $color1 !important;
+	border: none !important;
 }
 
 /* All the other buttons */
@@ -167,4 +167,9 @@ $tbbhoverButton: rgba($color9, 0.7);
 
 #PanelUI-whatsNew .whatsNew-message-date {
 	background: $color1 !important;
+}
+
+/* Remove border bellow navbar*/
+#navigator-toolbox {
+  border-bottom: none !important;
 }
