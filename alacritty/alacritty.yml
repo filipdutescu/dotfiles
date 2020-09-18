@@ -235,25 +235,25 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#26292B'
+    background: '#1E1F21'
     foreground: '#FDFFFC'
 
     dim_foreground:    '#D3D0CB'
     bright_foreground: '#E7E5DF'
-    dim_background:    '#26292C' # not sure
+    dim_background:    '#1E1F21' # not sure
     bright_background: '#303436' # not sure
 
   # Cursor colors
   cursor:
-    text:   '#26292B'
+    text:   '#26292C'
     cursor: '#FDFFFC'
 
   # Normal colors
   normal:
-    black:   '#26292B'
+    black:    '#1E1F21'
     red:      '#C16A6D'
     green:    '#8AB97B'
-    yellow:   '#DBA057'
+    yellow:   '#C9C76B'
     blue:     '#7B82B9'
     magenta:  '#B17ABA'
     cyan:     '#7BB0B9'
@@ -262,9 +262,9 @@ colors:
   # Bright colors
   bright:
     black:   '#303436'
-    red:     '#CF8C8E'
+    red:     '#C97E80'
     green:   '#A1C794'
-    yellow:  '#E2B378'
+    yellow:  '#D3D175'
     blue:    '#949AC7'
     magenta: '#C193C8'
     cyan:    '#94BFC7'
