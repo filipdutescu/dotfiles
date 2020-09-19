@@ -65,13 +65,19 @@ panelview {
 
 /* Pannel buttons hover colour */
 panelview .toolbarbutton-1:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus),
-toolbarbutton.subviewbutton:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus),
+/*toolbarbutton.subviewbutton:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus),*/
 .navigable.subviewbutton:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus),
 menu.subviewbutton:not(:-moz-any([disabled], :active))[_moz-menuactive],
 menuitem.subviewbutton:not(:-moz-any([disabled], :active))[_moz-menuactive],
 .widget-overflow-list .toolbarbutton-1:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus),
 .toolbaritem-combined-buttons:-moz-any(:not([cui-areatype="toolbar"]),
 [overflowedItem="true"]) > toolbarbutton:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus) {
-  background: linear-gradient(90deg, rgba($color1,1) 20%, rgba($color3,0.15) 60%, rgba(0,0,0,0) 80%) !important;
+  background: none !important;
+  padding-left: 16px !important;
+	color: $color1 !important;
+}
+
+toolbarbutton.subviewbutton:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus) {
+  background-color: $color5 !important;
 	color: $foreground !important;
 }

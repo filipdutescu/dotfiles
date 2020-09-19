@@ -22,7 +22,20 @@
 #searchbar:focus-within, 
 #urlbar[focused="true"] > #urlbar-input-container {
 	border-color: $color2 !important;
+  box-shadow: none !important;
 } 
+
+#urlbar[focused="true"]:is([open="true"]) > #urlbar-input-container {
+	border-bottom: none !important;
+}
+
+#identity-icon {
+  fill: $color2 !important;
+}
+
+#identity-icon:hover {
+  fill: $color7 !important;
+}
 
 /* Match url bar row and tab text colour with accent */
 .urlbarView-url {

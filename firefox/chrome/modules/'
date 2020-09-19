@@ -90,13 +90,12 @@ toolbar #tabs-newtab-button:not([disabled="true"]):not([checked]):not([open]):no
 }
 
 /* Background tabs hovered over background */
-.tabbrowser-tab:not([multisselected="true"]):not([selected="true"]):hover > .tab-stack > .tab-background > .tab-background-inner,
-.tabbrowser-tab:not([selected="true"]):hover > .tab-stack > .tab-background > .tab-background-inner,
-.tabbrowser-tab:hover > .tab-stack > .tab-background > .tab-background-inner {
+.tab-background[multiselected="true"]:not([selected="true"]) > .tab-background-inner,
+.tabbrowser-tab:hover .tab-background:not([selected="true"]) > .tab-background-inner {
   background: rgba($color6, 0.7) !important; 
 }
 
-.tabbrowser-tab:not([selected="true"]):hover > .tab-stack > .tab-background > .tab-line {
+.tabbrowser-tab:not([selected="true"]):hover > .tab-background > .tab-line {
   background-color: rgba($color6, 0.8) !important; 
 }
 
