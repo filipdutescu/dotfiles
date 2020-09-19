@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/filip/dotfiles/firefox'
+let g:netrw_dirhist_1='/home/filip/.mozilla/firefox/lw8gxgtw.default-release-1600010742651'
 let g:netrw_dirhist_0='/home/filip/dotfiles/firefox'
 let g:netrw_dirhist_9='/home/filip/dotfiles/nvim'
 let g:netrw_dirhist_8='/home/filip/springan.vim'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_6='/home/filip/dotfiles/awesome/widget/taglist'
 let g:netrw_dirhist_5='/home/filip/dotfiles/awesome/widget/basic-clock'
 let g:netrw_dirhist_4='/home/filip/dotfiles/awesome/layout'
 let g:netrw_dirhist_3='/home/filip/dotfiles/rofi'
-let g:netrw_dirhist_2='/home/filip/dotfiles/nvim'
-let g:netrw_dirhist_1='/home/filip/.config/nvim'
