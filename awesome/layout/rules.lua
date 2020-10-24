@@ -83,6 +83,7 @@ local floatingClients = {
 			'xtightvncviewer',
 			'org.remmina.Remmina',
 			'Matplotlib',
+      'xfce4-power-manager-settings'
 		},
 
 		-- Note that the name property shown in xprop might be set slightly after creati    on of the client

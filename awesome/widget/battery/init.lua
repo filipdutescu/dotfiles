@@ -1,13 +1,29 @@
+--[[
+$$$$$$$\             $$\     $$\                                         $$\      $$\ $$\       $$\                      $$\     
+$$  __$$\            $$ |    $$ |                                        $$ | $\  $$ |\__|      $$ |                     $$ |    
+$$ |  $$ | $$$$$$\ $$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  $$\   $$\       $$ |$$$\ $$ |$$\  $$$$$$$ | $$$$$$\   $$$$$$\ $$$$$$\   
+$$$$$$$\ | \____$$\\_$$  _|\_$$  _|  $$  __$$\ $$  __$$\ $$ |  $$ |      $$ $$ $$\$$ |$$ |$$  __$$ |$$  __$$\ $$  __$$\\_$$  _|  
+$$  __$$\  $$$$$$$ | $$ |    $$ |    $$$$$$$$ |$$ |  \__|$$ |  $$ |      $$$$  _$$$$ |$$ |$$ /  $$ |$$ /  $$ |$$$$$$$$ | $$ |    
+$$ |  $$ |$$  __$$ | $$ |$$\ $$ |$$\ $$   ____|$$ |      $$ |  $$ |      $$$  / \$$$ |$$ |$$ |  $$ |$$ |  $$ |$$   ____| $$ |$$\ 
+$$$$$$$  |\$$$$$$$ | \$$$$  |\$$$$  |\$$$$$$$\ $$ |      \$$$$$$$ |      $$  /   \$$ |$$ |\$$$$$$$ |\$$$$$$$ |\$$$$$$$\  \$$$$  |
+\_______/  \_______|  \____/  \____/  \_______|\__|       \____$$ |      \__/     \__|\__| \_______| \____$$ | \_______|  \____/ 
+                                                         $$\   $$ |                                 $$\   $$ |                   
+                                                         \$$$$$$  |                                 \$$$$$$  |                   
+                                                          \______/                                   \______/                    
+--]]
+
 local awful = require('awful')
 local wibox = require('wibox')
 local awful = require('awful')
 local gears = require('gears')
 local naughty = require('naughty')
 local watch = awful.widget.watch
-local clickable_container = require('widget.clickable-container')
 local dpi = require('beautiful').xresources.apply_dpi
 local config_dir = gears.filesystem.get_configuration_dir()
-local widget_icon_dir = config_dir .. 'widgets/battery/icons/'
+local widget_icon_dir = config_dir .. 'widget/battery/icons/'
+
+local clickable_container = require('widget.clickable-container')
+local apps = require('config.apps')
 
 local return_button = function()
 
@@ -15,7 +31,7 @@ local return_button = function()
 		nil,
 		{
 			id = 'icon',
-			image = widget_icon_dir .. 'battery' .. '.svg',
+			image = widget_icon_dir .. 'battery_charged' .. '.svg',
 			widget = wibox.widget.imagebox,
 			resize = true
 		},
@@ -25,13 +41,13 @@ local return_button = function()
 	}
 
 	local battery_percentage_text = wibox.widget {
-		id = 'percent_text',
-		text = '100%',
-		font = 'Iosevka 12',
-		align = 'center',
-		valign = 'center',
+		id      = 'percent_text',
+		text    = '100%',
+		font    = 'Iosevka 12',
+		align   = 'center',
+		valign  = 'center',
 		visible = false,
-		widget = wibox.widget.textbox
+		widget  = wibox.widget.textbox
 	}
 
 
@@ -51,6 +67,19 @@ local return_button = function()
 		},
 		widget = clickable_container
 	}
+
+  battery_button:buttons(
+		gears.table.join(
+			awful.button(
+				{},
+				1,
+				nil,
+				function()
+					awful.spawn(apps.power_manager , false)
+				end
+			)
+		)
+	)
 
 	local battery_tooltip =  awful.tooltip {
 		objects = {battery_button},
@@ -91,7 +120,7 @@ local return_button = function()
 
     local show_battery_warning = function()
         naughty.notification ({
-            icon = widget_icon_dir .. 'battery-alert.svg',
+            icon = widget_icon_dir .. 'battery-caution.svg',
             app_name = 'System notification',
             title = 'Battery is dying!',
             message = 'Hey, I think we have a problem here. Save your work before reaching the oblivion.',
@@ -116,14 +145,14 @@ local return_button = function()
 
 				-- Fully charged
 				if (status == 'fully-charged' or status == 'charging') and battery_percentage == 100 then
-					icon_name = icon_name .. '-' .. 'fully-charged'
+					icon_name = icon_name .. '-' .. 'full-charged'
 					battery_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. icon_name .. '.svg'))
 					return
 				end
 
 				-- Critical level warning message
 				if (battery_percentage > 0 and battery_percentage < 10) and status == 'discharging' then
-					icon_name = icon_name .. '-' .. 'alert-red'
+					icon_name = icon_name .. '-' .. 'empty'
 
 					if os.difftime(os.time(), last_battery_check) > 300 or notify_critcal_battery then
 						last_battery_check = os.time()
@@ -135,26 +164,23 @@ local return_button = function()
 				end
 
 				-- Discharging
-				if battery_percentage > 0 and battery_percentage < 20 then
-					icon_name = icon_name .. '-' .. status .. '-' .. '10'
+				if battery_percentage > 0 and battery_percentage < 10 then
+					icon_name = icon_name .. '-' .. '000' .. status
 
-				elseif battery_percentage >= 20 and battery_percentage < 30 then
-					icon_name = icon_name .. '-' .. status .. '-' .. '20'
+				elseif battery_percentage >= 10 and battery_percentage < 40 then
+					icon_name = icon_name .. '-' .. '020' .. '-' .. status
 
-				elseif battery_percentage >= 30 and battery_percentage < 50 then
-					icon_name = icon_name .. '-' .. status .. '-' .. '30'
-
-				elseif battery_percentage >= 50 and battery_percentage < 60 then
-					icon_name = icon_name .. '-' .. status .. '-' .. '50'
+				elseif battery_percentage >= 40 and battery_percentage < 60 then
+					icon_name = icon_name .. '-' .. '040' .. '-' .. status
 
 				elseif battery_percentage >= 60 and battery_percentage < 80 then
-					icon_name = icon_name .. '-' .. status .. '-' .. '60'
+					icon_name = icon_name .. '-' .. '060' .. '-' .. status
 
-				elseif battery_percentage >= 80 and battery_percentage < 90 then
-					icon_name = icon_name .. '-' .. status .. '-' .. '80'
+				elseif battery_percentage >= 80 and battery_percentage < 100 then
+					icon_name = icon_name .. '-' .. '080' .. '-' .. status
 
-				elseif battery_percentage >= 90 and battery_percentage < 100 then
-					icon_name = icon_name .. '-' .. status .. '-' .. '90'
+				elseif battery_percentage >= 100 then
+					icon_name = icon_name .. '-' .. '100' .. '-' .. status
 				end
 
 				battery_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. icon_name .. '.svg'))
@@ -176,7 +202,7 @@ local return_button = function()
 				battery_widget.spacing = dpi(0)
 				battery_percentage_text.visible = false
 				battery_tooltip:set_text('No battery detected!')
-				battery_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. 'battery-unknown' .. '.svg'))
+				battery_imagebox.icon:set_image(gears.surface.load_uncached(widget_icon_dir .. 'battery-missing' .. '.svg'))
 				return
 			end
 

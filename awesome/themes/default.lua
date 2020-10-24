@@ -34,6 +34,7 @@ theme.bg_normal     = '#121212'
 theme.bg_focus      = '#535d6c'
 theme.bg_urgent     = '#ff0000'
 theme.bg_minimize   = '#444444'
+theme.bg_hover      = theme.bg_minimize
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = '#aaaaaa'
@@ -89,6 +90,11 @@ theme.menu_width  = dpi(150)
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
 --theme.bg_widget = '#cc0000'
+
+theme.widget_mouse_enter    = theme.bg_hover
+theme.widget_mouse_leave    = theme.bg_normal
+theme.widget_button_press   = theme.bg_focus
+theme.widget_button_release = theme.bg_normal
 
 -- Wallpaper is set with feh 
 --theme.wallpaper = themes_path..'default/background.png'

@@ -37,6 +37,7 @@ $$  /   \$$ |$$ |\$$$$$$$ |\$$$$$$$ |\$$$$$$$\  \$$$$  |$$$$$$$  |
 local tagList = require('widget.taglist')
 local textClock = require('widget.basic-clock')
 local launcher = require('widget.launcher')
+local battery = require('widget.battery')
  
 
 --[[
@@ -90,6 +91,7 @@ awful.screen.connect_for_each_screen(function(s)
 	  { -- Right widgets
 	   	 layout = wibox.layout.fixed.horizontal,
 	   	 wibox.widget.systray(),
+       battery(),
 	   	 awful.widget.keyboardlayout(),
 	   	 s.layoutBox,
 	  },

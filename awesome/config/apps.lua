@@ -16,11 +16,13 @@ local	terminal = os.getenv('TERMINAL') or 'alacritty'
 local	editor = os.getenv('EDITOR') or 'vim'
 local	editor_cmd = terminal .. ' -e ' .. editor
 local	browser = os.getenv('BROWSER') or 'firefox'
+local power_manager = 'xfce4-power-manager-settings'
 
 return {
 	terminal = terminal,
 	editor = editor,
 	editor_cmd = editor_cmd,
-	browser = browser
+	browser = browser,
+  power_manager = power_manager
 }
 
