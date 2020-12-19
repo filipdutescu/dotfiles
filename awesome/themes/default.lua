@@ -22,13 +22,13 @@ local config_path = gfs.get_configuration_dir()
 
 local theme = {}
 
-theme.font                      = 'Iosevka Term 12'
-theme.title_font                = 'Iosevka Term 12'
-theme.hotkeys_font              = 'Iosevka Term 11'
-theme.hotkeys_description_font  = 'Iosevka Term 11'
-theme.notification_font         = 'Iosevka Term 11'
+theme.font                      = 'Iosevka Term 16'
+theme.title_font                = 'Iosevka Term 16'
+theme.hotkeys_font              = 'Iosevka Term 15'
+theme.hotkeys_description_font  = 'Iosevka Term 15'
+theme.notification_font         = 'Iosevka Term 15'
 
-theme.wibar_height = dpi(27)
+theme.wibar_height = dpi(35)
 
 theme.bg_normal     = '#121212'
 theme.bg_focus      = '#535d6c'

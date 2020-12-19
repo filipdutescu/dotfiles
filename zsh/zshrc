@@ -75,7 +75,7 @@ autoload -U colors && colors
 #source ~/.cache/wal/colors-tty.sh
 
 PROMPT="%B%F{red}%n%b %F{cyan}%~ ▶ %F{white}"
-RPROMPT="\$vcs_info_msg_0_"
+RPROMPT="\$vcs_info_msg_0_ %F{white}"
 
 
 #  $$\   $$\                                                      
@@ -134,6 +134,7 @@ alias fetch="git fetch"
 alias gdiff="git diff"
 alias pull="git pull"
 alias push="git push"
+alias rebase="git rebase"
 alias status="git status"
 alias tag="git tag"
 

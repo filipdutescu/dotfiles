@@ -106,6 +106,8 @@ Plug 'alvan/vim-closetag'
 
 Plug 'filipdutescu/springan.vim'
 
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
 if &termguicolors
   Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 else
