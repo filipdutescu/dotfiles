@@ -54,7 +54,9 @@ endif
 set number
 set relativenumber
 set termguicolors
-
+set maxmempattern=20000
+set guicursor=
+set scrolloff=8
 
 "  $$$$$$$$\                              $$\     $$\                               $$\ $$\   $$\               
 "  $$  _____|                             $$ |    \__|                              $$ |\__|  $$ |              
@@ -68,12 +70,14 @@ set termguicolors
 "                                                                                                     \$$$$$$  |
 "                                                                                                      \______/ 
 
+let mapleader = "\<Space>"
 "set spell 			            " Spell checking
 set incsearch			          " Search as soon as typing
 set hlsearch			          " Highlight all results
 set ignorecase			        " Ignore case when searching
 set smartcase			          " Use case only if it exists in search
 set wildmenu			          " Expand commands
+set hidden                  " Keep buffers in background
 filetype plugin indent on 	" Turn on file type detection and indent
 syntax on			              " Turn on syntax highlighting
 
@@ -104,15 +108,17 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'alvan/vim-closetag'
 
-Plug 'filipdutescu/springan.vim'
+" need nvim nightly or 0.5+
+"Plug 'nvim-lua/popup.nvim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
 
-if &termguicolors
-  Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-else
-  Plug 'dylanaraps/wal.vim'
-endif
+Plug 'filipdutescu/springan.vim'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 call plug#end()
 
@@ -151,7 +157,6 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \]
 
-set hidden	" TextEdit might fail otherwise
 " For specific servers
 set nobackup
 set nowritebackup
@@ -247,18 +252,15 @@ if &termguicolors
   \     'colour_names'
   \ ]
 
-"    if has('nvim')
-"      let g:Hexokinase_highlighters = ['virtual']
-"    else
-      let g:Hexokinase_highlighters = ['backgroundfull']
-"    endif
+  let g:Hexokinase_highlighters = ['backgroundfull']
 endif
 
-" wal.vim config
+" Telescope.nvim
 
-if !&termguicolors
-  colorscheme wal
-endif
+"nnoremap <leader>ff :lua require('telescope.builtin').find_files()<cr>
+"nnoremap <leader>fg :lua require('telescope.builtin').live_grep()<cr>
+"nnoremap <leader>fb :lua require('telescope.builtin').buffers()<cr>
+"nnoremap <leader>fh :lua require('telescope.builtin').help_tags()<cr>
 
 " springan.vim
 
@@ -335,7 +337,7 @@ set statusline+=\ %#Constant#%{&modified?'✘':'✔'}\ %f%#Normal#
 set statusline+=%=
 set statusline+=\ \ %#Type#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
 set statusline+=\ \ %#TermCursor#%{&fenc==''?'-':tolower(&fenc)}%{&fileformat==''?'-':'['.tolower(&fileformat).']'}%#Normal#
-set statusline+=\ %#LineNr#⎋\ %p%%\ \ %l/%L\ \ %c\ 
+set statusline+=\ %#SignColumn#⎋\ %p%%\ \ %l/%L\ \ %c\ 
 
 
 "  $$\   $$\            $$\                             
@@ -357,6 +359,7 @@ let g:netrw_browse_split = 4            " Mimic file opening from IDEs
 let g:netrw_liststyle = 3               " Select default layout
 let g:netrw_sort_sequence = '[\/]$,*'   " Directories first, files second
 let g:netrw_winsize = 25                " Width of explorer set to 25%
+let g:netrw_dirhistmax = 0              " Remove history
 
 " Function to toggle Netrw on and off
 function! ToggleExplorer()

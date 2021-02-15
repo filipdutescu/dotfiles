@@ -13,3 +13,5 @@
 [user]
 	email = filip.dutescu@gmail.com
 	name = Filip Dutescu
+[pull]
+	rebase = false
