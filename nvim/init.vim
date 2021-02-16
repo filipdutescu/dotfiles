@@ -113,6 +113,11 @@ Plug 'alvan/vim-closetag'
 "Plug 'nvim-lua/plenary.nvim'
 "Plug 'nvim-telescope/telescope.nvim'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+Plug 'tpope/vim-fugitive'
+
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -262,6 +267,21 @@ endif
 "nnoremap <leader>fb :lua require('telescope.builtin').buffers()<cr>
 "nnoremap <leader>fh :lua require('telescope.builtin').help_tags()<cr>
 
+" fzf.vim
+
+let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.7 } }
+let g:fzf_preview_window = []
+
+nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fg :Rg<cr>
+nnoremap <leader>fb :Buffers<cr>
+
+" vim-fugitive
+
+nnoremap <leader>gs :G<cr>
+nnoremap <leader>gf :diffget //2<cr>
+nnoremap <leader>gh :diffget //3<cr>
+
 " springan.vim
 
 colorscheme springan
@@ -327,17 +347,29 @@ let g:current_mode={
 	\'t': 'Terminal'
 	\}
 
+function! GetGitBranchName()
+  let branch = FugitiveStatusline()
+  let result = ''
+
+  if len(branch)
+    let result .= ' '
+    let result .= branch[5:-3]
+  endif
+
+  return result
+endfunction
+
 set noshowmode
 set laststatus=2 
 set statusline=
 set statusline=%#StatusLineNC#
 set statusline+=▶\ %{tolower(g:current_mode[mode()])}\ ◀%#Normal#
 set statusline+=\ %#Constant#%{&modified?'✘':'✔'}\ %f%#Normal#
-"set statusline+=\ \ %{GetGitBranch()}
+set statusline+=\ %#LineNr#%{GetGitBranchName()}
 set statusline+=%=
-set statusline+=\ \ %#Type#%{&filetype==''?'-':tolower(&filetype)}%#Normal#
-set statusline+=\ \ %#TermCursor#%{&fenc==''?'-':tolower(&fenc)}%{&fileformat==''?'-':'['.tolower(&fileformat).']'}%#Normal#
-set statusline+=\ %#SignColumn#⎋\ %p%%\ \ %l/%L\ \ %c\ 
+set statusline+=\ %#Type#\ %{&filetype==''?'-':tolower(&filetype)}%#Normal#
+set statusline+=\ %#Function#\ %#Visual#%{&fenc==''?'-':tolower(&fenc)}%{&fileformat==''?'-':'['.tolower(&fileformat).']'}%#Normal#
+set statusline+=\ %#CursorLineNr#⎋\ %p%%\ %#SignColumn#\ %l/%L\ \ %c\ 
 
 
 "  $$\   $$\            $$\                             
