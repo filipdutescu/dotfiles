@@ -212,6 +212,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" CodeActions
+nmap <leader><a-cr> <Plug>(coc-codeaction)
+
 " vim-closetag
 
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -273,6 +276,7 @@ let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.7 } }
 let g:fzf_preview_window = []
 
 nnoremap <leader>ff :Files<cr>
+nnoremap <leader>fG :GFiles<cr>
 nnoremap <leader>fg :Rg<cr>
 nnoremap <leader>fb :Buffers<cr>
 
@@ -281,6 +285,9 @@ nnoremap <leader>fb :Buffers<cr>
 nnoremap <leader>gs :G<cr>
 nnoremap <leader>gf :diffget //2<cr>
 nnoremap <leader>gh :diffget //3<cr>
+
+" terminal
+nnoremap <leader>ot :terminal<cr>
 
 " springan.vim
 
@@ -384,7 +391,7 @@ set statusline+=\ %#CursorLineNr#⎋\ %p%%\ %#SignColumn#\ %l/%L\ \ %c\
 "                                                       
 "                                                       
 
-set autochdir                           " Change directory when opening files
+"set autochdir                           " Change directory when opening files
 let g:netrw_altv = 1                    " Puts netrw to the left
 let g:netrw_banner = 0                  " Disable hideous banner
 let g:netrw_browse_split = 4            " Mimic file opening from IDEs

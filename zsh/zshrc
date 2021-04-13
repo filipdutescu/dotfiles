@@ -128,6 +128,7 @@ alias up="nmcli con up"
 
 # git related aliases
 alias addall="git add ."
+alias branch="git branch"
 alias checkout="git checkout"
 alias commit="git commit"
 alias fetch="git fetch"
@@ -190,5 +191,6 @@ compush() {
 
 # ZSH Syntax Highlighting source
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+xset b off
 
 pfetch
