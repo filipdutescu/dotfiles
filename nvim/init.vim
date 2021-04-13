@@ -287,7 +287,7 @@ nnoremap <leader>gf :diffget //2<cr>
 nnoremap <leader>gh :diffget //3<cr>
 
 " terminal
-nnoremap <leader>ot :terminal<cr>
+nnoremap <leader>ot :terminal<cr>i
 
 " springan.vim
 
