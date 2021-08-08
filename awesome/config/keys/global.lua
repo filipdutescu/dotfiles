@@ -65,6 +65,10 @@ local globalKeys = gears.table.join(
         function () awful.client.focus.byidx(-1) end,
         {description = 'focus previous by index', group = 'client'}
     ),
+    awful.key({ utils.modKey, utils.shiftKey}, 'Space',
+      function () awful.widget.keyboardlayout().new() end,
+      {description = 'change keyboard layout', group = 'awesome'}
+    ),
     --awful.key({ utils.modKey, }, 'w', 
     --    function () mymainmenu:show() end,
     --    {description = 'show main menu', group = 'awesome'}

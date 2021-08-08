@@ -26,6 +26,11 @@ export BROWSER=firefox
 # Use vim as manpage viewer
 #export MANPAGER='vim --not-a-term -R +":set ft=man" -'
 
+# QT5 apps needing icon themes
+export QT_QPA_PLATFORMTHEME=qt5ct
+
 # Define the location of the dotfiles
 export DOTFILES=~/dotfiles
 
+# Rust settings
+export CARGO_PKG_AUTHORS=["Filip Dutescu <filip.dutescu@gmail.com>"]

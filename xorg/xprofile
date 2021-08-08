@@ -42,3 +42,5 @@ then
 	xinput set-prop "$device" "$nat_scroll" 1
 fi
 
+# Set keyboard layouts
+setxkbmap -layout "us,ro,uk"
