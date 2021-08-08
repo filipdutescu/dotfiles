@@ -420,3 +420,8 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 )
 EOF
 
+augroup formatting
+    " Remove old au commands
+    au!
+    autocmd BufWrite * :lua vim.lsp.buf.formatting_sync(nil, 1000)
+augroup END
