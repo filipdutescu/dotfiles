@@ -15,124 +15,124 @@
 @import 'chrome/modules/colours.scss';  
 
 #sp-root {
-  background-color: $background;
-  color: $foreground;
+    background-color: $background;
+    color: $foreground;
 }
 
 /* Header styling */
 
 #sp-header #sp-header-title {
-  color: $color7;
-  font-size: 38px;
-  text-align: center;
+    color: $color7;
+    font-size: 38px;
+    text-align: center;
 
-  width: 500px;
-  min-width: 150px;
-  margin: 5% auto 0px;
+    width: 500px;
+    min-width: 150px;
+    margin: 5% auto 0px;
 }
 
 #sp-root .sp-highlight {
-  color: $color6;
+    color: $color6;
 }
 
 #sp-root .sp-divider {
-  color: rgba($color3, 0.2);
-  background-color: rgba($color3, 0.2);
-  width: 10%;
-  height: 1px;
-  margin: 15px auto;
-  border-radius: 15px;
-  margin: 50px auto;
+    color: rgba($color3, 0.2);
+    background-color: rgba($color3, 0.2);
+    width: 10%;
+    height: 1px;
+    margin: 15px auto;
+    border-radius: 15px;
+    margin: 50px auto;
 }
 
 /* Page content */
 
 #sp-root > #sp-content {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  column-gap: 30px;
-  row-gap: 30px;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
 
-  width: 500px;
-  min-width: 150px;
-  height: 500px;
+    width: 500px;
+    min-width: 150px;
+    height: 500px;
 
-  margin: 0 auto;
+    margin: 0 auto;
 }
 
 /* Tile styling to make them look like buttons */
 
 #sp-root > #sp-content > .sp-tile {
-  transition: 0.25s all;
-  display: block;
+    transition: 0.25s all;
+    display: block;
 
-  position: relative;
-  width: 50px;
-  height: 50px;
+    position: relative;
+    width: 50px;
+    height: 50px;
 }
 
 #sp-root > #sp-content > .sp-tile:hover {
-  box-shadow: 0px 45px 95px -15px rgba($color0, 0.35);
+    box-shadow: 0px 45px 95px -15px rgba($color0, 0.35);
 }
 
 /* Create the rising effect */
 
 #sp-root > #sp-content > .sp-tile > .sp-tile-body,
 #sp-root > #sp-content > .sp-tile > .sp-tile-background {
-  padding: 30px; 
-  border-radius: 15px; 
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: calc(-50% - 4px);
-  top: -58%;
+    padding: 30px; 
+    border-radius: 15px; 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: calc(-50% - 4px);
+    top: -58%;
 }
 
 #sp-root > #sp-content > .sp-tile > .sp-tile-body {
-  transition: 0.15s padding ease-in-out, 0s background;
-  background-color: $background;
+    transition: 0.15s padding ease-in-out, 0s background;
+    background-color: $background;
 }
 
 #sp-root > #sp-content > .sp-tile > .sp-tile-background {
-  background: linear-gradient(0deg, $color1 10%, $color3 85%);
-  top: calc(-58% + 30px);
-  height: 15px;
+    background: linear-gradient(0deg, $color1 10%, $color3 85%);
+    top: calc(-58% + 30px);
+    height: 15px;
 }
 
 #sp-root > #sp-content > .sp-tile:active > .sp-tile-background {
-  background: linear-gradient(0deg, $color2 10%, $color3 85%);
+    background: linear-gradient(0deg, $color2 10%, $color3 85%);
 }
 
 #sp-root > #sp-content > .sp-tile:active > .sp-tile-body,
 #sp-root > #sp-content > .sp-tile:hover > .sp-tile-body {
-  transition: 0.15s padding ease-in-out, 0.25s background ease-in;
-  background-color: $color8;
-  background: linear-gradient(180deg, $color8 0%, $color0 95%);
-  padding-top: 20px;
-  padding-bottom: 20px;
+    transition: 0.15s padding ease-in-out, 0.25s background ease-in;
+    background-color: $color8;
+    background: linear-gradient(180deg, $color8 0%, $color0 95%);
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #sp-root > #sp-content > .sp-tile:active > .sp-tile-body {
-  background: linear-gradient(180deg, $color8 0%, $color0 85%);
+    background: linear-gradient(180deg, $color8 0%, $color0 85%);
 }
 
 /* Icon styling from inside the "button" */
 
 #sp-root > #sp-content > .sp-tile > .sp-tile-body > .sp-tile-icon {
-  transition: 0.25s all;
-  height: 48px;
-  width: 48px;
-  fill: $color4;
-  display: flex;
-  align-content: center;
+    transition: 0.25s all;
+    height: 48px;
+    width: 48px;
+    fill: $color4;
+    display: flex;
+    align-content: center;
 }
 
 #sp-root > #sp-content > .sp-tile:hover > .sp-tile-body > .sp-tile-icon {
-  fill: $color1;
+    fill: $color1;
 }
 
 #sp-root > #sp-content > .sp-tile:active > .sp-tile-body > .sp-tile-icon {
-  fill: $color2;
+    fill: $color2;
 }

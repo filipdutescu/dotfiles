@@ -17,54 +17,54 @@ FF_PROFILE=$(cat ${DOTFILES}/firefox/profile-location.txt)
 
 # Check if the `chrome` directory exists in the Firefox profile directory
 check_chrome_dir() {
-	if [ ! -f ~/.mozilla/firefox/$FF_PROFILE/chrome ]; then
-		mkdir -vp ~/.mozilla/firefox/$FF_PROFILE/chrome
-	fi
+    if [ ! -f ~/.mozilla/firefox/$FF_PROFILE/chrome ]; then
+        mkdir -vp ~/.mozilla/firefox/$FF_PROFILE/chrome
+    fi
 }
 
 # Regenerate `userContent.css` to use new generated colourscheme
 reload_userContent() {
-	check_chrome_dir
-	sass -I "${DOTFILES}/firefox/chrome" "${DOTFILES}/firefox/chrome/userContent.scss" > "${HOME}/.mozilla/firefox/${FF_PROFILE}/chrome/userContent.css"
+    check_chrome_dir
+    sass -I "${DOTFILES}/firefox/chrome" "${DOTFILES}/firefox/chrome/userContent.scss" > "${HOME}/.mozilla/firefox/${FF_PROFILE}/chrome/userContent.css"
 }
 
 # Regenerate `userChrome.css` to use new generated colourscheme
 reload_userChrome() {
-	check_chrome_dir
-	sass -I "${DOTFILES}/firefox/chrome" "${DOTFILES}/firefox/chrome/userChrome.scss" > "${HOME}/.mozilla/firefox/${FF_PROFILE}/chrome/userChrome.css"
+    check_chrome_dir
+    sass -I "${DOTFILES}/firefox/chrome" "${DOTFILES}/firefox/chrome/userChrome.scss" > "${HOME}/.mozilla/firefox/${FF_PROFILE}/chrome/userChrome.css"
 } 
 
 # Update Firefox theme colours
 update_firefox() {
-	reload_userContent
-	reload_userChrome
+    reload_userContent
+    reload_userChrome
 
-	# Ensure all running instances are killed
-	noProcesses=$(pgrep -f firefox | wc -l)
-	pkill -f firefox
-	while pgrep -u $UID -f firefox >/dev/null; do sleep 1; done
+    # Ensure all running instances are killed
+    noProcesses=$(pgrep -f firefox | wc -l)
+    pkill -f firefox
+    while pgrep -u $UID -f firefox >/dev/null; do sleep 1; done
 
-	# Restart if Firefox was open when the theme was changed
-	if [[ $noProcesses -gt 0 ]]; then
-		firefox &
-	fi
+    # Restart if Firefox was open when the theme was changed
+    if [[ $noProcesses -gt 0 ]]; then
+        firefox &
+    fi
 }
 
 # Update Spicetify theme colours
 update_spicetify() {
-	noProcesses=$(pgrep -f spotify | wc -l)
-	spicetify update 
+    noProcesses=$(pgrep -f spotify | wc -l)
+    spicetify update 
 
-	# Restart if Firefox was open when the theme was changed
-	if [[ $noProcesses -gt 0 ]]; then
-		spicetify restart
-	fi
+    # Restart if Firefox was open when the theme was changed
+    if [[ $noProcesses -gt 0 ]]; then
+        spicetify restart
+    fi
 }
 
 main() {
-  xrdb -merge ${DOTFILES}/xorg/Xresources
-	update_firefox
-	update_spicetify
+    xrdb -merge ${DOTFILES}/xorg/Xresources
+    update_firefox
+    update_spicetify
 }
 
 main

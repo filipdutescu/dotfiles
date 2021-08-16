@@ -34,22 +34,22 @@ $$ |  $$\ $$ |  $$ |$$ |  $$ | $$ |$$\ $$   ____| $$  $$<    $$ |$$\       $$ |\
 --]]
 
 local contextMenu = awful.menu {
-	items = {
-		{ 'awesome',
-		 {
-			 { 'hotkeys', function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-			 { 'manual', apps.terminal .. " -e man awesome" },
-			 { 'edit config', apps.editor_cmd .. " " .. awesome.conffile },
-			 { 'restart', awesome.restart },
-			 { 'quit', function() awesome.quit() end },
-		 },
-		 beautiful.awesome_icon
-		},
-		{
-		 'open terminal',
-		 apps.terminal
-		}
-	}
+    items = {
+        { 'awesome',
+            {
+                { 'hotkeys', function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+                { 'manual', apps.terminal .. " -e man awesome" },
+                { 'edit config', apps.editor_cmd .. " " .. awesome.conffile },
+                { 'restart', awesome.restart },
+                { 'quit', function() awesome.quit() end },
+            },
+            beautiful.awesome_icon
+        },
+        {
+            'open terminal',
+            apps.terminal
+        }
+    }
 }
 
 
@@ -68,11 +68,11 @@ $$$$$$$$\\$$$$$$$ |\$$$$$$  |$$ |  $$ |\$$$$$$$\ $$ |  $$ |\$$$$$$$\ $$ |
 --]]
 
 local launcher = awful.widget.launcher {
-	image = beautiful.awesome_icon,
-	menu = contextMenu
- }
+    image = beautiful.awesome_icon,
+    menu = contextMenu
+}
 
 return {
-	launcher = launcher,
-	contextMenu = contextMenu
+    launcher = launcher,
+    contextMenu = contextMenu
 }

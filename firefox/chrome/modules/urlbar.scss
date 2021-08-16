@@ -14,32 +14,32 @@
 
 /* Selected tab and url bar selected row colouring */
 .urlbarView-row:not([type="tip"]):not([type="dynamic"])[selected] > .urlbarView-row-inner {
-	background-color: $color2 !important;
+    background-color: $color2 !important;
 }
 
 /* Url bar border to match tab colouring accent */
 #urlbar[focused="true"] > #urlbar-background,
 #searchbar:focus-within, 
 #urlbar[focused="true"] > #urlbar-input-container {
-	border-color: $color2 !important;
-  box-shadow: none !important;
+    border-color: $color2 !important;
+    box-shadow: none !important;
 } 
 
 #urlbar[focused="true"]:is([open="true"]) > #urlbar-input-container {
-	border-bottom: none !important;
+    border-bottom: none !important;
 }
 
 #identity-icon {
-  fill: $color2 !important;
+    fill: $color2 !important;
 }
 
 #identity-icon:hover {
-  fill: $color7 !important;
+    fill: $color7 !important;
 }
 
 /* Match url bar row and tab text colour with accent */
 .urlbarView-url {
-	color: $color2 !important;
+    color: $color2 !important;
 }
 
 .urlbarView-row[selected] > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action, .urlbarView-row[selected] > .urlbarView-row-inner > .urlbarView-url {
@@ -48,106 +48,106 @@
 
 /* Background colour of the url bar */
 .browser-toolbar:not(.titlebar-color) {
-	background-image: none !important;
-	background-color: transparent !important;
+    background-image: none !important;
+    background-color: transparent !important;
 }
 
 /* Url bar text colour */
 #urlbar:-moz-lwtheme, #navigator-toolbox #searchbar:-moz-lwtheme {
-	color: $foreground !important;
+    color: $foreground !important;
 }
 
 /* Url bar background colour */
 #urlbar-input-container {
-	background-color: $background !important;
+    background-color: $background !important;
 }
 
 /* Dropdown shadow */
 #urlbar[breakout][breakout-extend][open] > #urlbar-background {
-	box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 /* Dropdown background colour */
 #urlbar:-moz-lwtheme > #urlbar-background, #navigator-toolbox #searchbar:-moz-lwtheme {
-	background-color: $background !important;
+    background-color: $background !important;
 }
 
 /* Dropdown borders */
 .urlbarView-body-inner {
-	border: none !important;
+    border: none !important;
 }
 
 #urlbar:not([focused="true"]):-moz-lwtheme > #urlbar-background,
 #navigator-toolbox #searchbar:not(:focus-within):-moz-lwtheme {
-	border: none !important;
+    border: none !important;
 }
 
 /* All the other buttons */
 .toolbarbutton-animatable-box, 
 .toolbarbutton-1 {
-  transition: 0.15s all !important;
-	fill: $color4 !important;
+    transition: 0.15s all !important;
+    fill: $color4 !important;
 }
 
 /* Hover background colours */
 $tbbhoverButton: rgba($color9, 0.7);
 .toolbarbutton-1 { 
-	/*--toolbarbutton-hover-background: #{$tbbhoverButton} !important; */
-	--toolbarbutton-hover-background: none !important; 
-	border: 0px !important; 
-	border-radius: 0px !important; 
-	--toolbarbutton-active-background: none !important; 
-	border-radius: 0px !important; 
+    /*--toolbarbutton-hover-background: #{$tbbhoverButton} !important; */
+    --toolbarbutton-hover-background: none !important; 
+    border: 0px !important; 
+    border-radius: 0px !important; 
+    --toolbarbutton-active-background: none !important; 
+    border-radius: 0px !important; 
 }
 
 .toolbarbutton-1:hover, 
 .toolbarbutton-1[open="true"],
 .toolbarbutton-1:hover:active { 
-	fill: $color9 !important;	
+    fill: $color9 !important;	
 }
 
 .urlbar-icon:not([disabled]):hover,
 .urlbar-icon-wrapper:not([disabled]):hover {
-	background-color: rgba($color5, 0.7) !important;
-	/*fill: $color3 !important;*/
-	border-radius: 0px !important;
-	border: 0px !important;
+    background-color: rgba($color5, 0.7) !important;
+    /*fill: $color3 !important;*/
+    border-radius: 0px !important;
+    border: 0px !important;
 }
 
 .urlbar-icon[open],
 .urlbar-icon-wrapper[open],
 .urlbar-icon:not([disabled]):hover:active,
 .urlbar-icon-wrapper:hover:active {
-	background-color: $color5 !important;
-	/*fill: $color3 !important;*/
-	border-radius: 0px !important;
+    background-color: $color5 !important;
+    /*fill: $color3 !important;*/
+    border-radius: 0px !important;
 }
 
 .urlbar-icon-wrapper[open]>.urlbar-icon,
 .urlbar-icon-wrapper>.urlbar-icon:hover,
 .urlbar-icon-wrapper>.urlbar-icon:hover:active {
-	background-color: rgba($color5, 0.7) !important;
-	/*fill: $color3 !important;*/
-	border-radius: 0px !important;
+    background-color: rgba($color5, 0.7) !important;
+    /*fill: $color3 !important;*/
+    border-radius: 0px !important;
 }
 
 #identity-box:hover:not(.no-hover):not([open=true]),
 #tracking-protection-icon-container:hover:not([open=true]) {
-  background-color: $color5 !important;
+    background-color: $color5 !important;
 }
 
 /* Protection's panel */
 #protections-popup-mainView-panel-header-section {
-  color: $foreground !important;
-  background: radial-gradient(circle farthest-side at top right, $color6, $color1) !important;
+    color: $foreground !important;
+    background: radial-gradient(circle farthest-side at top right, $color6, $color1) !important;
 }
 
 .protections-popup-tp-switch[enabled]:hover {
-	background-color: $color5 !important;
+    background-color: $color5 !important;
 }
 
 .protections-popup-tp-switch[enabled] {
-	background-color: $color6 !important;
+    background-color: $color6 !important;
 }
 
 /* Fix colour of other text on the protection's panel */
@@ -157,32 +157,32 @@ $tbbhoverButton: rgba($color9, 0.7);
 #protections-popup-trackers-blocked-counter-description,
 #protections-popup-footer-protection-type-label,
 #protections-popup-no-trackers-found-description {
-	color: $foreground !important;
+    color: $foreground !important;
 }
 
 /* More info button from protection's panel */
 .panel-footer > xul|button:not([disabled]):hover {
-	background-color: $color5 !important;
+    background-color: $color5 !important;
 }
 
 .panel-footer {
-	background-color: $color1 !important;
+    background-color: $color1 !important;
 }
 
 .panel-footer > xul|button {
-	border-top: 1px solid $foreground !important;
+    border-top: 1px solid $foreground !important;
 }
 
 /* What's new panel */
 #PanelUI-whatsNew .text-link {
-	color: $color5 !important;
+    color: $color5 !important;
 }
 
 #PanelUI-whatsNew .whatsNew-message-date {
-	background: $color1 !important;
+    background: $color1 !important;
 }
 
 /* Remove border bellow navbar*/
 #navigator-toolbox {
-  border-bottom: none !important;
+    border-bottom: none !important;
 }

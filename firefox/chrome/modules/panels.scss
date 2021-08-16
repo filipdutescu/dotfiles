@@ -13,54 +13,54 @@
  */
 
 panelview {
-	background: $background !important;
+    background: $background !important;
 }
 
 /* Arrow colour */
 .panel-arrowcontainer > .panel-arrowbox > .panel-arrow,
 :-moz-any(panel, menupopup)::part(arrow) {
-	fill: $background !important;
-	stroke: $color1 !important;
+    fill: $background !important;
+    stroke: $color1 !important;
 }
 
 .panel-arrowcontent {
-	color: $foreground !important;
-	border: 1px solid $color1 !important;
-	box-shadow: none !important;
-	/*border-radius: 7px !important;*/
+    color: $foreground !important;
+    border: 1px solid $color1 !important;
+    box-shadow: none !important;
+    /*border-radius: 7px !important;*/
 }
 
 /* Send Tab to Device */
 .subviewbutton[disabled="true"] {
-   color: $foreground !important;
-	 opacity: 0.8 !important;
+    color: $foreground !important;
+    opacity: 0.8 !important;
 }
 
 /* User icon */
 #fxa-menu-avatar {
-	fill: $foreground !important;
+    fill: $foreground !important;
 }
 
 /* Header for profile section thing in panel */
 #fxa-menu-header-title,
 #fxa-menu-service-label,
 #fxa-menu-header-description {
-	color: $foreground !important;
+    color: $foreground !important;
 }
 
 #fxa-menu-header-description,
 #fxa-menu-service-label {
-	opacity: 0.6 !important;
+    opacity: 0.6 !important;
 }
 
 /* Bookmarks show all button */
 .subviewbutton.panel-subview-footer {
-	border-top: 1px solid $foreground !important;
-	background-color: $color1 !important;
+    border-top: 1px solid $foreground !important;
+    background-color: $color1 !important;
 }
 
 .subviewbutton.panel-subview-footer:hover {
-	background-color: $color1 !important;
+    background-color: $color1 !important;
 }
 
 /* Pannel buttons hover colour */
@@ -72,12 +72,12 @@ menuitem.subviewbutton:not(:-moz-any([disabled], :active))[_moz-menuactive],
 .widget-overflow-list .toolbarbutton-1:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus),
 .toolbaritem-combined-buttons:-moz-any(:not([cui-areatype="toolbar"]),
 [overflowedItem="true"]) > toolbarbutton:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus) {
-  background: none !important;
-  padding-left: 16px !important;
-	color: $color1 !important;
+    background: none !important;
+    padding-left: 16px !important;
+    color: $color1 !important;
 }
 
 toolbarbutton.subviewbutton:not(:-moz-any([disabled], [open], :active)):-moz-any(:hover, :focus) {
-  background-color: $color5 !important;
-	color: $foreground !important;
+    background-color: $color5 !important;
+    color: $foreground !important;
 }

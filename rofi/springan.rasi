@@ -46,14 +46,14 @@
 
 #window {
     background-color: rgba(0, 0, 0, 0);
-		transparency: "screenshot";
-		width: 42%;
+        transparency: "screenshot";
+        width: 42%;
     height: 37%;
 }
 
 #mainbox {
     border: 1px;
-		border-radius: 15px;
+        border-radius: 15px;
     padding: 2.5ch;
 }
 
@@ -92,13 +92,13 @@
 }
 
 #element-text {
-	vertical-align: 0.5;
+    vertical-align: 0.5;
 }
 
 #element-icon {
-	size: 4.0ch;
-	vertical-align: 0.5;
-	horizontal-align: 0.5;
+    size: 4.0ch;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
 }
 
 #element.normal.normal {

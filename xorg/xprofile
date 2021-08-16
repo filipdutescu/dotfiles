@@ -33,13 +33,13 @@ nat_scroll="libinput Natural Scrolling Enabled"
 # Set tapping
 if [ -n "$tap" ]
 then
-	xinput set-prop "$device" "$tap" 1
+    xinput set-prop "$device" "$tap" 1
 fi
 
 # Set natural scrolling
 if [ -n "$nat_scroll" ]
 then
-	xinput set-prop "$device" "$nat_scroll" 1
+    xinput set-prop "$device" "$nat_scroll" 1
 fi
 
 # Set keyboard layouts

@@ -11,7 +11,7 @@
 #   \______/                                                            \______/ 
 
 [user]
-	email = filip.dutescu@gmail.com
-	name = Filip Dutescu
+    email = filip.dutescu@gmail.com
+    name = Filip Dutescu
 [pull]
-	rebase = false
+    rebase = false

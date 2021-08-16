@@ -15,25 +15,25 @@
 @import 'modules/colours.scss';  
 
 #sp-root {
-  background-color: $background;
-  color: $foreground;
+    background-color: $background;
+    color: $foreground;
 }
 
 #sp-root > #sp-content {
-  display: flex;
-  align-content: space-around;
+    display: flex;
+    align-content: space-around;
 }
 
 #sp-root > #sp-content > .sp-tile {
-  background-color: $color8;
-  margin: auto;
+    background-color: $color8;
+    margin: auto;
 }
 
 #sp-root > #sp-content > .sp-tile > .sp-tile-body > .sp-tile-label >.sp-tile-icon  {
-  height: 48px;
-  width: 48px;
+    height: 48px;
+    width: 48px;
 }
 
 #sp-root > #sp-content > .sp-tile > .sp-tile-body > .sp-tile-label > .sp-tile-icon > svg {
-  fill: $color7;
+    fill: $color7;
 }

@@ -19,10 +19,10 @@ local	browser = os.getenv('BROWSER') or 'firefox'
 local power_manager = 'xfce4-power-manager-settings'
 
 return {
-	terminal = terminal,
-	editor = editor,
-	editor_cmd = editor_cmd,
-	browser = browser,
-  power_manager = power_manager
+    terminal = terminal,
+    editor = editor,
+    editor_cmd = editor_cmd,
+    browser = browser,
+    power_manager = power_manager
 }
 

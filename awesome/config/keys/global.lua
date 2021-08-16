@@ -232,37 +232,37 @@ globalKeys = gears.table.join(globalKeys,
     -- Volume Keys
     awful.key({}, 'XF86AudioLowerVolume',
         function () awful.util.spawn('pamixer -d 5', false) end,
-				{}
-		),
+        {}
+	),
     awful.key({}, 'XF86AudioRaiseVolume',
         function () awful.util.spawn('pamixer -i 5', false) end,
-				{}
+        {}
     ),
     awful.key({}, 'XF86AudioMute', 
         function () awful.util.spawn('pactl set-sink-mute @DEFAULT_SINK@ toggle', false) end,
-				{}
+        {}
     ),
     awful.key({}, 'XF86AudioMicMute', 
         function () awful.util.spawn('pactl set-source-mute @DEFAULT_SOURCE@ toggle', false) end,
-				{}
+        {}
     ),
    
     -- Media Keys
     awful.key({}, 'XF86AudioPlay',
         function() awful.util.spawn('playerctl play-pause', false) end,
-				{}
+        {}
     ),
     awful.key({}, 'XF86AudioStop',
         function() awful.util.spawn('playerctl stop', false) end,
-				{}
+        {}
     ),
     awful.key({}, 'XF86AudioNext', 
         function() awful.util.spawn('playerctl next', false) end,
-				{}
+        {}
     ),
     awful.key({}, 'XF86AudioPrev',
         function() awful.util.spawn('playerctl previous', false) end,
-				{}
+        {}
     )
 )
 
@@ -284,11 +284,11 @@ $$$$$$$  |$$ |      $$ |\$$$$$$$ |$$ |  $$ | \$$$$  |$$ |  $$ |\$$$$$$$\ $$$$$$$
 globalKeys = gears.table.join(globalKeys,
     awful.key({}, 'XF86MonBrightnessUp',
         function() awful.util.spawn('light -A 5') end,
-				{}
+        {}
     ),
     awful.key({}, 'XF86MonBrightnessDown',
         function() awful.util.spawn('light -U 5') end,
-				{}
+        {}
     )
 )
 

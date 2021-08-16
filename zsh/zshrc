@@ -30,9 +30,9 @@ compinit -d ${DOTFILES}/.cache/zsh/zcompdump-${ZSH_VERSION}
 #                           \______/
 
 plugins=(
-	git
-	zsh-autosuggestions
-	zsh-syntax-highlighting
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 
@@ -116,7 +116,6 @@ alias grep="grep --color=auto"
 alias la="ls -lA --color=auto"
 alias ll="ls -l --color=auto"
 alias ls="ls --color=auto"
-alias retheme="/bin/sh '$DOTFILES'/scripts/update-configs"
 alias v="nvim"
 alias sudo="sudo "
 alias szsh="source ${HOME}/.zshrc"
@@ -155,22 +154,22 @@ alias tag="git tag"
 
 # Git add all files in current directory and commit
 comall() {    
-	if [ -n "$1" ]
-       	then
-		git add . && git commit -m "$1"
-	else
-		echo "Error: Cannot push without a commit message."
-	fi
+    if [ -n "$1" ]
+    then
+        git add . && git commit -m "$1"
+    else
+        echo "Error: Cannot push without a commit message."
+    fi
 }
 
 # Git add, commit and push all files in current directory
 compush() {   
-	if [ -n "$1" ]
-       	then
-		git add . && git commit -m "$1" && git push
-	else
-		echo "Error: Cannot push without a commit message."
-	fi
+    if [ -n "$1" ]
+    then
+        git add . && git commit -m "$1" && git push
+    else
+        echo "Error: Cannot push without a commit message."
+    fi
 }
 
 

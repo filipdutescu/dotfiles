@@ -17,29 +17,29 @@ local gears = require('gears')
 local wibox = require('wibox')
 
 local createBar = function(screen, position, widgets)
-	local bar = awful.wibar {
-		position = position,
-		screen = screen
-	}
+    local bar = awful.wibar {
+        position = position,
+        screen = screen
+    }
 
-	bar:setup(widgets)
+    bar:setup(widgets)
 
-	return bar
+    return bar
 end
 
 
 local createTags = function(screen, tags)
-	for i, t in pairs(tags) do
-		t.screen = screen
-		t.layout = t.layout or awful.layout.suit.tile
-		t.icon_only = t.icon_only or false
+    for i, t in pairs(tags) do
+        t.screen = screen
+        t.layout = t.layout or awful.layout.suit.tile
+        t.icon_only = t.icon_only or false
 
-		awful.tag.add(t.name, t)
-	end
+        awful.tag.add(t.name, t)
+    end
 end
 
 
 return {
-	createBar = createBar,
-	createTags = createTags
+    createBar = createBar,
+    createTags = createTags
 }

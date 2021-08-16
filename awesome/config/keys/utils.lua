@@ -14,7 +14,7 @@ $$\   $$ |$$ |  $$ |$$   ____|$$ |      $$ |$$  __$$ |$$ |      $$ |\$$\ $$   __
 
 return {
     modKey = 'Mod4',
-		altKey = 'Mod1',
+    altKey = 'Mod1',
     shiftKey = 'Shift',
     controlKey = 'Control'
 }

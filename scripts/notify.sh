@@ -1,136 +1,136 @@
 #!/bin/bash
 
 usage() {
-  cat <<EOF
+    cat <<EOF
 Usage:
-  notify [options ...] <title> <description>
+    notify [options ...] <title> <description>
 
 Send a notification using a supported utility, such as 'libnotify' (default).
 
 Options:
-  -h, --help                Display this message and exit
-  -i, --icon <file>         Icon to show in the notification (<file> can be a path, name etc.)
-  -a, --audio <file>        Audio clip to play with the notification (<file> can be a path, name etc.)
+    -h, --help                Display this message and exit
+    -i, --icon <file>         Icon to show in the notification (<file> can be a path, name etc.)
+    -a, --audio <file>        Audio clip to play with the notification (<file> can be a path, name etc.)
 
 Examples:
-  notify 'Hello' 'World!'
+    notify 'Hello' 'World!'
 EOF
 }
 
 error() {
-  cat <<EOF
+    cat <<EOF
 [ERROR] notify: $1
 Try 'notify --help' for more information.
 EOF
-  exit 1
+    exit 1
 }
 
 assign_parameter_value() {
-  if [ "$icon" == "-1" ]; then
-    icon=$1
-  elif [ "$audio" == "-1" ]; then
-    audio=$1
-  elif ! [ -n "$title" ]; then
-    title="$1"
-  else
-    if [ -n "$description" ]; then
-      description="$description"
+    if [ "$icon" == "-1" ]; then
+        icon=$1
+    elif [ "$audio" == "-1" ]; then
+        audio=$1
+    elif ! [ -n "$title" ]; then
+        title="$1"
+    else
+        if [ -n "$description" ]; then
+            description="$description"
+        fi
+        description="$1"
     fi
-    description="$1"
-  fi
 }
 
 validate_parameters() {
-  if ! [ -n "$title" ]; then
-    error "Missing <title> from the received parameters."
-  fi
+    if ! [ -n "$title" ]; then
+        error "Missing <title> from the received parameters."
+    fi
 
-  if [ "$icon" == "-1" ]; then
-    error "Missing <file> required by the '-i/--icon' flag."
-  fi
+    if [ "$icon" == "-1" ]; then
+        error "Missing <file> required by the '-i/--icon' flag."
+    fi
 
-  if [ "$audio" == "-1" ]; then
-    error "Missing <file> required by the '-a/--audio' flag."
-  fi
+    if [ "$audio" == "-1" ]; then
+        error "Missing <file> required by the '-a/--audio' flag."
+    fi
 }
 
 send_notification() {
-  if ! [ -x "$(command -v notify-send)" ]; then
-    echo "[FATAL] notify: Failed to find 'libnotify'."
-    exit 1
-  fi
-
-  action="/usr/bin/notify-send \"$1\" \"$2\""
-  if [ -n "$icon" ]; then
-    action="$action -i $icon"
-  fi
-
-  for session in $(loginctl list-sessions --no-legend | awk '{printf "%s:%s\n", $2, $3}'); do
-    session_id=$(echo $session | cut -d':' -f1)
-    session_user=$(echo $session | cut -d':' -f2)
- 
-    export XAUTHORITY="/home/$session_user/.Xauthority"
-    export DBUS_SESSION_BUS_ADDRESS=unix:path="/run/user/$session_id/bus"
-
-    if [ -n "$audio" ]; then
-      if [ -x "$(command -v paplay)" ]; then
-        play_audio="/usr/bin/paplay $audio --server=/run/user/$session_id/pulse/native"
-      elif [ -x "$(command -v aplay)" ]; then
-        play_audio="/usr/bin/aplay $audio"
-      fi
-
-      if ! [ -n "$play_audio" ]; then
-        echo "[WARN] notify: Could not detect either ALSA or PluseAudio for playing sounds."
+    if ! [ -x "$(command -v notify-send)" ]; then
+        echo "[FATAL] notify: Failed to find 'libnotify'."
         exit 1
-      fi
-
-    action="$action && $play_audio"
     fi
 
-    /usr/bin/su $session_user -c "$action"
-  done
+    action="/usr/bin/notify-send \"$1\" \"$2\""
+    if [ -n "$icon" ]; then
+        action="$action -i $icon"
+    fi
+
+    for session in $(loginctl list-sessions --no-legend | awk '{printf "%s:%s\n", $2, $3}'); do
+        session_id=$(echo $session | cut -d':' -f1)
+        session_user=$(echo $session | cut -d':' -f2)
+     
+        export XAUTHORITY="/home/$session_user/.Xauthority"
+        export DBUS_SESSION_BUS_ADDRESS=unix:path="/run/user/$session_id/bus"
+
+        if [ -n "$audio" ]; then
+            if [ -x "$(command -v paplay)" ]; then
+                play_audio="/usr/bin/paplay $audio --server=/run/user/$session_id/pulse/native"
+            elif [ -x "$(command -v aplay)" ]; then
+                play_audio="/usr/bin/aplay $audio"
+            fi
+
+            if ! [ -n "$play_audio" ]; then
+                echo "[WARN] notify: Could not detect either ALSA or PluseAudio for playing sounds."
+                exit 1
+            fi
+
+            action="$action && $play_audio"
+        fi
+
+        /usr/bin/su $session_user -c "$action"
+    done
 }
 
 main() {
-  if [ $# -lt "1" ]; then
-    usage
-    exit 0
-  fi
-
-  backend="libnotify"
-  title=""
-  description=""
-
-  for i in "$@"
-  do
-    case $i in
-      -h | --help)
+    if [ $# -lt "1" ]; then
         usage
         exit 0
-      ;;
-      -i | --icon)
-        icon=-1
-      ;;
-      -a | --audio)
-        audio=-1
-      ;;
-      -*)
-        cat <<EOF
+    fi
+
+    backend="libnotify"
+    title=""
+    description=""
+
+    for i in "$@"
+    do
+        case $i in
+            -h | --help)
+                usage
+                exit 0
+            ;;
+            -i | --icon)
+                icon=-1
+            ;;
+            -a | --audio)
+                audio=-1
+            ;;
+            -*)
+                cat <<EOF
 [ERROR] notify: invalid option -- '$i'
 Try 'notify --help' for more information.
 EOF
-        exit 1
-      ;;
-      *)
-        assign_parameter_value "$i"
-      ;;
-    esac
-  done
+                exit 1
+            ;;
+            *)
+                assign_parameter_value "$i"
+            ;;
+        esac
+    done
 
-  validate_parameters
-  send_notification "$title" "$description"
+    validate_parameters
+    send_notification "$title" "$description"
 
-  exit 0
+    exit 0
 }
 
 main "$@"

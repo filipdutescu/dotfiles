@@ -8,8 +8,8 @@ client.connect_signal('manage', function (c)
     -- if not awesome.startup then awful.client.setslave(c) end
 
     if awesome.startup
-      and not c.size_hints.user_position
-      and not c.size_hints.program_position then
+        and not c.size_hints.user_position
+        and not c.size_hints.program_position then
         -- Prevent clients from being unreachable after screen count changes.
         awful.placement.no_offscreen(c)
     end
@@ -18,11 +18,11 @@ end)
 -- Normally we'd do this with a rule, but Spotify doesn't set its class or name
 -- until after it starts up, so we need to catch that signal.
 client.connect_signal('property::class', function(c)
-  if c.class == 'Spotify' then
-    -- Move the Spotify instance to 'music' tag on this screen
-    local t = awful.tag.find_by_name(awful.screen.focused(), '4')
-    c:move_to_tag(t)
-  end
+    if c.class == 'Spotify' then
+        -- Move the Spotify instance to 'music' tag on this screen
+        local t = awful.tag.find_by_name(awful.screen.focused(), '4')
+        c:move_to_tag(t)
+    end
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
