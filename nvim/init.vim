@@ -92,7 +92,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'alvan/vim-closetag'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-fugitive'
 
@@ -105,8 +105,9 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " need nvim nightly or 0.5+
 "Plug 'nvim-lua/popup.nvim'
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 " Collection of common configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
 " Extensions to built-in LSP, for example, providing type inlay hints
@@ -334,10 +335,10 @@ inoremap <silent> <C-b> <ESC>:call ToggleExplorer()<CR>
 nnoremap <leader>ot :terminal<cr>i
 
 " fzf.vim
-nnoremap <leader>ff :Files<cr>
-nnoremap <leader>fG :GFiles<cr>
-nnoremap <leader>fg :Rg<cr>
-nnoremap <leader>fb :Buffers<cr>
+"nnoremap <leader>ff :Files<cr>
+"nnoremap <leader>fG :GFiles<cr>
+"nnoremap <leader>fg :Rg<cr>
+"nnoremap <leader>fb :Buffers<cr>
 
 " vim-fugitive
 
@@ -347,10 +348,17 @@ nnoremap <leader>gh :diffget //3<cr>
 
 " Telescope.nvim
 
-"nnoremap <leader>ff :lua require('telescope.builtin').find_files()<cr>
-"nnoremap <leader>fg :lua require('telescope.builtin').live_grep()<cr>
-"nnoremap <leader>fb :lua require('telescope.builtin').buffers()<cr>
-"nnoremap <leader>fh :lua require('telescope.builtin').help_tags()<cr>
+lua <<EOF
+require('telescope').load_extension('fzy_native')
+EOF
+
+nnoremap <leader>ff :lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg :lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fG :lua require('telescope.builtin').git_files()<cr>
+nnoremap <leader>fb :lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh :lua require('telescope.builtin').help_tags()<cr>
+
+hi default link TelescopeSelection Number
 
 " LSP
 
@@ -362,21 +370,21 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 imap <C-Space> <Plug>(completion_smart_tab)
 
 " Code navigation shortcuts
-nnoremap <silent> gd            <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gd            <cmd>lua require('telescope.builtin').lsp_definitions()<CR>
 nnoremap <silent> K             <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gi            <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gi            <cmd>lua require('telescope.builtin').lsp_implementations()<CR>
 nnoremap <silent> <c-k>         <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> 1gD           <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr            <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gr            <cmd>lua require('telescope.builtin').lsp_references()<CR>
 nnoremap <silent> g0            <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW            <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gD            <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> ga            <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> ga            <cmd>lua require('telescope.builtin').lsp_code_actions()<CR>
 nnoremap <silent> <leader>rn    <cmd>lua vim.lsp.buf.rename()<CR>
 
 " Diagnostics
 
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+"autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
@@ -414,9 +422,9 @@ nvim_lsp.rust_analyzer.setup {
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    signs = true,
-    update_in_insert = true,
+        virtual_text = true,
+        signs = true,
+        update_in_insert = true,
     }
 )
 EOF
@@ -424,5 +432,7 @@ EOF
 augroup formatting
     " Remove old au commands
     au!
-    autocmd BufWrite * :lua vim.lsp.buf.formatting_sync(nil, 1000)
+    "autocmd BufWrite * :lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * :lua vim.lsp.buf.formatting_sync(nil, 1000)
+
 augroup END
