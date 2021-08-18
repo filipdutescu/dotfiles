@@ -390,49 +390,14 @@ nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 " Inline hints
-autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
-            \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
+"autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
+"            \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
 
-" Configure LSP
-
-" Rust
-
-lua <<EOF
-
--- nvim_lsp object
-local nvim_lsp = require'lspconfig'
-
--- function to attach completion when setting up lsp
-local on_attach = function(client)
-require'completion'.on_attach(client)
-end
-
--- Enable rust_analyzer
-nvim_lsp.rust_analyzer.setup {
-    on_attach = on_attach,
-    settings = {
-        ["rust-analyzer"] = {
-            rustfmt = {
-                extraArgs = { "+nightly", },
-                },
-            }
-        }
-    }
-
--- Enable diagnostics
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true,
-        signs = true,
-        update_in_insert = true,
-    }
-)
-EOF
+lua require('filipdutescu')
 
 augroup formatting
     " Remove old au commands
     au!
-    "autocmd BufWrite * :lua vim.lsp.buf.formatting_sync(nil, 1000)
-    autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * :lua vim.lsp.buf.formatting_sync(nil, 1000)
-
+    autocmd BufWritePre * :lua vim.lsp.buf.formatting_sync(nil, 1000)
+    "autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * :lua vim.lsp.buf.formatting_sync(nil, 1000)
 augroup END

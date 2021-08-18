@@ -19,6 +19,7 @@ export TERMINAL=alacritty
 # Use Neovim as default text editor
 export EDITOR=nvim
 export VISUAL=nvim
+export VIMRUNTIME=/usr/share/nvim/runtime
 
 # Use FireFox as default browser
 export BROWSER=firefox

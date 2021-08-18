@@ -1,4 +1,0 @@
-{
-  "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
-  "clangd.semanticHighlighting": true
-}
