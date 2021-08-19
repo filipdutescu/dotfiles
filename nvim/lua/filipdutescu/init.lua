@@ -1,1 +1,1 @@
-require('filipdutescu.lsp')
+require'filipdutescu.lsp'

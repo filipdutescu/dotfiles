@@ -349,7 +349,7 @@ nnoremap <leader>gh :diffget //3<cr>
 " Telescope.nvim
 
 lua <<EOF
-require('telescope').load_extension('fzy_native')
+require'telescope'.load_extension'fzy_native'
 EOF
 
 nnoremap <leader>ff :lua require('telescope.builtin').find_files()<cr>
@@ -384,16 +384,11 @@ nnoremap <silent> <leader>rn    <cmd>lua vim.lsp.buf.rename()<CR>
 
 " Diagnostics
 
-"autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 " Goto previous/next diagnostic warning/error
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
-" Inline hints
-"autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
-"            \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
-
-lua require('filipdutescu')
+lua require'filipdutescu'
 
 augroup formatting
     " Remove old au commands
