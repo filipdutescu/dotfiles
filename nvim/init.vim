@@ -346,20 +346,6 @@ nnoremap <leader>gs :G<cr>
 nnoremap <leader>gf :diffget //2<cr>
 nnoremap <leader>gh :diffget //3<cr>
 
-" Telescope.nvim
-
-lua <<EOF
-require'telescope'.load_extension'fzy_native'
-EOF
-
-nnoremap <leader>ff :lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg :lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fG :lua require('telescope.builtin').git_files()<cr>
-nnoremap <leader>fb :lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh :lua require('telescope.builtin').help_tags()<cr>
-
-hi default link TelescopeSelection Number
-
 " LSP
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
