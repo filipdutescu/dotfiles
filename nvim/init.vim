@@ -91,9 +91,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'alvan/vim-closetag'
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
-
 Plug 'tpope/vim-fugitive'
 
 Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -102,6 +99,8 @@ Plug 'maxmellon/vim-jsx-pretty'
 
 Plug 'filipdutescu/springan.vim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+Plug 'puremourning/vimspector'
 
 " need nvim nightly or 0.5+
 "Plug 'nvim-lua/popup.nvim'
@@ -114,6 +113,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/lsp_extensions.nvim'
 " Autocompletion framework for built-in LSP
 Plug 'nvim-lua/completion-nvim'
+Plug 'windwp/nvim-autopairs'
 
 call plug#end()
 
@@ -158,6 +158,11 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 let g:closetag_close_shortcut = '<leader>>'
 
+" vimspector
+
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
+
 " Hexokinase config
 
 if &termguicolors
@@ -174,11 +179,6 @@ if &termguicolors
 
     let g:Hexokinase_highlighters = ['backgroundfull']
 endif
-
-" fzf.vim
-
-let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.7 } }
-let g:fzf_preview_window = []
 
 " springan.vim
 
@@ -328,23 +328,23 @@ endfunction
 "                      \______/                         \__|
 
 " Map Ctrl+b as the command to open Netrw
-map <silent> <C-b> :call ToggleExplorer()<CR>
-inoremap <silent> <C-b> <ESC>:call ToggleExplorer()<CR>
+map <silent> <C-b> <cmd>call ToggleExplorer()<CR>
+inoremap <silent> <C-b> <ESC><cmd>call ToggleExplorer()<CR>
 
 " terminal
-nnoremap <leader>ot :terminal<cr>i
-
-" fzf.vim
-"nnoremap <leader>ff :Files<cr>
-"nnoremap <leader>fG :GFiles<cr>
-"nnoremap <leader>fg :Rg<cr>
-"nnoremap <leader>fb :Buffers<cr>
+nnoremap <leader>ot <cmd>terminal<cr>i
 
 " vim-fugitive
 
-nnoremap <leader>gs :G<cr>
-nnoremap <leader>gf :diffget //2<cr>
-nnoremap <leader>gh :diffget //3<cr>
+nnoremap <leader>gs <cmd>G<cr>
+nnoremap <leader>gf <cmd>diffget //2<cr>
+nnoremap <leader>gh <cmd>diffget //3<cr>
+
+" vimspector
+
+nnoremap <silent> <leader>dr <cmd>VimspectorReset<cr>
+nmap <leader>di <Plug>VimspectorBalloonEval
+xmap <leader>di <Plug>VimspectorBalloonEval
 
 " LSP
 
@@ -379,6 +379,5 @@ lua require'filipdutescu'
 augroup formatting
     " Remove old au commands
     au!
-    autocmd BufWritePre * :lua vim.lsp.buf.formatting_sync(nil, 1000)
-    "autocmd InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * :lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd InsertLeave,BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
 augroup END
