@@ -92,6 +92,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'alvan/vim-closetag'
 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'pangloss/vim-javascript'
