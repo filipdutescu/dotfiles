@@ -92,7 +92,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'alvan/vim-closetag'
 
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
 
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'pangloss/vim-javascript'
@@ -115,6 +114,7 @@ Plug 'nvim-lua/lsp_extensions.nvim'
 " Autocompletion framework for built-in LSP
 Plug 'nvim-lua/completion-nvim'
 Plug 'windwp/nvim-autopairs'
+Plug 'b3nj5m1n/kommentary'
 
 call plug#end()
 
