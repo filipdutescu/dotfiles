@@ -100,9 +100,8 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'filipdutescu/springan.vim'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-Plug 'puremourning/vimspector'
-
 " need nvim nightly or 0.5+
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -115,6 +114,8 @@ Plug 'nvim-lua/lsp_extensions.nvim'
 Plug 'nvim-lua/completion-nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'b3nj5m1n/kommentary'
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
 
 call plug#end()
 
@@ -158,11 +159,6 @@ let g:closetag_regions = {
 let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 let g:closetag_close_shortcut = '<leader>>'
-
-" vimspector
-
-let g:vimspector_enable_mappings = 'HUMAN'
-let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
 
 " Hexokinase config
 
@@ -340,12 +336,6 @@ nnoremap <leader>ot <cmd>terminal<cr>i
 nnoremap <leader>gs <cmd>G<cr>
 nnoremap <leader>gf <cmd>diffget //2<cr>
 nnoremap <leader>gh <cmd>diffget //3<cr>
-
-" vimspector
-
-nnoremap <silent> <leader>dr <cmd>VimspectorReset<cr>
-nmap <leader>di <Plug>VimspectorBalloonEval
-xmap <leader>di <Plug>VimspectorBalloonEval
 
 " LSP
 
