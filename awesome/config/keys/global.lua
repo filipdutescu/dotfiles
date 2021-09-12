@@ -43,19 +43,19 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____|$$ |     $$  __$$ |$$ |
 --]]
 
 local globalKeys = gears.table.join(
-    awful.key({ utils.modKey, }, 's', 
+    awful.key({ utils.modKey, }, 's',
         hotkeys_popup.show_help,
         {description='show help', group='awesome'}
     ),
-    awful.key({ utils.modKey, }, 'Left', 
+    awful.key({ utils.modKey, }, 'Left',
         awful.tag.viewprev,
         {description = 'view previous', group = 'tag'}
     ),
-    awful.key({ utils.modKey, }, 'Right', 
+    awful.key({ utils.modKey, }, 'Right',
         awful.tag.viewnext,
         {description = 'view next', group = 'tag'}
     ),
-    awful.key({ utils.modKey, }, 'Escape', 
+    awful.key({ utils.modKey, }, 'Escape',
         awful.tag.history.restore,
         {description = 'go back', group = 'tag'}
     ),
@@ -64,7 +64,7 @@ local globalKeys = gears.table.join(
         function () awful.client.focus.byidx( 1) end,
         {description = 'focus next by index', group = 'client'}
     ),
-    awful.key({ utils.modKey, }, 'k', 
+    awful.key({ utils.modKey, }, 'k',
         function () awful.client.focus.byidx(-1) end,
         {description = 'focus previous by index', group = 'client'}
     ),
@@ -72,7 +72,7 @@ local globalKeys = gears.table.join(
       function () awful.widget.keyboardlayout().new() end,
       {description = 'change keyboard layout', group = 'awesome'}
     ),
-    --awful.key({ utils.modKey, }, 'w', 
+    --awful.key({ utils.modKey, }, 'w',
     --    function () mymainmenu:show() end,
     --    {description = 'show main menu', group = 'awesome'}
     --),
@@ -86,11 +86,11 @@ local globalKeys = gears.table.join(
         function () awful.client.swap.byidx( -1) end,
         {description = 'swap with previous client by index', group = 'client'}
     ),
-    awful.key({ utils.modKey, utils.controlKey }, 'j', 
+    awful.key({ utils.modKey, utils.controlKey }, 'j',
         function () awful.screen.focus_relative( 1) end,
         {description = 'focus the next screen', group = 'screen'}
     ),
-    awful.key({ utils.modKey, utils.controlKey }, 'k', 
+    awful.key({ utils.modKey, utils.controlKey }, 'k',
         function () awful.screen.focus_relative(-1) end,
         {description = 'focus the previous screen', group = 'screen'}
     ),
@@ -109,11 +109,11 @@ local globalKeys = gears.table.join(
     ),
 
     -- Standard program
-    awful.key({ utils.modKey, utils.controlKey }, 'r', 
+    awful.key({ utils.modKey, utils.controlKey }, 'r',
         awesome.restart,
         {description = 'reload awesome', group = 'awesome'}
     ),
-    awful.key({ utils.modKey, utils.shiftKey   }, 'q', 
+    awful.key({ utils.modKey, utils.shiftKey   }, 'q',
         awesome.quit,
         {description = 'quit awesome', group = 'awesome'}
     ),
@@ -134,19 +134,19 @@ local globalKeys = gears.table.join(
         function () awful.tag.incnmaster(-1, nil, true) end,
         {description = 'decrease the number of master clients', group = 'layout'}
     ),
-    awful.key({ utils.modKey, utils.controlKey }, 'h', 
+    awful.key({ utils.modKey, utils.controlKey }, 'h',
         function () awful.tag.incncol( 1, nil, true) end,
         {description = 'increase the number of columns', group = 'layout'}
     ),
-    awful.key({ utils.modKey, utils.controlKey }, 'l', 
+    awful.key({ utils.modKey, utils.controlKey }, 'l',
         function () awful.tag.incncol(-1, nil, true) end,
         {description = 'decrease the number of columns', group = 'layout'}
     ),
-    awful.key({ utils.modKey, utils.altKey }, 'space', 
+    awful.key({ utils.modKey, utils.altKey }, 'space',
         function () awful.layout.inc( 1) end,
         {description = 'select next', group = 'layout'}
     ),
-    awful.key({ utils.modKey, utils.shiftKey, utils.altKey }, 'space', 
+    awful.key({ utils.modKey, utils.shiftKey, utils.altKey }, 'space',
         function () awful.layout.inc(-1) end,
         {description = 'select previous', group = 'layout'}
     ),
@@ -175,9 +175,9 @@ local globalKeys = gears.table.join(
         end,
         {description = 'lua execute prompt', group = 'awesome'}
     ),
-    
+
     -- Menubar
-    awful.key({ utils.modKey }, 'p', 
+    awful.key({ utils.modKey }, 'p',
         function() menubar.show() end,
         {description = 'show the menubar', group = 'launcher'})
 )
@@ -199,12 +199,12 @@ $$ |  $$ |$$$$$$$  |$$$$$$$  |      \$$$$$$  |$$ |  $$ |\$$$$$$  |$$ |       \$$
 
 globalKeys = gears.table.join(globalKeys,
 		-- Terminal
-    awful.key({ utils.modKey, }, 'Return', 
+    awful.key({ utils.modKey, }, 'Return',
         function () awful.spawn(apps.terminal) end,
         {description = 'open a terminal', group = 'launcher'}
     ),
     -- Prompt
-    awful.key({ utils.modKey }, 'space', 
+    awful.key({ utils.modKey }, 'space',
         function () awful.util.spawn('rofi -show combi') end,
         {description = 'run prompt', group = 'launcher'}
     ),
