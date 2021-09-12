@@ -15,6 +15,7 @@ $$ |  $$ |$$ |$$ |  $$ |$$ |  $$ |$$  __$$ |$$ |      $$ |\$$\ $$   ____|$$ |  $
 -- Standard awesome library
 local gears = require('gears')
 local awful = require('awful')
+local naughty = require('naughty')
 
 -- Dependencies for actions
 local menubar = require('menubar')
@@ -231,22 +232,90 @@ $$ | \_/ $$ |\$$$$$$$\ \$$$$$$$ |$$ |\$$$$$$$ |       $$$$ $$\          \$  /   
 globalKeys = gears.table.join(globalKeys,
     -- Volume Keys
     awful.key({}, 'XF86AudioLowerVolume',
-        function () awful.util.spawn('pamixer -d 5', false) end,
+        function()
+            awful.spawn.easy_async_with_shell(
+                'pamixer -d 5',
+                function()
+                    awful.spawn.easy_async_with_shell(
+                        'pamixer --get-volume-human',
+                        function(stdout)
+                            naughty.notify {
+                                icon = nil,
+                                title = 'Volume lowered to ' .. stdout:gsub('\n[^\n]*$', '') .. '.',
+                                ignore_suspend = true,
+                                width = 225,
+                            }
+                        end
+                    )
+                end
+            )
+        end,
         {}
 	),
     awful.key({}, 'XF86AudioRaiseVolume',
-        function () awful.util.spawn('pamixer -i 5', false) end,
+        function()
+            awful.spawn.easy_async_with_shell(
+                'pamixer -i 5',
+                function()
+                    awful.spawn.easy_async_with_shell(
+                        'pamixer --get-volume-human',
+                        function(stdout)
+                            naughty.notify {
+                                icon = nil,
+                                title = 'Volume raised to ' .. stdout:gsub('\n[^\n]*$', '') .. '.',
+                                ignore_suspend = true,
+                                width = 225,
+                            }
+                        end
+                    )
+                end
+            )
+        end,
         {}
     ),
-    awful.key({}, 'XF86AudioMute', 
-        function () awful.util.spawn('pactl set-sink-mute @DEFAULT_SINK@ toggle', false) end,
+    awful.key({}, 'XF86AudioMute',
+        function()
+            awful.spawn.easy_async_with_shell(
+                'pactl set-sink-mute @DEFAULT_SINK@ toggle',
+                function()
+                    awful.spawn.easy_async_with_shell(
+                        'pactl get-sink-mute @DEFAULT_SINK@',
+                        function(stdout)
+                            naughty.notify {
+                                icon = nil,
+                                title = string.find(stdout, 'yes') and 'Volume muted.' or 'Volume unmuted.',
+                                ignore_suspend = true,
+                                width = 225,
+                            }
+                        end
+                    )
+                end
+            )
+        end,
         {}
     ),
-    awful.key({}, 'XF86AudioMicMute', 
-        function () awful.util.spawn('pactl set-source-mute @DEFAULT_SOURCE@ toggle', false) end,
+    awful.key({}, 'XF86AudioMicMute',
+        function()
+            awful.spawn.easy_async_with_shell(
+                'pactl set-sink-mute @DEFAULT_SOURCE@ toggle',
+                function()
+                    awful.spawn.easy_async_with_shell(
+                        'pactl get-sink-mute @DEFAULT_SOURCE@',
+                        function(stdout)
+                            naughty.notify {
+                                icon = nil,
+                                title = string.find(stdout, 'yes') and 'Microphone muted.' or 'Microphone unmuted.',
+                                ignore_suspend = true,
+                                width = 225,
+                            }
+                        end
+                    )
+                end
+            )
+        end,
         {}
     ),
-   
+
     -- Media Keys
     awful.key({}, 'XF86AudioPlay',
         function() awful.util.spawn('playerctl play-pause', false) end,
@@ -283,11 +352,45 @@ $$$$$$$  |$$ |      $$ |\$$$$$$$ |$$ |  $$ | \$$$$  |$$ |  $$ |\$$$$$$$\ $$$$$$$
 
 globalKeys = gears.table.join(globalKeys,
     awful.key({}, 'XF86MonBrightnessUp',
-        function() awful.util.spawn('light -A 5') end,
+        function()
+            awful.spawn.easy_async_with_shell(
+                'light -A 5',
+                function()
+                    awful.spawn.easy_async_with_shell(
+                        'light -G',
+                        function(stdout)
+                            naughty.notify {
+                                icon = nil,
+                                title = 'Brightness raised to ' .. stdout:gsub('\n[^\n]*$', ''):gsub('.[%d]*$', '') .. '.',
+                                ignore_suspend = true,
+                                width = 225,
+                            }
+                        end
+                    )
+                end
+            )
+        end,
         {}
     ),
     awful.key({}, 'XF86MonBrightnessDown',
-        function() awful.util.spawn('light -U 5') end,
+        function()
+            awful.spawn.easy_async_with_shell(
+                'light -U 5',
+                function()
+                    awful.spawn.easy_async_with_shell(
+                        'light -G',
+                        function(stdout)
+                            naughty.notify {
+                                icon = nil,
+                                title = 'Brightness lowered to ' .. stdout:gsub('\n[^\n]*$', ''):gsub('.[%d]*$', '') .. '.',
+                                ignore_suspend = true,
+                                width = 225,
+                            }
+                        end
+                    )
+                end
+            )
+        end,
         {}
     )
 )

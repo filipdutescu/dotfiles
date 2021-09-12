@@ -15,19 +15,18 @@
 configuration {
     modi: [window,drun,ssh,combi];
     combi-modi: [window,drun,ssh];
-        parse-known-hosts: false;
-        cycle: true;
-        threads: 2;
-    columns: 2;
+    parse-known-hosts: false;
+    cycle: true;
+    threads: 2;
     font: "Iosevka 12";
-        hide-scrollbar: true;
-        window-format: "{n} ({w})";
-        display-combi: ">";
-        drun-display-format: "{name}";
-        combi-hide-mode-prefix: true;
+    window-format: "{n} ({w})";
+    display-combi: ">";
+    drun-display-format: "{name}";
+    combi-hide-mode-prefix: true;
     show-icons: true;
-        icon-theme: "Papirus-Dark";
-    theme: "springan.rasi";
+    icon-theme: "Papirus-Dark";
 }
+
+@theme "springan"
 
 /* vim:ft=css

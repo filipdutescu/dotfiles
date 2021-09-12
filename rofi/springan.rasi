@@ -13,6 +13,13 @@
  */
 
 * {
+    background: #26292B;
+    foreground: #FDFFFC;
+    border-color: #303436;
+    accent1: #C16A6D;
+    accent2: #B17ABA;
+    alt: #8AB97B;
+
     active-background: @accent1;
     active-foreground: @foreground;
     normal-background: @background;
@@ -35,25 +42,19 @@
     selected-urgent-foreground: @foreground;
 
     background-color: @background;
-    background: #26292B;
-    foreground: #FDFFFC;
-    border-color: #303436;
-    accent1: #C16A6D;
-    accent2: #B17ABA;
-    alt: #8AB97B;
     spacing: 2;
 }
 
 #window {
     background-color: rgba(0, 0, 0, 0);
-        transparency: "screenshot";
-        width: 42%;
+    transparency: "screenshot";
+    width: 42%;
     height: 37%;
 }
 
 #mainbox {
     border: 1px;
-        border-radius: 15px;
+    border-radius: 15px;
     padding: 2.5ch;
 }
 
@@ -68,7 +69,7 @@
 }
 
 #inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    children: [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
 
 #textbox-prompt-colon {
@@ -84,6 +85,7 @@
     spacing: 2px;
     scrollbar: true;
     padding: 2px 0px 0px;
+    columns: 2;
 }
 
 #element {
@@ -93,12 +95,15 @@
 
 #element-text {
     vertical-align: 0.5;
+    background-color: inherit;
+    text-color: inherit;
 }
 
 #element-icon {
     size: 4.0ch;
     vertical-align: 0.5;
     horizontal-align: 0.5;
+    background-color: inherit;
 }
 
 #element.normal.normal {

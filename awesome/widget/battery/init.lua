@@ -14,7 +14,6 @@ $$$$$$$  |\$$$$$$$ | \$$$$  |\$$$$  |\$$$$$$$\ $$ |      \$$$$$$$ |      $$  /  
 
 local awful = require('awful')
 local wibox = require('wibox')
-local awful = require('awful')
 local gears = require('gears')
 local naughty = require('naughty')
 local watch = awful.widget.watch

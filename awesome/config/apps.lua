@@ -12,10 +12,10 @@ $$$$$$$  |\$$$$$$$\ $$ |     \$$$$$$$ |\$$$$$$  |$$ |  \$$$$  |      $$ |  $$ |$
                                                                                \__|      \__|                
 --]]
 
-local	terminal = os.getenv('TERMINAL') or 'alacritty'
-local	editor = os.getenv('EDITOR') or 'vim'
-local	editor_cmd = terminal .. ' -e ' .. editor
-local	browser = os.getenv('BROWSER') or 'firefox'
+local terminal = os.getenv('TERMINAL') or 'alacritty'
+local editor = os.getenv('EDITOR') or 'vim'
+local editor_cmd = terminal .. ' -e ' .. editor
+local browser = os.getenv('BROWSER') or 'firefox'
 local power_manager = 'xfce4-power-manager-settings'
 
 return {
