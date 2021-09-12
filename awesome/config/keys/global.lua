@@ -24,6 +24,8 @@ local hotkeys_popup = require('awful.hotkeys_popup')
 -- General configs (i.e. definition of mod key)
 local utils = require('config.keys.utils')
 local apps = require('config.apps')
+local config_dir = gears.filesystem.get_configuration_dir()
+local utils_icon_dir = config_dir .. 'utils/icons'
 
 
 --[[
@@ -240,10 +242,11 @@ globalKeys = gears.table.join(globalKeys,
                         'pamixer --get-volume-human',
                         function(stdout)
                             naughty.notify {
-                                icon = nil,
-                                title = 'Volume lowered to ' .. stdout:gsub('\n[^\n]*$', '') .. '.',
+                                icon = utils_icon_dir .. '/volume/volume-minus.svg',
+                                text = 'Volume lowered to ' .. stdout:gsub('\n[^\n]*$', '') .. '.',
                                 ignore_suspend = true,
-                                width = 225,
+                                width = 275,
+                                height = 45,
                             }
                         end
                     )
@@ -261,10 +264,11 @@ globalKeys = gears.table.join(globalKeys,
                         'pamixer --get-volume-human',
                         function(stdout)
                             naughty.notify {
-                                icon = nil,
-                                title = 'Volume raised to ' .. stdout:gsub('\n[^\n]*$', '') .. '.',
+                                icon = utils_icon_dir .. '/volume/volume-plus.svg',
+                                text = 'Volume raised to ' .. stdout:gsub('\n[^\n]*$', '') .. '.',
                                 ignore_suspend = true,
-                                width = 225,
+                                width = 275,
+                                height = 45,
                             }
                         end
                     )
@@ -281,11 +285,13 @@ globalKeys = gears.table.join(globalKeys,
                     awful.spawn.easy_async_with_shell(
                         'pactl get-sink-mute @DEFAULT_SINK@',
                         function(stdout)
+                            local is_muted = string.find(stdout, 'yes')
                             naughty.notify {
-                                icon = nil,
-                                title = string.find(stdout, 'yes') and 'Volume muted.' or 'Volume unmuted.',
+                                icon = utils_icon_dir .. '/volume' .. (is_muted and '/volume-x.svg' or '/volume-2.svg'),
+                                text = is_muted and 'Volume muted.' or 'Volume unmuted.',
                                 ignore_suspend = true,
-                                width = 225,
+                                width = 275,
+                                height = 45,
                             }
                         end
                     )
@@ -297,16 +303,18 @@ globalKeys = gears.table.join(globalKeys,
     awful.key({}, 'XF86AudioMicMute',
         function()
             awful.spawn.easy_async_with_shell(
-                'pactl set-sink-mute @DEFAULT_SOURCE@ toggle',
+                'pactl set-source-mute @DEFAULT_SOURCE@ toggle',
                 function()
                     awful.spawn.easy_async_with_shell(
-                        'pactl get-sink-mute @DEFAULT_SOURCE@',
+                        'pactl get-source-mute @DEFAULT_SOURCE@',
                         function(stdout)
+                            local is_muted = string.find(stdout, 'yes')
                             naughty.notify {
-                                icon = nil,
-                                title = string.find(stdout, 'yes') and 'Microphone muted.' or 'Microphone unmuted.',
+                                icon = utils_icon_dir .. '/volume' .. (is_muted and '/mic-off.svg' or '/mic.svg'),
+                                text = string.find(stdout, 'yes') and 'Microphone muted.' or 'Microphone unmuted.',
                                 ignore_suspend = true,
-                                width = 225,
+                                width = 275,
+                                height = 45,
                             }
                         end
                     )
@@ -360,10 +368,11 @@ globalKeys = gears.table.join(globalKeys,
                         'light -G',
                         function(stdout)
                             naughty.notify {
-                                icon = nil,
-                                title = 'Brightness raised to ' .. stdout:gsub('\n[^\n]*$', ''):gsub('.[%d]*$', '') .. '.',
+                                icon = utils_icon_dir .. '/brightness/sun-plus.svg',
+                                text = 'Brightness raised to ' .. stdout:gsub('\n[^\n]*$', ''):gsub('.[%d]*$', '') .. '.',
                                 ignore_suspend = true,
-                                width = 225,
+                                width = 275,
+                                height = 45,
                             }
                         end
                     )
@@ -381,10 +390,11 @@ globalKeys = gears.table.join(globalKeys,
                         'light -G',
                         function(stdout)
                             naughty.notify {
-                                icon = nil,
-                                title = 'Brightness lowered to ' .. stdout:gsub('\n[^\n]*$', ''):gsub('.[%d]*$', '') .. '.',
+                                icon = utils_icon_dir .. '/brightness/sun-minus.svg',
+                                text = 'Brightness lowered to ' .. stdout:gsub('\n[^\n]*$', ''):gsub('.[%d]*$', '') .. '.',
                                 ignore_suspend = true,
-                                width = 225,
+                                width = 275,
+                                height = 45,
                             }
                         end
                     )
