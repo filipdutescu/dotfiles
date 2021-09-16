@@ -33,5 +33,3 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 # Define the location of the dotfiles
 export DOTFILES=~/dotfiles
 
-# Rust settings
-export CARGO_PKG_AUTHORS=["Filip Dutescu <filip.dutescu@gmail.com>"]

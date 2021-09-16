@@ -369,7 +369,7 @@ globalKeys = gears.table.join(globalKeys,
                         function(stdout)
                             naughty.notify {
                                 icon = utils_icon_dir .. '/brightness/sun-plus.svg',
-                                text = 'Brightness raised to ' .. stdout:gsub('\n[^\n]*$', ''):gsub('.[%d]*$', '') .. '.',
+                                text = 'Brightness raised to ' .. stdout:gsub('\n[^\n]*$', ''):gsub('.[%d]*$', '') .. '%.',
                                 ignore_suspend = true,
                                 width = 275,
                                 height = 45,
@@ -391,7 +391,7 @@ globalKeys = gears.table.join(globalKeys,
                         function(stdout)
                             naughty.notify {
                                 icon = utils_icon_dir .. '/brightness/sun-minus.svg',
-                                text = 'Brightness lowered to ' .. stdout:gsub('\n[^\n]*$', ''):gsub('.[%d]*$', '') .. '.',
+                                text = 'Brightness lowered to ' .. stdout:gsub('\n[^\n]*$', ''):gsub('.[%d]*$', '') .. '%.',
                                 ignore_suspend = true,
                                 width = 275,
                                 height = 45,

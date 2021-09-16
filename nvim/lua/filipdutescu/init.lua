@@ -1,7 +1,7 @@
-_G.MUtils= {}
-
+require'filipdutescu.autopairs'
+require'filipdutescu.dap'
+require'filipdutescu.kommentary'
 require'filipdutescu.lsp'
 require'filipdutescu.telescope'
-require'filipdutescu.autopairs'
-require'filipdutescu.kommentary'
-require'filipdutescu.dap'
+require'filipdutescu.utils'
+
