@@ -89,8 +89,6 @@ vmap > >gv
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'alvan/vim-closetag'
-
 Plug 'tpope/vim-fugitive'
 
 Plug 'jackguo380/vim-lsp-cxx-highlight'
@@ -98,24 +96,45 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 
 Plug 'filipdutescu/springan.vim'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " need nvim nightly or 0.5+
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-lua/popup.nvim'
+Plug 'norcalli/nvim-colorizer.lua'
+
 Plug 'nvim-lua/plenary.nvim'
+
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+"
 " Collection of common configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
 " Extensions to built-in LSP, for example, providing type inlay hints
 Plug 'nvim-lua/lsp_extensions.nvim'
+
+Plug 'onsails/lspkind-nvim'
+
 " Autocompletion framework for built-in LSP
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+
+" Snippets plugin
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+
 Plug 'windwp/nvim-autopairs'
-Plug 'b3nj5m1n/kommentary'
+
+Plug 'akinsho/toggleterm.nvim'
+
+Plug 'numToStr/Comment.nvim'
+
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
+
+Plug 'filipdutescu/renamer.nvim', { 'branch': 'master' }
 
 call plug#end()
 
@@ -181,10 +200,10 @@ endif
 
 colorscheme springan
 " The cursor line needs to be set after the theme to work properly
-set cursorline
-set cursorcolumn
-highlight CursorLine ctermbg=Black cterm=bold guibg=#2c2c2c
-highlight CursorColumn ctermbg=Black cterm=bold guibg=#2c2c2c
+"set cursorline
+"set cursorcolumn
+"highlight CursorLine ctermbg=Black cterm=bold guibg=#2c2c2c
+"highlight CursorColumn ctermbg=Black cterm=bold guibg=#2c2c2c
 
 "   $$$$$$\                                $$\             $$\
 "  $$  __$$\                               \__|            $$ |
@@ -268,50 +287,6 @@ set statusline+=\ %#Function#\ %#Visual#%{&fenc==''?'-':tolower(&fenc)}%{&fil
 set statusline+=\ %#CursorLineNr#⎋\ %p%%\ %#SignColumn#\ %l/%L\ \ %c\
 
 
-"  $$\   $$\            $$\
-"  $$$\  $$ |           $$ |
-"  $$$$\ $$ | $$$$$$\ $$$$$$\    $$$$$$\  $$\  $$\  $$\
-"  $$ $$\$$ |$$  __$$\\_$$  _|  $$  __$$\ $$ | $$ | $$ |
-"  $$ \$$$$ |$$$$$$$$ | $$ |    $$ |  \__|$$ | $$ | $$ |
-"  $$ |\$$$ |$$   ____| $$ |$$\ $$ |      $$ | $$ | $$ |
-"  $$ | \$$ |\$$$$$$$\  \$$$$  |$$ |      \$$$$$\$$$$  |
-"  \__|  \__| \_______|  \____/ \__|       \_____\____/
-"
-"
-"
-
-"set autochdir                           " Change directory when opening files
-let g:netrw_altv = 1                    " Puts netrw to the left
-let g:netrw_banner = 0                  " Disable hideous banner
-let g:netrw_browse_split = 4            " Mimic file opening from IDEs
-let g:netrw_liststyle = 3               " Select default layout
-let g:netrw_sort_sequence = '[\/]$,*'   " Directories first, files second
-let g:netrw_winsize = 25                " Width of explorer set to 25%
-let g:netrw_dirhistmax = 0              " Remove history
-
-" Function to toggle Netrw on and off
-function! ToggleExplorer()
-    if exists("t:expl_no")
-        let expl_no = bufwinnr(t:expl_no)
-        let curr_win_no = winnr()
-
-        if expl_no != -1
-            while expl_no != curr_win_no
-                exec "wincmd w"
-                let curr_win_no = winnr()
-            endwhile
-
-            close
-        endif
-
-        unlet t:expl_no
-    else
-        Vex
-        let t:expl_no = bufnr("%")
-    endif
-endfunction
-
-
 "  $$\   $$\
 "  $$ | $$  |
 "  $$ |$$  / $$$$$$\  $$\   $$\ $$$$$$\$$$$\   $$$$$$\   $$$$$$\   $$$$$$$\
@@ -344,20 +319,21 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " use <C-Space> as trigger keys
-imap <C-Space> <Plug>(completion_smart_tab)
+"imap <C-Space> <Plug>(completion_smart_tab)
 
 " Code navigation shortcuts
-nnoremap <silent> gd            <cmd>lua require('telescope.builtin').lsp_definitions()<CR>
+imap <c-space> <cmd>lua vim.lsp.buf.completion()<cr>
+nnoremap <silent> gd            <cmd>lua require'telescope.builtin'.lsp_definitions()<CR>
 nnoremap <silent> K             <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gi            <cmd>lua require('telescope.builtin').lsp_implementations()<CR>
+nnoremap <silent> gi            <cmd>lua require'telescope.builtin'.lsp_implementations()<CR>
 nnoremap <silent> <c-k>         <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> 1gD           <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr            <cmd>lua require('telescope.builtin').lsp_references()<CR>
+nnoremap <silent> gr            <cmd>lua require'telescope.builtin'.lsp_references()<CR>
 nnoremap <silent> g0            <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW            <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gD            <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> ga            <cmd>lua require('telescope.builtin').lsp_code_actions()<CR>
-nnoremap <silent> <leader>rn    <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> ga            <cmd>lua require'telescope.builtin'.lsp_code_actions()<CR>
+nnoremap <silent> <leader>rn    <cmd>lua require'renamer'.rename()<CR>
 
 " Diagnostics
 

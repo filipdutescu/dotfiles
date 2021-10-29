@@ -1,14 +1,13 @@
 -- nvim_lsp object
-local nvim_lsp = require'lspconfig'
+local nvim_lsp = require 'lspconfig'
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
--- function to attach completion when setting up lsp
-local on_attach = function(client)
-    require'completion'.on_attach(client)
-end
+vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 -- Enable rust_analyzer
 nvim_lsp.rust_analyzer.setup {
-    on_attach = on_attach,
+    capabilities = capabilities,
     settings = {
         ["rust-analyzer"] = {
             rustfmt = {
@@ -20,11 +19,16 @@ nvim_lsp.rust_analyzer.setup {
 
 -- Enable Sumneko Lua
 local lua_version = '5.4'
-local lua_runtime = '/usr/share/lua'
+local lua_runtime_root = '/usr/share/lua'
+local lua_runtime = lua_runtime_root .. '/' .. lua_version
+local luajit_version = '2.0.5'
+local luajit_runtime = '/usr/share/luajit-' .. luajit_version
+local luarocks_libs = '/usr/lib/luarocks/rocks-' .. lua_version
 local lua_awesome_libs = '/usr/share/awesome/lib'
+
 nvim_lsp.sumneko_lua.setup {
     cmd = { 'lua-language-server' },
-    on_attach = on_attach,
+    capabilities = capabilities,
     settings = {
         Lua = {
             runtime = {
@@ -32,9 +36,11 @@ nvim_lsp.sumneko_lua.setup {
                 path = {
                     '?.lua',
                     '?/init.lua',
-                    lua_runtime .. '/' .. lua_version .. '/?/init.lua',
-                    vim.fn.expand'$VIMRUNTIME' .. 'lua/?.lua',
-                    vim.fn.expand'$VIMRUNTIME' .. 'lua/?/init.lua',
+                    luajit_runtime .. '/?.lua',
+                    lua_runtime .. '/?.lua',
+                    lua_runtime .. '/?/init.lua',
+                    luarocks_libs .. '/?.lua',
+                    luarocks_libs .. '/?/init.lua',
                     lua_awesome_libs .. '/?.lua',
                     lua_awesome_libs .. '/?/init.lua',
                 },
@@ -43,9 +49,8 @@ nvim_lsp.sumneko_lua.setup {
             workspace = {
                 -- Make the server aware of Neovim runtime files
                 library = {
-                    [lua_runtime .. '/' .. lua_version ] = true,
-                    [vim.fn.expand'$VIMRUNTIME/lua'] = true,
-                    [vim.fn.expand'$VIMRUNTIME/lua/vim/lsp'] = true,
+                    [lua_runtime] = true,
+                    [luarocks_libs] = true,
                     [lua_awesome_libs] = true,
                 },
             },
@@ -56,13 +61,16 @@ nvim_lsp.sumneko_lua.setup {
 }
 
 -- Enable Clangd
-require'lspconfig'.clangd.setup {
-    on_attach = on_attach,
+nvim_lsp.clangd.setup {
+    capabilities = capabilities,
     root_dir = function() return vim.loop.cwd() end
 }
 
 -- Enable CMake
-require'lspconfig'.cmake.setup {}
+nvim_lsp.cmake.setup {}
+
+-- Enable Yaml
+nvim_lsp.yamlls.setup {}
 
 -- Enable diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
