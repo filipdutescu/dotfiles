@@ -20,12 +20,11 @@ export TERMINAL=alacritty
 export EDITOR=nvim
 export VISUAL=nvim
 export VIMRUNTIME=/usr/share/nvim/runtime
+# Use Noevim as manpage viewer
+export MANPAGER='nvim -RMm -c "set ft=man" -c "set scrolloff=8" -'
 
 # Use FireFox as default browser
 export BROWSER=firefox
-
-# Use vim as manpage viewer
-#export MANPAGER='vim --not-a-term -R +":set ft=man" -'
 
 # QT5 apps needing icon themes
 export QT_QPA_PLATFORMTHEME=qt5ct
