@@ -314,37 +314,31 @@ nnoremap <leader>gh <cmd>diffget //3<cr>
 
 " LSP
 
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" use <C-Space> as trigger keys
-"imap <C-Space> <Plug>(completion_smart_tab)
-
 " Code navigation shortcuts
-imap <c-space> <cmd>lua vim.lsp.buf.completion()<cr>
-nnoremap <silent> gd            <cmd>lua require'telescope.builtin'.lsp_definitions()<CR>
-nnoremap <silent> K             <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gi            <cmd>lua require'telescope.builtin'.lsp_implementations()<CR>
-nnoremap <silent> <c-k>         <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> 1gD           <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr            <cmd>lua require'telescope.builtin'.lsp_references()<CR>
-nnoremap <silent> g0            <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent> gW            <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> gD            <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> ga            <cmd>lua require'telescope.builtin'.lsp_code_actions()<CR>
-nnoremap <silent> <leader>rn    <cmd>lua require'renamer'.rename()<CR>
+imap     <c-space>              <cmd>lua vim.lsp.buf.completion()<cr>
+inoremap <silent> <F2>          <cmd>lua require'renamer'.rename()<cr>
+nnoremap <silent> gd            <cmd>lua require'telescope.builtin'.lsp_definitions()<cr>
+nnoremap <silent> K             <cmd>lua vim.lsp.buf.hover()<cr>
+nnoremap <silent> gi            <cmd>lua require'telescope.builtin'.lsp_implementations()<cr>
+nnoremap <silent> <c-k>         <cmd>lua vim.lsp.buf.signature_help()<cr>
+nnoremap <silent> 1gD           <cmd>lua vim.lsp.buf.type_definition()<cr>
+nnoremap <silent> gr            <cmd>lua require'telescope.builtin'.lsp_references()<cr>
+nnoremap <silent> g0            <cmd>lua vim.lsp.buf.document_symbol()<cr>
+nnoremap <silent> gW            <cmd>lua vim.lsp.buf.workspace_symbol()<cr>
+nnoremap <silent> gD            <cmd>lua vim.lsp.buf.declaration()<cr>
+nnoremap <silent> ga            <cmd>lua require'telescope.builtin'.lsp_code_actions()<cr>
+nnoremap <silent> <leader>rn    <cmd>lua require'renamer'.rename()<cr>
 
 " Diagnostics
 
 " Goto previous/next diagnostic warning/error
-nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
+nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 
 lua require'filipdutescu'
 
 augroup formatting
     " Remove old au commands
     au!
-    autocmd InsertLeave,BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd InsertLeave,BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)
 augroup END
