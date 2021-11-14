@@ -3,7 +3,7 @@ _G = _G or {}
 require'filipdutescu.autopairs'
 require'filipdutescu.Comment'
 require'filipdutescu.colorizer'
-require'filipdutescu.cmp'
+require'filipdutescu.nvim-cmp'
 require'filipdutescu.dap'
 require'filipdutescu.lsp'
 require'filipdutescu.renamer'

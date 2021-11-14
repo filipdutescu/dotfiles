@@ -328,6 +328,7 @@ nnoremap <silent> gW            <cmd>lua vim.lsp.buf.workspace_symbol()<cr>
 nnoremap <silent> gD            <cmd>lua vim.lsp.buf.declaration()<cr>
 nnoremap <silent> ga            <cmd>lua require'telescope.builtin'.lsp_code_actions()<cr>
 nnoremap <silent> <leader>rn    <cmd>lua require'renamer'.rename()<cr>
+nnoremap <silent> <leader>f     <cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<cr>
 
 " Diagnostics
 
@@ -340,5 +341,5 @@ lua require'filipdutescu'
 augroup formatting
     " Remove old au commands
     au!
-    autocmd InsertLeave,BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)
+    autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)
 augroup END
