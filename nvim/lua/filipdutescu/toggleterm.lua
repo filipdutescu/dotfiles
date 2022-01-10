@@ -2,6 +2,7 @@ local toggleterm = require 'toggleterm'
 
 toggleterm.setup {
     open_mapping = [[<C-\>]],
+    size = 20,
 }
 
 function _G.set_toggleterm_keymaps()
