@@ -28,7 +28,7 @@ theme.hotkeys_font              = 'Iosevka Term 15'
 theme.hotkeys_description_font  = 'Iosevka Term 15'
 theme.notification_font         = 'Iosevka Term 15'
 
-theme.wibar_height = dpi(40)
+theme.wibar_height = dpi(55)
 theme.wibar_bg = 'transparent'
 
 theme.bg_normal     = '#1E1F21'
