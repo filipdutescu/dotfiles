@@ -119,7 +119,16 @@ awful.screen.connect_for_each_screen(function(s)
             { -- Right widgets
                 {
                     {
-                        wibox.widget.systray(),
+                        {
+                            {
+                                wibox.widget.systray(),
+                                layout = wibox.layout.fixed.horizontal,
+                            },
+                            top = dpi(5),
+                            bottom = dpi(5),
+                            left = dpi(5),
+                            widget = wibox.container.margin,
+                        },
                         battery(),
                         awful.widget.keyboardlayout(),
                         s.layoutBox,
