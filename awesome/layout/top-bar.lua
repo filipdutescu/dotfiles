@@ -86,13 +86,8 @@ awful.screen.connect_for_each_screen(function(s)
             expand = 'none',
             { -- Left widgets
                 {
-                    {
-                        tagList(s),
-                        layout = wibox.layout.align.horizontal,
-                    },
-                    left = dpi(18),
-                    right = dpi(18),
-                    widget = wibox.container.margin,
+                    tagList(s),
+                    layout = wibox.layout.align.horizontal,
                 },
                 bg = beautiful.bg_normal,
                 widget = wibox.container.background,
