@@ -37,7 +37,7 @@ local taglist = function(screen)
         awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
     )
 
-    local widget = awful.widget.taglist 
+    local widget = awful.widget.taglist
     {
         screen = screen,
         filter = awful.widget.taglist.filter.all,

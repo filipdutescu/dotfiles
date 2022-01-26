@@ -28,24 +28,25 @@ theme.hotkeys_font              = 'Iosevka Term 15'
 theme.hotkeys_description_font  = 'Iosevka Term 15'
 theme.notification_font         = 'Iosevka Term 15'
 
-theme.wibar_height = dpi(35)
+theme.wibar_height = dpi(40)
+theme.wibar_bg = 'transparent'
 
-theme.bg_normal     = '#121212'
-theme.bg_focus      = '#535d6c'
-theme.bg_urgent     = '#ff0000'
+theme.bg_normal     = '#1E1F21'
+theme.bg_focus      = '#303436'
+theme.bg_urgent     = '#1E1F21'
 theme.bg_minimize   = '#444444'
 theme.bg_hover      = theme.bg_minimize
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = '#aaaaaa'
-theme.fg_focus      = '#ffffff'
-theme.fg_urgent     = '#ffffff'
+theme.fg_normal     = '#D3D0CB'
+theme.fg_focus      = '#8AB97B'
+theme.fg_urgent     = '#C16A6D'
 theme.fg_minimize   = '#ffffff'
 
 theme.useless_gap   = dpi(7)
 theme.border_width  = dpi(2)
-theme.border_normal = '#222222'
-theme.border_focus  = '#535d6c'
+theme.border_normal = '#303436'
+theme.border_focus  = '#7B82B9'
 theme.border_marked = '#91231c'
 
 -- There are other variable sets
@@ -64,7 +65,7 @@ theme.border_marked = '#91231c'
 theme.systray_icon_spacing = dpi(5)
 
 -- Generate taglist squares:
-local taglist_square_size = dpi(7)
+local taglist_square_size = dpi(0)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
     taglist_square_size, theme.fg_normal
 )
@@ -72,6 +73,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size, theme.fg_normal
 )
 theme.taglist_spacing = 0
+theme.taglist_font = 'Iosevka Term 25'
 
 -- Variables set for theming notifications:
 -- notification_font

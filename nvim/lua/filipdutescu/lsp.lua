@@ -60,6 +60,17 @@ nvim_lsp.sumneko_lua.setup {
     },
 }
 
+-- local ng_lib_path = '/usr/lib/node_modules'
+local ng_lib_path = vim.fn.getcwd() .. '/node_modules'
+-- local ng_cmd = { 'ngserver', '--stdio', '--tsProbeLocations', vim.fn.getcwd() ..  '/node_modules' , '--ngProbeLocations', ng_lib_path }
+local ng_cmd = { 'ngserver', '--stdio', '--tsProbeLocations', ng_lib_path , '--ngProbeLocations', ng_lib_path }
+nvim_lsp.angularls.setup {
+    cmd = ng_cmd,
+    on_new_config = function(new_config, _)
+        new_config.cmd = ng_cmd
+    end,
+}
+
 -- Enable Clangd
 nvim_lsp.clangd.setup {
     capabilities = capabilities,
@@ -82,9 +93,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 -- Inline hints
-vim.cmd [[
-autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
-]]
+-- vim.cmd [[
+-- autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost * lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
+-- ]]
 
 -- Highlight current word occurences
 -- vim.api.nvim_command [[autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()]]

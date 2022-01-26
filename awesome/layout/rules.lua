@@ -101,7 +101,7 @@ local floatingClients = {
 }
 
 return {
-    general, 
+    general,
     floatingClients,
     {
         rule_any = { type = { 'normal', 'dialog' } },
@@ -125,32 +125,32 @@ return {
 
     -- Set Alacritty to always map on the tag named '1' on screen 1.
     { rule = { class = 'Alacritty' },
-        properties = { screen = 1, tag = '1' } },
+        properties = { screen = 1, tag = '  ' } },
 
     -- Set Firefox to always map on the tag named '2' on screen 1.
     { rule = { class = 'firefox' },
-        properties = { screen = 1, tag = '2' } },
+        properties = { screen = 1, tag = '  ' } },
     -- Set Brave to always map on the tag named '2' on screen 1.
     { rule = { class = 'Brave-browser' },
-        properties = { screen = 1, tag = '2' } },
+        properties = { screen = 1, tag = '  ' } },
 
     -- Set social apps to always map on the tag named '3' on screen 1.
     { rule = { class = 'zoom' },
-        properties = { screen = 1, tag = '3', floating = true } },
+        properties = { screen = 1, tag = '  ', floating = true } },
     { rule = { class = 'Microsoft Teams - Preview' },
-        properties = { screen = 1, tag = '3' } },
+        properties = { screen = 1, tag = '  ' } },
     { rule = { class = 'discord' },
-        properties = { screen = 1, tag = '3' } },
+        properties = { screen = 1, tag = '  ' } },
 
     -- Set Spotify to always map on the tag named '4' on screen 1.
     { rule = { class = 'spotify' },
-        properties = { screen = 1, tag = '4' } },
+        properties = { screen = 1, tag = ' ﭵ ' } },
 
     -- Set Steam to always map on the tag named '5' on screen 1.
     { rule = { class = 'Steam' },
-        properties = { screen = 1, tag = '5' } },
+        properties = { screen = 1, tag = '  ' } },
 
     -- Set LibreOffice to always map on the tag named '6' on screen 1.
     { rule = { class = 'libreoffice' },
-        properties = { screen = 1, tag = '6' } }
+        properties = { screen = 1, tag = '  ' } }
 }

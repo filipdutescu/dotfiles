@@ -18,6 +18,7 @@ local beautiful = require('beautiful')
 local wibox = require('wibox')
 local gears = require('gears')
 local utils = require('layout.utils')
+local dpi = beautiful.xresources.apply_dpi
 
 
 --[[
@@ -57,15 +58,15 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____|$$ |     $$  __$$ | $$ |$$\ $$   ____|  
 awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     utils.createTags(s, {
-        { name = '1', selected = true },
-        { name = '2', },
-        { name = '3', },
-        { name = '4', },
-        { name = '5', },
-        { name = '6', },
-        { name = '7', },
-        { name = '8', },
-        { name = '9', },
+        { name = '  ', selected = true },
+        { name = '  ', },
+        { name = '  ', },
+        { name = ' ﭵ ', },
+        { name = '  ', },
+        { name = '  ', },
+        { name = '  ', },
+        { name = '  ', },
+        { name = '  ', },
     })
 
     -- Create an imagebox widget which will contain an icon indicating which layout we'r    e using.
@@ -83,18 +84,56 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         expand = 'none',
         { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            launcher.launcher,
-            tagList(s),
+            {
+                {
+                    tagList(s),
+                    layout = wibox.layout.align.horizontal,
+                },
+                left = dpi(18),
+                right = dpi(18),
+                widget = wibox.container.margin,
+            },
+            bg = beautiful.bg_normal,
+            widget = wibox.container.background,
+            shape = gears.shape.rounded_bar,
+            shape_border_color = beautiful.border_focus,
+            shape_border_width = beautiful.border_width,
         },
-        textClock,
+        {
+            {
+                {
+                    textClock,
+                    layout = wibox.layout.align.horizontal,
+                },
+                left = dpi(75),
+                right = dpi(75),
+                widget = wibox.container.margin,
+            },
+            bg = beautiful.bg_normal,
+            widget = wibox.container.background,
+            shape = gears.shape.rounded_bar,
+            shape_border_color = beautiful.border_focus,
+            shape_border_width = beautiful.border_width,
+        },
         { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
-            battery(),
-            awful.widget.keyboardlayout(),
-            s.layoutBox,
+            {
+                {
+                    wibox.widget.systray(),
+                    battery(),
+                    awful.widget.keyboardlayout(),
+                    s.layoutBox,
+                    layout = wibox.layout.fixed.horizontal,
+                },
+                left = dpi(20),
+                right = dpi(20),
+                widget = wibox.container.margin,
+            },
+            bg = beautiful.bg_normal,
+            widget = wibox.container.background,
+            shape = gears.shape.rounded_bar,
+            shape_border_color = beautiful.border_focus,
+            shape_border_width = beautiful.border_width,
         },
-    })	
+    })
 end)
 
