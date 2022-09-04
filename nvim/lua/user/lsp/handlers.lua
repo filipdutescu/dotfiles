@@ -80,6 +80,7 @@ local enable_lsp_for_languages = function()
         'angularls',
         'clangd',
         'cmake',
+        'omnisharp',
         'rust_analyzer',
         'sumneko_lua',
         'yamlls',
