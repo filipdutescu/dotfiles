@@ -129,7 +129,7 @@ return packer.startup(function(use)
         'filipdutescu/renamer.nvim',
         branch = 'master',
         requires = { { 'nvim-lua/plenary.nvim' } },
-        config = function() require'renamer'.setup() end,
+        config = function() require'renamer'.setup {} end,
     }
     use {
         'jose-elias-alvarez/null-ls.nvim',
