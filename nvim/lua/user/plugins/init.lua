@@ -155,8 +155,7 @@ return packer.startup(function(use)
     }
 
     -- colorscheme
-    -- use 'filipdutescu/springan.vim'
-    use '~/workplace/nvim/springan.nvim'
+    use 'filipdutescu/springan.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
