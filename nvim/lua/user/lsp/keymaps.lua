@@ -22,8 +22,8 @@ M.setup = function(buf_nr)
     keymap('n', '<leader>kf', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 1000)<cr>', opts)
 
     -- diagnostics
-    keymap('n', 'g[', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', opts)
-    keymap('n', 'g]', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', opts)
+    keymap('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
+    keymap('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
 end
 
 return M
