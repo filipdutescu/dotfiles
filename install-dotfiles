@@ -70,6 +70,9 @@ create_link ${BASE}/nvim $verbose config
 #ln -s ${BASE}/nvim/init.vm ${BASE}/vim/vimrc
 #create_link ${BASE}/vim/vimrc $verbose
 
+# helix
+create_link ${BASE}/helix $verbose config
+
 # zsh
 create_link ${BASE}/zsh/zshrc $verbose
 create_link ${BASE}/zsh/zprofile $verbose

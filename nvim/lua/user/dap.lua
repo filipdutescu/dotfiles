@@ -15,6 +15,22 @@ dap.adapters.rust = {
 dap.adapters.cpp = dap.adapters.rust
 dap.adapters.c = dap.adapters.rust
 
+dap.adapters.coreclr = {
+    type = 'executable',
+    command = 'netcoredbg',
+    args = {'--interpreter=vscode'}
+}
+dap.configurations.cs = {
+    {
+        type = "coreclr",
+        name = "launch - netcoredbg",
+        request = "launch",
+        program = function()
+            return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+        end,
+    },
+}
+
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 

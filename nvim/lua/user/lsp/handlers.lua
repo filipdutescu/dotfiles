@@ -93,7 +93,7 @@ local enable_lsp_for_languages = function()
             settings = custom_config
         end
 
-        settings.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+        --settings.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
         settings.on_attach = on_attach
         nvim_lsp[lang].setup(settings)
     end

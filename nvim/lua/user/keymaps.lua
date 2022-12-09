@@ -16,8 +16,10 @@ keymap(modes.all, '<space>', '<nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+--keymap(modes.normal, '<leader>ch', '<cmd>lua require"renamer".rename()<cr>', opts)
+
 -- clear highlights
-keymap(modes.normal, '<leader>ch', '<cmd>noh<cr>', opts)
+keymap(modes.normal, '<leader>r', '<cmd>noh<cr>', opts)
 
 -- better window navigation
 keymap(modes.normal, '<c-q>', '<c-w>q', opts)

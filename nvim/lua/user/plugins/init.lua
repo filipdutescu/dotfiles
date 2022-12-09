@@ -129,7 +129,7 @@ return packer.startup(function(use)
         'filipdutescu/renamer.nvim',
         branch = 'master',
         requires = { { 'nvim-lua/plenary.nvim' } },
-        config = function() require'renamer'.setup {} end,
+        config = function() require'renamer'.setup { with_qf_list = false } end,
     }
     use {
         'jose-elias-alvarez/null-ls.nvim',
@@ -155,7 +155,8 @@ return packer.startup(function(use)
     }
 
     -- colorscheme
-    use 'filipdutescu/springan.nvim'
+    -- use 'filipdutescu/springan.nvim'
+    use '~/workplace/neovim/springan.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
