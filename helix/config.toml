@@ -5,8 +5,10 @@ line-number = "relative"
 scrolloff = 8
 mouse = true
 cursorline = true
+cursorcolumn = true
 color-modes = true
-# bufferline = "always"
+bufferline = "always"
+auto-save = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -16,7 +18,7 @@ select = "block"
 [editor.statusline]
 left = ["mode", "spinner"]
 center = ["file-name"]
-right = ["diagnostics", "file-type", "selections", "position", "file-encoding"]
+right = ["workspace-diagnostics", "file-type", "selections", "position", "file-encoding"]
 separator = "│"
 
 [editor.lsp]

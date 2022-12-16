@@ -1,105 +1,90 @@
-# default editor
-"ui.background" = { fg = "black" }
-"ui.background.separator" = { fg = "black" }
-"ui.foreground" = { fg = "white" }
-"ui.cursor" = { fg = "black", bg = "white", modifiers = [ "bold" ] }
-"ui.cursor.match" = { fg = "dark-black", bg = "light-cyan", modifiers = [ "bold" ] }
-"ui.linenr" = { fg = "green", modifiers = [ "dim" ] }
-"ui.linenr.selected" = { fg = "light-green", modifiers = [ "bold" ] }
-"ui.statusline" = { fg = "light-green", modifiers = [ "bold" ] }
-"ui.statusline.inactive" = { fg = "light-green", bg = "black" }
-"ui.statusline.normal" = { fg = "black", bg = "light-green", modifiers = [ "bold" ] }
-"ui.statusline.insert" = { fg = "black", bg = "light-yellow", modifiers = [ "bold" ] }
-"ui.statusline.select" = { fg = "black", bg = "light-magenta", modifiers = [ "bold" ] }
-"ui.popup" = { fg = "white", bg = "gray" }
-"ui.popup.info" = { fg = "light-cyan" }
-"ui.window" = { fg = "light-cyan" }
-"ui.help" = { fg = "black", bg = "cyan", modifiers = [ "bold" ] }
-"ui.text" = { fg = "white" }
-"ui.text.info" = { fg = "white" }
-"ui.virtual.ruler" = { fg = "magenta" }
-"ui.virtual.whitespace" = { fg = "magenta", modifiers = [ "dim" ] }
-"ui.virtual.indent-guide" = { fg = "magenta", modifiers = [ "dim" ] }
-"ui.menu" = { fg = "white", bg = "gray" }
+"attribute" = { fg = "light-cyan" }
+"comment" = { fg = "light-gray", modifiers = ["dim", "italic"]  }
+"constant" = { fg = "light-blue", modifiers = ["bold"] }
+"constant.builtin" = { fg = "light-blue", modifiers = ["bold"] }
+"constant.character.escape" = { fg = "red", modifiers = ["bold"] }
+"constant.numeric" = { fg = "green" }
+"constructor" = { fg = "blue", modifiers = ["bold"] }
+"function" = { fg = "blue", modifiers = ["bold"] }
+"function.macro" = { fg = "magenta", modifiers = ["underlined"] }
+"function.builtin" = { fg = "blue" }
+"keyword" = { fg = "light-red" }
+"keyword.directive" = { fg = "red" }
+"label" = { fg = "light-cyan" }
+"module" = { fg = "light-cyan" }
+"namespace" = { fg = "light-cyan" }
+"operator" = { fg = "cyan", modifiers = ["bold"] }
+"punctuation" = { fg = "light-gray" }
+"punctuation.delimiter" = { fg = "light-gray" }
+"special" = { fg = "blue" }
+"string" = { fg = "yellow" }
+"type" = { fg = "light-magenta" }
+"type.builtin" = { fg = "light-magenta" }
+# "variable" = { fg = "white" }
+"variable.builtin" = { fg = "light-gray" }
+"variable.parameter" = { fg = "green" }
+"variable.other.member" = { fg = "green" }
+
+# markdown
+"markup.heading" = { fg = "red", modifiers = ["bold"] }
+"markup.raw.inline" = { fg = "green" }
+"markup.raw.block" = { modifiers = ["italic"] }
+"markup.bold" = { fg = "yellow", modifiers = ["bold"] }
+"markup.italic" = { fg = "magenta", modifiers = ["italic"] }
+"markup.list" = { fg = "light-red", modifiers = ["bold"] }
+"markup.quote" = { fg = "yellow" }
+"markup.link.url" = { fg = "blue", modifiers = ["underlined"]}
+"markup.link.text" = { fg = "cyan" }
+
+# editor
+"ui.background" = { bg = "black" }
+"ui.background.separator" = { fg = "light-red" }
+"ui.cursor" = { fg = "black", bg = "white", modifiers = ["bold"] }
+"ui.cursor.primary" = { fg = "black", bg = "white", modifiers = ["bold"] }
+"ui.cursor.match" = { fg = "black", bg = "white", modifiers = ["bold"] }
+"ui.cursorline.primary" = { bg = "gray" }
+"ui.linenr" = { fg = "green", modifiers = ["dim"] }
+"ui.linenr.selected" = { fg = "light-green", modifiers = ["bold"] }
+"ui.selection" = { fg = "black", bg = "light-magenta", modifiers = ["bold"] }
+"ui.selection.primary" = { fg = "black", bg = "magenta", modifiers = ["bold"] }
+"ui.text" = { fg = "white"}
+"ui.virtual.whitespace" = { fg = "light-magenta" }
+"ui.virtual.indent-guide" = { fg = "light-magenta", modifiers = ["dim"] }
+"ui.virtual.ruler" = { fg = "light-magenta", modifiers = ["dim"] }
+
+# statusline
+"ui.statusline" = { fg = "light-green", bg = "black" }
+"ui.statusline.inactive" = { fg = "light-green", bg = "black", modifiers = ["dim"] }
+"ui.statusline.insert" = { fg = "black", bg = "yellow", modifiers = ["bold"] }
+"ui.statusline.normal" = { fg = "black", bg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "black", bg = "magenta", modifiers = ["bold"] }
+
+# popups, menus, dialogs
+"ui.help" = { fg = "cyan", bg = "black" }
+"ui.menu" = { fg = "white", bg = "black" }
 "ui.menu.selected" = { fg = "green", modifiers = [ "bold" ] }
 "ui.menu.scroll" = { fg = "blue", bg = "gray" }
-"ui.selection" = { fg = "black", bg = "magenta", modifiers = [ "bold" ] }
-"ui.cursorline.primary" = { bg = "gray" }
-"ui.cursorline.secondary" = { bg = "gray" }
-"warning" = { fg = "yellow" }
-"error" = { fg = "red" }
-"info" = { fg = "white" }
-"hint" = { fg = "cyan" }
-"diagnostic" = { fg = "white" }
-"diagnostic.hint" = { fg = "cyan" }
-"diagnostic.info" = { fg = "white" }
-"diagnostic.warning" = { fg = "yellow" }
-"diagnostic.error" = { fg = "red" }
+"ui.popup" = { fg = "cyan", bg = "black" }
+"ui.window" = { fg = "cyan", bg = "black" }
 
-# tree sitter
-attribute = { fg = "red" }
-types = { fg = "green" }
-"types.builtin" = { fg = "light-blue", modifiers = [ "bold" ] }
-constructor = { fg = "light-green" }
-constant = { fg = "green", modifiers = [ "underlined", "bold" ] }
-"constant.builtin" = { fg = "light-green", modifiers = [ "bold" ] }
-"constant.builtin.boolean" = { fg = "red", modifiers = [ "bold" ] }
-"constant.character" = { fg = "yellow", modifiers = [ "bold" ] }
-"constant.character.escape" = { fg = "dark-yellow", modifiers = [ "bold" ] }
-"constant.numeric" = { fg = "green" }
-string = { fg = "yellow", modifiers = [ "bold" ] }
-"string.regexp" = { fg = "dark-yellow", modifiers = [ "bold" ] }
-"string.special" = { fg = "light-yellow", modifiers = [ "italic" ] }
-comment = { fg = "light-green", modifiers = [ "italic" ] }
-"comment.documentation" = { fg = "light-green", modifiers = [ "italic", "bold" ] }
-variable = { fg = "white" }
-"variable.builtin" = { fg = "dark-yellow", modifiers = [ "italic" ] }
-label = { fg = "magenta" }
-punctuation = { fg = "white" }
-"punctuation.bracket" = { fg = "magenta" }
-"punctuation.special" = { fg = "red", modifiers = [ "bold" ] }
-keyword = { fg = "red" }
-"keyword.control" = { fg = "magenta", modifiers = [ "bold" ] }
-"keyword.control.import" = { fg = "green" }
-"keyword.operator" = { fg = "light-cyan" }
-"keyword.directive" = { fg = "light-blue", modifiers = [ "bold" ] }
-operator = { fg = "light-cyan" }
-function = { fg = "blue" }
-"function.builtin" = { fg = "dark-yellow", modifiers = [ "bold" ] }
-"function.macro" = { fg = "light-blue", modifiers = [ "underlined" ] }
-"function.special" = { fg = "light-blue", modifiers = [ "underlined" ] }
-tag = { fg = "cyan" }
-namespace = { fg = "cyan" }
+# diagnostics
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "white", style = "curl" }, modifiers =["dim"] }
+"diagnostic.info" = { underline = { color = "cyan", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "light-yellow", style = "curl" } }
 
-# markup colours
-markup = { fg = "white" }
-"markup.heading" = { fg = "light-blue", modifiers = [ "bold" ] }
-"markup.list" = { fg = "white", modifiers = [ "italic" ] }
-"markup.bold" = { fg = "yellow", modifiers = [ "bold" ] }
-"markup.italic" = { fg = "yellow", modifiers = [ "italic" ] }
-"markup.link" = { fg = "light-cyan", modifiers = [ "italic", "underlined" ] }
-"markup.link.url" = { fg = "light-cyan", modifiers = [ "italic", "underlined" ] }
-"markup.link.label" = { fg = "cyan", modifiers = [ "bold", "underlined" ] }
-"markup.quote" = { fg = "light-green", modifiers = [ "italic" ] }
-"markup.raw" = { fg = "light-cyan", bg = "blue", modifiers = [ "dim" ] }
-"markup.raw.inline" = { fg = "light-red" }
+error = "red"
+hint = { fg = "white", modifiers = ["dim"] }
+info = "cyan"
+warning = "light-yellow"
 
-# git colours
-"diff.plus" = { bg = "diff-green" }
-"diff.minus" = { bg = "diff-red" }
-"diff.delta" = { bg = "diff-yellow" }
-"diff.delta.moved" = { bg = "diff-magenta" }
-
-# interface colours
-"markup.normal.completion" = { fg = "cyan", bg = "gray" }
-"markup.normal.hover" = { fg = "cyan", bg = "gray" }
-"markup.heading.completion" = { fg = "cyan", bg = "gray" }
-"markup.heading.hover" = { fg = "cyan", bg = "gray" }
-"markup.raw.inline.completion" = { fg = "cyan", bg = "gray" }
-"markup.raw.inline.hover" = { fg = "cyan", bg = "gray" }
+# git
+"diff.delta" = { fg = "yellow" }
+"diff.minus" = { fg = "light-red" }
+"diff.plus" = { fg = "light-green" }
 
 [palette]
-# black
+# normal colours
 black = "#1e1f21"
 red = "#c16a6d"
 green = "#8ab97b"
@@ -118,14 +103,3 @@ light-yellow = "#d3d175"
 light-blue = "#949ac7"
 light-magenta = "#c193c8"
 light-cyan = "#94bfc7"
-
-# dark colours
-dark-black = "#111213"
-dark-red = "#b04a4d"
-dark-yellow = "#d2aa39"
-
-# git colours
-diff-red = "#c45454"
-diff-green = "#75ba5e"
-diff-yellow = "#bab836"
-diff-magenta = "#805187"
