@@ -16,12 +16,12 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Set the default terminal
 export TERMINAL=alacritty
 
-# Use Neovim as default text editor
-export EDITOR=nvim
-export VISUAL=nvim
+# Use Helix as default text editor
+export EDITOR=helix
+export VISUAL=helix
 export VIMRUNTIME=/usr/share/nvim/runtime
 # Use Noevim as manpage viewer
-export MANPAGER='nvim +Man! -c "set scrolloff=8"'
+#export MANPAGER='nvim +Man! -c "set scrolloff=8"'
 
 # Use FireFox as default browser
 export BROWSER=firefox

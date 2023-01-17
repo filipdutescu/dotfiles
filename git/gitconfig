@@ -14,4 +14,4 @@
     email = filip.dutescu@gmail.com
     name = Filip Dutescu
 [pull]
-    rebase = false
+    rebase = true

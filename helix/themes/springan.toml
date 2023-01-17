@@ -14,14 +14,14 @@
 "module" = { fg = "light-cyan" }
 "namespace" = { fg = "light-cyan" }
 "operator" = { fg = "cyan", modifiers = ["bold"] }
-"punctuation" = { fg = "light-gray" }
-"punctuation.delimiter" = { fg = "light-gray" }
+"punctuation" = { fg = "white" }
+"punctuation.delimiter" = { fg = "white" }
 "special" = { fg = "blue" }
 "string" = { fg = "yellow" }
 "type" = { fg = "light-magenta" }
 "type.builtin" = { fg = "light-magenta" }
 # "variable" = { fg = "white" }
-"variable.builtin" = { fg = "light-gray" }
+"variable.builtin" = { fg = "yellow" }
 "variable.parameter" = { fg = "green" }
 "variable.other.member" = { fg = "green" }
 
@@ -69,7 +69,7 @@
 
 # diagnostics
 "diagnostic.error" = { underline = { color = "red", style = "curl" } }
-"diagnostic.hint" = { underline = { color = "white", style = "curl" }, modifiers =["dim"] }
+"diagnostic.hint" = { underline = { color = "white", style = "curl" } }
 "diagnostic.info" = { underline = { color = "cyan", style = "curl" } }
 "diagnostic.warning" = { underline = { color = "light-yellow", style = "curl" } }
 
