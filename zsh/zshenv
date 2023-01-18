@@ -24,6 +24,7 @@ export VIMRUNTIME=/usr/share/nvim/runtime
 #export MANPAGER='nvim +Man! -c "set scrolloff=8"'
 
 # Use FireFox as default browser
+export MOZ_ENABLE_WAYLAND=1
 export BROWSER=firefox
 
 # QT5 apps needing icon themes

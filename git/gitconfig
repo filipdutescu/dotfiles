@@ -13,5 +13,10 @@
 [user]
     email = filip.dutescu@gmail.com
     name = Filip Dutescu
+    signingkey = 866407C5FA7DB50B
 [pull]
     rebase = true
+[commit]
+    gpgsign = true
+[tag]
+    gpgsign = true

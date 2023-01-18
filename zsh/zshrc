@@ -140,8 +140,10 @@ alias merge="git merge"
 alias pull="git pull"
 alias push="git push"
 alias rebase="git rebase"
+alias stash="git stash"
 alias status="git status"
 alias tag="git tag"
+alias worktree="git worktree"
 
 
 #   $$$$$$\    $$\     $$\                           
