@@ -165,4 +165,6 @@ alias worktree="git worktree"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 xset b off
 
+# Autostart programs
+export GPG_TTY=$(tty)
 pfetch

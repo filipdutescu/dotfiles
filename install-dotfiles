@@ -82,30 +82,37 @@ create_link ${BASE}/zsh/zshenv $verbose
 create_link ${BASE}/git/gitconfig $verbose
 
 # Xorg
-create_link ${BASE}/xorg/xinitrc $verbose
-create_link ${BASE}/xorg/xprofile $verbose
+# create_link ${BASE}/xorg/xinitrc $verbose
+# create_link ${BASE}/xorg/xprofile $verbose
 
 # kitty
 #create_link ${BASE}/kitty $verbose config
 # urxvt
-create_link ${BASE}/xorg/Xresources $verbose
+# create_link ${BASE}/xorg/Xresources $verbose
 # alacritty
 create_link ${BASE}/alacritty $verbose config
 
 # i3
 #create_link ${BASE}/i3 $verbose config
 #create_link ${BASE}/picom $verbose config	# i3 compositor (picom)
-create_link ${BASE}/polybar $verbose config	# Polybar instead of i3bar
+# create_link ${BASE}/polybar $verbose config	# Polybar instead of i3bar
 
 # awesome
-create_link ${BASE}/awesome $verbose config
-create_link ${BASE}/picom $verbose config	# awesome compositor (picom)
+# create_link ${BASE}/awesome $verbose config
+# create_link ${BASE}/picom $verbose config	# awesome compositor (picom)
+
+# Hyprland
+create_link ${BASE}/hypr $verbose config
 
 # rofi
 create_link ${BASE}/rofi $verbose config
 
+# waybar
+create_link ${BASE}/waybar $verbose config
+
 # wal
-create_link ${BASE}/wal $verbose config
+# create_link ${BASE}/wal $verbose config
 
 # others
-create_link ${BASE}/spicetify $verbose config
+# create_link ${BASE}/spicetify $verbose config
+create_link ${BASE}/htop $verbose config
