@@ -1,0 +1,74 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: FiraCode Nerd Font, monospace;
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 0;
+}
+
+#workspaces,
+#window,
+#tray,
+#language,
+#keyboard-state,
+#wireplumber,
+#network,
+#battery,
+#clock
+{
+    background: #1e1f21;
+    padding: 0px 10px;
+    margin: 3px 0px;
+    margin-top: 10px;
+    border: 1px solid #303436;
+    border-radius: 15px;
+}
+
+window#waybar {
+  background: rgba(0, 0, 0, 0);
+  color: #e2e5df;
+}
+
+#workspaces button, #workspaces button.hover {
+  padding: 5px;
+  padding-right: 8px;
+  color: #d3d0cb;
+  margin: 2.5px;
+}
+
+#workspaces button.active {
+  color: #8ab97b;
+  border-bottom: solid 3px #8ab97b;
+}
+
+#workspaces button.focused {
+  color: #c9c76b;
+  border-bottom: solid 3px #c9c76b;
+}
+
+#workspaces button.urgent {
+  color: #c16a6d;
+  border-bottom: solid 3px #c16a6d;
+}
+
+#tray {
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+#battery {
+  padding-right: 15px;
+}
+
+#battery.good {
+  color: #8ab97b;
+}
+
+#battery.warning {
+  color: #c9c76b;
+}
+
+#battery.critical {
+  color: #c16a6d;
+}
