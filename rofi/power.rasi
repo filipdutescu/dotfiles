@@ -1,0 +1,69 @@
+* {
+    font: "FiraCode Nerd Font Mono 10";
+    background: #26292B;
+    background-alt: #281657;
+    foreground: #b17aba;
+    selected: #c16a6d;
+    active: #b17aba;
+    urgent: #c9c76b;
+
+}
+
+configuration {
+    show-icons: false;
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 800px;
+    height: 200px;
+    x-offset: 0px;
+    y-offset: 0px;
+
+    padding: 0px;
+    border: 0px solid;
+    cursor: "default";
+    background-color: @background;
+}
+
+mainbox {
+    background-color: transparent;
+    orientation: horizontal;
+    children: [ "listview" ];
+}
+
+listview {
+    enabled: true;
+    cycle: true;
+    scrollbar: false;
+    layout: horizontal;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+
+    spacing: 53px;
+    background-color: transparent;
+    cursor: "default";
+}
+
+element {
+    enabled: true;
+    padding: 42px 58px;
+    border-radius: 10px;
+    background-color: @background-alt;
+    text-color: @foreground;
+    cursor: pointer;
+}
+element-text {
+    font: "FiraCode Nerd Font Bold 40";
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+}
+element selected.normal {
+    background-color: var(selected);
+    text-color: var(background);
+}
