@@ -7,6 +7,7 @@
   min-height: 0;
 }
 
+#custom-powermenu,
 #workspaces,
 #window,
 #tray,
@@ -15,14 +16,15 @@
 #wireplumber,
 #network,
 #battery,
-#clock
+#clock,
+tooltip
 {
-    background: #1e1f21;
-    padding: 0px 10px;
-    margin: 3px 0px;
-    margin-top: 10px;
-    border: 1px solid #303436;
-    border-radius: 15px;
+  background: #1e1f21;
+  padding: 0px 10px;
+  margin: 3px 0px;
+  margin-top: 10px;
+  border: 1px solid #303436;
+  border-radius: 15px;
 }
 
 window#waybar {
@@ -30,26 +32,47 @@ window#waybar {
   color: #e2e5df;
 }
 
-#workspaces button, #workspaces button.hover {
+#custom-powermenu {
+  padding-left: 12px;
+  padding-right: 15px;
+  color: #c16a6d;
+  font-size: 16px;
+}
+
+#workspaces button {
   padding: 5px;
   padding-right: 8px;
-  color: #d3d0cb;
   margin: 2.5px;
+  color: #7b82b9;
+  background: #1e1f21;
+}
+
+button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: inherit;
 }
 
 #workspaces button.active {
   color: #8ab97b;
+  background: #1e1f21;
   border-bottom: solid 3px #8ab97b;
 }
 
 #workspaces button.focused {
   color: #c9c76b;
+  background: #1e1f21;
   border-bottom: solid 3px #c9c76b;
 }
 
 #workspaces button.urgent {
   color: #c16a6d;
+  background: #1e1f21;
   border-bottom: solid 3px #c16a6d;
+}
+
+#clock, #network, #battery {
+  padding-right: 15px;
 }
 
 #tray {
@@ -57,11 +80,19 @@ window#waybar {
     margin-right: 10px;
 }
 
-#battery {
-  padding-right: 15px;
+#language {
+  color: #d3d175;
 }
 
-#battery.good {
+#network {
+  color: #7bb0b9;
+}
+
+#wireplumber {
+  color: #b17aba;
+}
+
+#battery.good, #battery.full {
   color: #8ab97b;
 }
 
