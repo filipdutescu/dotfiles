@@ -116,3 +116,4 @@ create_link ${BASE}/waybar $verbose config
 # others
 # create_link ${BASE}/spicetify $verbose config
 create_link ${BASE}/htop $verbose config
+create_link ${BASE}/dunst $verbose config
