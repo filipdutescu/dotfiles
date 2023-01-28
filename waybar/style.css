@@ -5,7 +5,6 @@
   font-weight: bold;
   font-size: 14px;
   min-height: 0;
-  padding: 0px 6px;
 }
 
 #custom-powermenu,
@@ -37,7 +36,7 @@ window#waybar {
   padding-left: 12px;
   padding-right: 15px;
   color: #c16a6d;
-  font-size: 16px;
+  margin-left: 12px;
 }
 
 #workspaces button {
@@ -91,6 +90,10 @@ button:hover {
 
 #wireplumber {
   color: #b17aba;
+}
+
+#battery {
+  margin-right: 12px;
 }
 
 #battery.good, #battery.full {
