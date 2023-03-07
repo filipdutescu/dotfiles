@@ -3,7 +3,7 @@ theme = "springan"
 [editor]
 line-number = "relative"
 scrolloff = 8
-mouse = true
+mouse = false
 cursorline = true
 cursorcolumn = true
 color-modes = true
@@ -39,5 +39,3 @@ character = "│"
 # keymaps
 [keys.normal]
 X = "extend_line_above"
-A-y = [ "extend_line_below", "yank" ]
-A-d = [ "extend_line_below", "delete_selection" ]

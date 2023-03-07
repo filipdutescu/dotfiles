@@ -43,6 +43,10 @@
 "ui.cursor.primary" = { fg = "black", bg = "white", modifiers = ["bold"] }
 "ui.cursor.match" = { fg = "black", bg = "white", modifiers = ["bold"] }
 "ui.cursorline.primary" = { bg = "gray" }
+"ui.debug.active" = { fg = "yellow" }
+"ui.debug.breakpoint" = { fg = "red" }
+"ui.highlight" = { bg = "gray" }
+"ui.highlight.frameline" = { bg = "dark-yellow" }
 "ui.linenr" = { fg = "green", modifiers = ["dim"] }
 "ui.linenr.selected" = { fg = "light-green", modifiers = ["bold"] }
 "ui.selection" = { fg = "black", bg = "light-magenta", modifiers = ["bold"] }
@@ -58,6 +62,7 @@
 "ui.statusline.insert" = { fg = "black", bg = "yellow", modifiers = ["bold"] }
 "ui.statusline.normal" = { fg = "black", bg = "green", modifiers = ["bold"] }
 "ui.statusline.select" = { fg = "black", bg = "magenta", modifiers = ["bold"] }
+"ui.statusline.debug" = { fg = "black", bg = "red", modifiers = ["bold"] }
 
 # popups, menus, dialogs
 "ui.help" = { fg = "cyan", bg = "black" }
@@ -103,3 +108,6 @@ light-yellow = "#d3d175"
 light-blue = "#949ac7"
 light-magenta = "#c193c8"
 light-cyan = "#94bfc7"
+
+# dark colours
+dark-yellow = "#4B4A1B"
