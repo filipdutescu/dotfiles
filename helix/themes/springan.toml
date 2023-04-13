@@ -54,6 +54,7 @@
 "ui.text" = { fg = "white"}
 "ui.virtual.whitespace" = { fg = "light-magenta" }
 "ui.virtual.indent-guide" = { fg = "light-magenta", modifiers = ["dim"] }
+"ui.virtual.inlay-hint" = { fg = "white", modifiers= ["dim"] }
 "ui.virtual.ruler" = { fg = "light-magenta", modifiers = ["dim"] }
 
 # statusline

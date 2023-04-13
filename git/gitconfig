@@ -11,9 +11,9 @@
 #   \______/                                                            \______/ 
 
 [user]
-    email = filip.dutescu@gmail.com
+    email = filip@hucksy.dev
     name = Filip Dutescu
-    signingkey = 866407C5FA7DB50B
+    signingkey = BA4DDA5B6DABA428
 [pull]
     rebase = true
 [commit]

@@ -23,6 +23,7 @@ separator = "│"
 
 [editor.lsp]
 display-messages = true
+display-inlay-hints = true
 
 [editor.whitespace.render]
 space = "none"
