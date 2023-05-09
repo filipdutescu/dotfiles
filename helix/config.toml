@@ -16,7 +16,7 @@ normal = "block"
 select = "block"
 
 [editor.statusline]
-left = ["mode", "spinner"]
+left = ["mode", "spacer", "spinner", "spacer", "version-control"]
 center = ["file-name"]
 right = ["workspace-diagnostics", "file-type", "selections", "position", "file-encoding"]
 separator = "│"

@@ -66,9 +66,12 @@ then
 fi
 
 # vim
-create_link ${BASE}/nvim $verbose config
+# create_link ${BASE}/nvim $verbose config
 #ln -s ${BASE}/nvim/init.vm ${BASE}/vim/vimrc
 #create_link ${BASE}/vim/vimrc $verbose
+
+# zellij
+create_link ${BASE}/zellij $verbose config
 
 # helix
 create_link ${BASE}/helix $verbose config
