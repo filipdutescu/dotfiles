@@ -1,7 +1,7 @@
 [[language]]
 name = "rust"
 
-[language.config.rust-analyzer]
+[language-server.rust-analyzer.config]
 checkOnSave = { command = "clippy" }
 cargo = { features = "all" }
 
